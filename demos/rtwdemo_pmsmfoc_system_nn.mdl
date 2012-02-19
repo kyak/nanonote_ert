@@ -1,0 +1,5990 @@
+Model {
+  Name			  "rtwdemo_pmsmfoc_system_nn"
+  Version		  7.8
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.1681"
+    NumModelReferences	    1
+    ModelReference {
+      ModelRefBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Controller Algorithm Software Specificatio"
+      "n|rtwdemo_pmsmfoc_nn"
+    }
+    NumTestPointedSignals   4
+    TestPointedSignal {
+      SignalName	      "motor_on"
+      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Command Channel/Motor On Data Type Conversion"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "encoder_index"
+      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Sensor Peripherals/Measure Rotor Position (Qua"
+      "drature Encoder)"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "rotor_velocity_rpm"
+      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/System Analysis/Convert Rotor Velocity Units/rad_per_sec_to_rpm2"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "speed_command_rpm"
+      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/System Inputs/Signal  Builder Experiments"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+  }
+  Description		  "Field-Oriented Control of Permanent Magnet Synchronous Machine\n\nDemonstrates a Field-Oriented Cont"
+  "rol algorithm with Space Vector Modulation for a Permanent Magnet Synchronous Machine (PMSM).\nThe test bench can be"
+  " used to evaluate the system performance. Examples include turning the motor on, searching for a valid rotor positio"
+  "n, \ntransitioning to closed loop operation, and changing speed and torque during closed loop control.\nThe Embedded"
+  " Processor subsystem contains the controller algorithm (which supports C code generation) as well as simulation mode"
+  "ls of peripherals."
+  SavedCharacterEncoding  "windows-1252"
+  slprops.hdlmdlprops {
+    $PropName		    "HDLParams"
+    $ObjectID		    1
+    Array {
+      Type		      "Cell"
+      Dimension		      2
+      Cell		      "HDLSubsystem"
+      Cell		      "rtwdemo_pmsmfoc_system_nn"
+      PropName		      "mdlProps"
+    }
+  }
+  PreLoadFcn		  "rtwdemo_pmsmfoc_data"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  FPTRunName		  "Run 1"
+  MaxMDLFileLineLength	  120
+  StopFcn		  "\n"
+  UserBdParams		  "PhysicalModelingChecksum;PhysicalModelingParameterChecksum;PhysicalModelingProducts"
+  PhysicalModelingChecksum "681464010"
+  PhysicalModelingParameterChecksum "681464010"
+  PhysicalModelingProducts "Simscape"
+  Created		  "Tue Nov 03 10:51:16 2009"
+  Creator		  "The MathWorks Inc."
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "bas"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Sat Jan 21 13:23:22 2012"
+  RTWModifiedTimeStamp	  249052430
+  ModelVersionFormat	  "1.%<AutoIncrement:1681>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  on
+  ShowLineDimensions	  on
+  ShowPortDataTypes	  on
+  ShowDesignRanges	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks on
+  BrowserLookUnderMasks	  on
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  Object {
+    $PropName		    "DataLoggingOverride"
+    $ObjectID		    2
+    $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
+    model_		    "rtwdemo_pmsmfoc_system_nn"
+    signals_		    []
+    overrideMode_	    [2.0]
+    Array {
+      Type		      "Cell"
+      Dimension		      2
+      Cell		      "rtwdemo_pmsmfoc_system_nn"
+      Cell		      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Controller Algorithm Software Specification"
+      PropName		      "logAsSpecifiedByModels_"
+    }
+    Array {
+      Type		      "Cell"
+      Dimension		      2
+      Cell		      []
+      Cell		      "rtwdemo_pmsmfoc_system_nn:23153"
+      PropName		      "logAsSpecifiedByModelsSSIDs_"
+    }
+  }
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovHTMLOptions	  " -aTS=1 -bRG=1 -bTC=1 -hTR=0 -nFC=0 -scm=1 -bcm=1 -xEv=0"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    2
+    Simulink.ConfigSet {
+      $ObjectID		      3
+      Version		      "1.11.1"
+      Array {
+	Type			"Handle"
+	Dimension		10
+	Simulink.SolverCC {
+	  $ObjectID		  4
+	  Version		  "1.11.1"
+	  StartTime		  "0.0"
+	  StopTime		  "0.3"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  ConcurrentTasks	  off
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  5
+	  Version		  "1.11.1"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "ModelDataLogs"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  6
+	  Version		  "1.11.1"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    7
+	    Cell		    "BooleansAsBitfields"
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    PropName		    "DisabledProps"
+	  }
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  UseIntDivNetSlope	  off
+	  UseFloatMulNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	  AccelParallelForEachSubsystem	on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  7
+	  Version		  "1.11.1"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  FrameProcessingCompatibilityMsg "warning"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "Warning"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  8
+	  Version		  "1.11.1"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  9
+	  Version		  "1.11.1"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  10
+	  Version		  "1.11.1"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  11
+	  Version		  "1.11.1"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    6
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateSLWebview	  off
+	  GenerateCodeMetricsReport off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      12
+	      Version		      "1.11.1"
+	      Array {
+		Type			"Cell"
+		Dimension		19
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertBlockDesc"
+		Cell			"SFDataObjDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrFcnArg"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		Cell			"ReqsInCode"
+		PropName		"DisabledProps"
+	      }
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      13
+	      Version		      "1.11.1"
+	      Array {
+		Type			"Cell"
+		Dimension		17
+		Cell			"GeneratePreprocessorConditionals"
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportNonFinite"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      TargetFunctionLibrary   "ANSI_C"
+	      UtilityFuncGeneration   "Shared location"
+	      ERTMultiwordTypeDef     "System defined"
+	      CodeExecutionProfiling  off
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      ConcurrentExecutionCompliant on
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Disable all"
+	      CombineOutputUpdateFcns off
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      UseMalloc		      off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      RTWCAPIRootIO	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	hdlcoderui.hdlcc {
+	  $ObjectID		  14
+	  Version		  "1.11.1"
+	  Description		  "HDL Coder custom configuration component"
+	  Name			  "HDL Coder"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    ""
+	    PropName		    "HDLConfigFile"
+	  }
+	  HDLCActiveTab		  "0"
+	}
+	SSC.SimscapeCC {
+	  $ObjectID		  15
+	  Version		  "1.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "Name"
+	    PropName		    "DisabledProps"
+	  }
+	  Name			  "Simscape"
+	  EditingMode		  "Full"
+	  ExplicitSolverDiagnosticOptions "warning"
+	  InputDerivativeDiagnosticOptions "warning"
+	  GlobalZcOffDiagnosticOptions "warning"
+	  SimscapeLogType	  "none"
+	  SimscapeLogName	  "simlog"
+	  SimscapeLogDecimation	  1
+	  SimscapeLogLimitData	  on
+	  SimscapeLogDataHistory  5000
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Diagnostics/Connectivity"
+      ConfigPrmDlgPosition     [ 520, 285, 1400, 915 ] 
+    }
+    Simulink.ConfigSet {
+      $ObjectID		      16
+      Version		      "1.11.1"
+      Array {
+	Type			"Handle"
+	Dimension		10
+	Simulink.SolverCC {
+	  $ObjectID		  17
+	  Version		  "1.11.1"
+	  StartTime		  "0.0"
+	  StopTime		  "2"
+	  AbsTol		  "auto"
+	  FixedStep		  "40e-6"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "SingleTasking"
+	  ConcurrentTasks	  off
+	  Solver		  "ode45"
+	  SolverName		  "ode45"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  18
+	  Version		  "1.11.1"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "ModelDataLogs"
+	  SaveOutput		  off
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  off
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  19
+	  Version		  "1.11.1"
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  on
+	  UseIntDivNetSlope	  off
+	  UseFloatMulNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  on
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  on
+	  StrengthReduction	  on
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup off
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  on
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode on
+	  LifeSpan		  "1"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	  AccelParallelForEachSubsystem	on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  20
+	  Version		  "1.11.1"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "none"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "none"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "error"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "none"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "none"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Enable All"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "none"
+	  UnconnectedOutputMsg	  "none"
+	  UnconnectedLineMsg	  "none"
+	  SFcnCompatibilityMsg	  "none"
+	  FrameProcessingCompatibilityMsg "warning"
+	  UniqueDataStoreMsg	  "error"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "DisableAll"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  21
+	  Version		  "1.11.1"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "LittleEndian"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "Generic->32-bit Embedded Processor"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  22
+	  Version		  "1.11.1"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Single"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  23
+	  Version		  "1.11.1"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  24
+	  Version		  "1.11.1"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "TargetLang"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "nanonote.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "nanonote.tmf"
+	  Description		  "Ben NanoNote"
+	  GenerateReport	  on
+	  SaveLog		  off
+	  RTWVerbose		  off
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ProcessScript		  "nanonote_make_rtw_hook"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport on
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  on
+	  GenerateTraceReport	  on
+	  GenerateTraceReportSl	  on
+	  GenerateTraceReportSf	  on
+	  GenerateTraceReportEml  on
+	  GenerateCodeInfo	  off
+	  GenerateSLWebview	  off
+	  GenerateCodeMetricsReport off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      25
+	      Version		      "1.11.1"
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses off
+	      IgnoreTestpoints	      on
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      on
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$N$M"
+	      CustomSymbolStrType     "$N$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$N$M$F"
+	      CustomSymbolStrFcnArg   "$I$N$M"
+	      CustomSymbolStrBlkIO    "$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    on
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.STFCustomTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      26
+	      Version		      "1.11.1"
+	      Array {
+		Type			"Cell"
+		Dimension		1
+		Cell			"ModelReferenceCompliant"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      TargetFunctionLibrary   "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      CodeExecutionProfiling  off
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant off
+	      CompOptLevelCompliant   off
+	      ConcurrentExecutionCompliant off
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Use local settings"
+	      CombineOutputUpdateFcns on
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    on
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      off
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   off
+	      SupportNonInlinedSFcns  off
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      SystemTargetFile	      "nanonote.tlc"
+	      DialogCategory	      0
+	      Array {
+		Type			"Handle"
+		Dimension		1
+		Simulink.ERTTargetCC {
+		  $BackupClass		  "Simulink.TargetCC"
+		  $ObjectID		  27
+		  Version		  "1.11.1"
+		  Array {
+		    Type		    "Cell"
+		    Dimension		    1
+		    Cell		    "ModelReferenceCompliant"
+		    PropName		    "DisabledProps"
+		  }
+		  TargetFcnLib		  "ansi_tfl_table_tmw.mat"
+		  TargetLibSuffix	  ""
+		  TargetPreCompLibLocation ""
+		  TargetFunctionLibrary	  "ANSI_C"
+		  UtilityFuncGeneration	  "Auto"
+		  ERTMultiwordTypeDef	  "System defined"
+		  CodeExecutionProfiling  off
+		  ERTMultiwordLength	  256
+		  MultiwordLength	  2048
+		  GenerateFullHeader	  on
+		  GenerateSampleERTMain	  off
+		  GenerateTestInterfaces  off
+		  IsPILTarget		  off
+		  ModelReferenceCompliant on
+		  ParMdlRefBuildCompliant off
+		  CompOptLevelCompliant	  off
+		  ConcurrentExecutionCompliant off
+		  IncludeMdlTerminateFcn  on
+		  GeneratePreprocessorConditionals "Use local settings"
+		  CombineOutputUpdateFcns on
+		  CombineSignalStateStructs off
+		  SuppressErrorStatus	  off
+		  ERTFirstTimeCompliant	  off
+		  IncludeFileDelimiter	  "Auto"
+		  ERTCustomFileBanners	  on
+		  SupportAbsoluteTime	  on
+		  LogVarNameModifier	  "rt_"
+		  MatFileLogging	  off
+		  MultiInstanceERTCode	  off
+		  SupportNonFinite	  on
+		  SupportComplex	  on
+		  PurelyIntegerCode	  off
+		  SupportContinuousTime	  off
+		  SupportNonInlinedSFcns  off
+		  SupportVariableSizeSignals off
+		  EnableShiftOperators	  on
+		  ParenthesesLevel	  "Nominal"
+		  PortableWordSizes	  off
+		  ModelStepFunctionPrototypeControlCompliant off
+		  CPPClassGenCompliant	  off
+		  AutosarCompliant	  off
+		  GenerateErtSFunction	  off
+		  CreateSILPILBlock	  "None"
+		  CodeExecutionProfileVariable "executionProfile"
+		  CodeProfilingSaveOptions "SummaryOnly"
+		  GenerateASAP2		  off
+		  ExtMode		  off
+		  ExtModeTransport	  0
+		  ExtModeStaticAlloc	  off
+		  ExtModeStaticAllocSize  1000000
+		  ExtModeTesting	  off
+		  ExtModeMexFile	  "noextcomm"
+		  ExtModeIntrfLevel	  "Level1"
+		  InlinedParameterPlacement "NonHierarchical"
+		  TargetOS		  "BareBoardExample"
+		  MultiInstanceErrorCode  "Error"
+		  RateGroupingCode	  on
+		  RootIOFormat		  "Individual arguments"
+		  RTWCAPISignals	  off
+		  RTWCAPIParams		  off
+		  RTWCAPIStates		  off
+		  RTWCAPIRootIO		  off
+		  ERTSrcFileBannerTemplate "ert_code_template.cgt"
+		  ERTHdrFileBannerTemplate "ert_code_template.cgt"
+		  ERTDataSrcFileTemplate  "ert_code_template.cgt"
+		  ERTDataHdrFileTemplate  "ert_code_template.cgt"
+		  ERTCustomFileTemplate	  "nanonote_srmain.tlc"
+		  CoverageDialogOpen	  "off"
+		  EnableDataOwnership	  off
+		  SignalDisplayLevel	  10
+		  ParamTuneLevel	  10
+		  GlobalDataDefinition	  "Auto"
+		  DataDefinitionFile	  "global.c"
+		  GlobalDataReference	  "Auto"
+		  ERTFilePackagingFormat  "Modular"
+		  DataReferenceFile	  "global.h"
+		  GRTInterface		  off
+		  PreserveExpressionOrder off
+		  PreserveIfCondition	  off
+		  ConvertIfToSwitch	  off
+		  PreserveExternInFcnDecls on
+		  SuppressUnreachableDefaultCases off
+		  EnableUserReplacementTypes off
+		  Array {
+		    Type		    "Struct"
+		    Dimension		    1
+		    MATStruct {
+		    double		    ""
+		    single		    ""
+		    int32		    ""
+		    int16		    ""
+		    int8		    ""
+		    uint32		    ""
+		    uint16		    ""
+		    uint8		    ""
+		    boolean		    ""
+		    int			    ""
+		    uint		    ""
+		    char		    ""
+		    }
+		    PropName		    "ReplacementTypes"
+		  }
+		  MemSecPackage		  "--- None ---"
+		  MemSecDataConstants	  "Default"
+		  MemSecDataIO		  "Default"
+		  MemSecDataInternal	  "Default"
+		  MemSecDataParameters	  "Default"
+		  MemSecFuncInitTerm	  "Default"
+		  MemSecFuncExecute	  "Default"
+		  MemSecFuncSharedUtil	  "Default"
+		  CodeProfilingInstrumentation off
+		}
+		PropName		"Components"
+	      }
+	      CustomProperty {
+		DataType		"slbool"
+		Name			"NANONOTE_DOWNLOAD"
+		Value			on
+	      }
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	hdlcoderui.hdlcc {
+	  $ObjectID		  28
+	  Version		  "1.11.1"
+	  Description		  "HDL Coder custom configuration component"
+	  Name			  "Component"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    ""
+	    PropName		    "HDLConfigFile"
+	  }
+	  HDLCActiveTab		  "0"
+	}
+	SSC.SimscapeCC {
+	  $ObjectID		  29
+	  Version		  "1.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "Name"
+	    PropName		    "DisabledProps"
+	  }
+	  Name			  "Simscape"
+	  EditingMode		  "Full"
+	  ExplicitSolverDiagnosticOptions "warning"
+	  InputDerivativeDiagnosticOptions "warning"
+	  GlobalZcOffDiagnosticOptions "warning"
+	  SimscapeLogType	  "none"
+	  SimscapeLogName	  "simlog"
+	  SimscapeLogDecimation	  1
+	  SimscapeLogLimitData	  on
+	  SimscapeLogDataHistory  5000
+	}
+	PropName		"Components"
+      }
+      Name		      "ERT"
+      CurrentDlgPage	      "Code Generation"
+      ConfigPrmDlgPosition     [ 212, 109, 1065, 642 ] 
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    16
+  }
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Bias
+      Bias		      "0"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      BusCreator
+      Inputs		      "4"
+      DisplayOption	      "none"
+      OutDataTypeStr	      "Inherit: auto"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      BusSelector
+      OutputAsBus	      off
+    }
+    Block {
+      BlockType		      Concatenate
+      NumInputs		      "2"
+      ConcatenateDimension    "1"
+    }
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      DataTypeConversion
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+      LockScale		      off
+      ConvertRealWorld	      "Real World Value (RWV)"
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      DiscreteIntegrator
+      IntegratorMethod	      "Integration: Forward Euler"
+      gainval		      "1.0"
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      InitialConditionMode    "State and output"
+      SampleTime	      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	off
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      IgnoreLimit	      off
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+    }
+    Block {
+      BlockType		      Fcn
+      Expr		      "sin(u[1])"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      FromWorkspace
+      VariableName	      "simulink_input"
+      SampleTime	      "-1"
+      Interpolate	      on
+      ZeroCross		      off
+      OutputAfterFinalValue   "Extrapolation"
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParamDataTypeStr	      "Inherit: Same as input"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Logic
+      Operator		      "AND"
+      Inputs		      "2"
+      IconShape		      "rectangular"
+      AllPortsSameDT	      on
+      OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Math
+      Operator		      "exp"
+      OutputSignalType	      "auto"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      IntermediateResultsDataTypeStr "Inherit: Inherit via internal rule"
+      AlgorithmType	      "Newton-Raphson"
+      Iterations	      "3"
+    }
+    Block {
+      BlockType		      ModelReference
+      Variant		      off
+      GeneratePreprocessorConditionals off
+      CopyOfModelProtected    off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      PMIOPort
+    }
+    Block {
+      BlockType		      RateTransition
+      Integrity		      on
+      Deterministic	      on
+      X0		      "0"
+      OutPortSampleTimeOpt    "Specify"
+      OutPortSampleTimeMultiple	"1"
+      OutPortSampleTime	      "-1"
+    }
+    Block {
+      BlockType		      S-Function
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+    }
+    Block {
+      BlockType		      Saturate
+      UpperLimitSource	      "Dialog"
+      UpperLimit	      "0.5"
+      LowerLimitSource	      "Dialog"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SignalConversion
+      OutDataTypeStr	      "Inherit: auto"
+      OverrideOpt	      off
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      SFBlockType	      "NONE"
+      Variant		      off
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Switch
+      Criteria		      "u2 >= Threshold"
+      Threshold		      "0"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      AllowDiffInputSizes     off
+    }
+    Block {
+      BlockType		      Terminator
+    }
+    Block {
+      BlockType		      UnitDelay
+      X0		      "0"
+      InputProcessing	      "Inherited"
+      SampleTime	      "1"
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+      HasFrameUpgradeWarning  on
+    }
+  }
+  System {
+    Name		    "rtwdemo_pmsmfoc_system_nn"
+    Location		    [197, 111, 1174, 746]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "23505"
+    Block {
+      BlockType		      SubSystem
+      Name		      "Embedded Processor"
+      SID		      "23145"
+      Ports		      [2, 1]
+      Position		      [235, 221, 375, 359]
+      FontName		      "Arial"
+      FontSize		      12
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskDisplay	      "image(imread('rtwdemo_pmsmfoc_processor.png'))"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Embedded Processor"
+	Location		[-1, 6, 992, 641]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"112"
+	Block {
+	  BlockType		  Inport
+	  Name			  "System\nInputs"
+	  SID			  "23146"
+	  Position		  [30, 198, 60, 212]
+	  FontSize		  12
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Motor\nMeasurements"
+	  SID			  "23148"
+	  Position		  [30, 348, 60, 362]
+	  FontSize		  12
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Command Channel"
+	  SID			  "21645"
+	  Description		  "\n\n"
+	  Ports			  [1, 2]
+	  Position		  [110, 168, 210, 237]
+	  ShowName		  off
+	  LibraryVersion	  "1.216"
+	  FontName		  "Arial"
+	  FontSize		  14
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskDisplay		  "fprintf('Command\\nChannel')"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "Command Channel"
+	    Location		    [11, 81, 997, 709]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "112"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "System Inputs"
+	      SID		      "21646"
+	      Position		      [55, 228, 85, 242]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector"
+	      SID		      "21647"
+	      Ports		      [1, 2]
+	      Position		      [145, 165, 150, 305]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      OutputSignals	      "motor_on,speed_command"
+	      Port {
+		PortNumber		1
+		Name			"<motor_on>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"<speed_command>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Motor On\nData Type Conversion"
+	      SID		      "23231"
+	      Position		      [400, 183, 475, 217]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      RndMeth		      "Floor"
+	      SaturateOnIntegerOverflow	off
+	      Port {
+		PortNumber		1
+		Name			"motor_on"
+		RTWStorageClass		"Auto"
+		DataLogging		on
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      RateTransition
+	      Name		      "Motor On\nRate Transition"
+	      SID		      "23232"
+	      Position		      [270, 186, 295, 214]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Integrity		      off
+	      Deterministic	      off
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Speed Command\nData Type Conversion"
+	      SID		      "23142"
+	      Position		      [400, 253, 475, 287]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      RndMeth		      "Floor"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      RateTransition
+	      Name		      "Speed Command\nRate Transition"
+	      SID		      "23233"
+	      Position		      [270, 256, 295, 284]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Integrity		      off
+	      Deterministic	      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "motor_on"
+	      SID		      "23230"
+	      Position		      [630, 193, 660, 207]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "velocity_commmand"
+	      SID		      "21648"
+	      Position		      [630, 263, 660, 277]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      Name		      "<speed_command>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      2
+	      DstBlock		      "Speed Command\nRate Transition"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "System Inputs"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nSelector"
+	      DstPort		      1
+	    }
+	    Line {
+	      Labels		      [0, 0]
+	      SrcBlock		      "Speed Command\nData Type Conversion"
+	      SrcPort		      1
+	      DstBlock		      "velocity_commmand"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<motor_on>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      1
+	      DstBlock		      "Motor On\nRate Transition"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "motor_on"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Motor On\nData Type Conversion"
+	      SrcPort		      1
+	      DstBlock		      "motor_on"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Motor On\nRate Transition"
+	      SrcPort		      1
+	      DstBlock		      "Motor On\nData Type Conversion"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Speed Command\nRate Transition"
+	      SrcPort		      1
+	      DstBlock		      "Speed Command\nData Type Conversion"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      Name		      "Converts the command signals to the rates and data types specified in the controller algorithm.\nD"
+	      "ata type conversions and rate conversions inherit their attributes via back propagation from the \nport attribu"
+	      "tes specified in the controller algorithm model."
+	      Position		      [167, 114]
+	      HorizontalAlignment     "left"
+	      DropShadow	      on
+	      FontName		      "Arial"
+	      FontSize		      12
+	    }
+	    Annotation {
+	      Name		      "Command Channel"
+	      Tag		      "systemTitleTag"
+	      Position		      [407, 61]
+	      FontSize		      20
+	      FontWeight	      "bold"
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  ModelReference
+	  Name			  "Controller Algorithm Software Specification"
+	  SID			  "23153"
+	  Ports			  [3, 1]
+	  Position		  [285, 140, 560, 400]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  ModelNameDialog	  "rtwdemo_pmsmfoc_nn"
+	  SimulationMode	  "Processor-in-the-loop (PIL)"
+	  ModelReferenceVersion	  "1.1917"
+	  List {
+	    ListType		    InputPortNames
+	    port0		    "motor_on"
+	    port1		    "velocity_command"
+	    port2		    "sensors"
+	  }
+	  List {
+	    ListType		    OutputPortNames
+	    port0		    "PWM Compare"
+	  }
+	  List {
+	    ListType		    InputPortBusObjects
+	    port0		    ""
+	    port1		    ""
+	    port2		    "SENSORS_STRUCT"
+	  }
+	  List {
+	    ListType		    OutputPortOutputBusAsStructs
+	    port0		    "off"
+	  }
+	  List {
+	    ListType		    InputPortLatchByCopyingInsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	  }
+	  CopyOfModelName	  "rtwdemo_pmsmfoc_nn"
+	  DefaultDataLogging	  on
+	  List {
+	    ListType		    InputPortLatchByDelayingOutsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Driver Peripherals"
+	  SID			  "21673"
+	  Description		  "\n\n"
+	  Ports			  [1, 1]
+	  Position		  [615, 201, 705, 339]
+	  ShowName		  off
+	  LibraryVersion	  "1.216"
+	  FontName		  "Arial"
+	  FontSize		  14
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskDisplay		  "fprintf('Drivers\\nPeripherals')"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "Driver Peripherals"
+	    Location		    [11, 81, 997, 709]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "pwm_compare"
+	      SID		      "21674"
+	      Position		      [65, 193, 95, 207]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Bias
+	      Name		      "Force Normalization\nBetween \nPositive and Negative One"
+	      SID		      "22383"
+	      Position		      [425, 185, 465, 215]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Bias		      "-1"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      RateTransition
+	      Name		      "Rate Transition"
+	      SID		      "21675"
+	      Position		      [590, 179, 630, 221]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Deterministic	      off
+	      OutPortSampleTime	      "1e-5"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Units Per PWM Count"
+	      SID		      "22382"
+	      Position		      [200, 182, 275, 218]
+	      AttributesFormatString  "------------------------------------------\\nGain:\\n%<Gain>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Gain		      "2 / pwmCountsPerRevolution"
+	      ParamDataTypeStr	      "double"
+	      OutDataTypeStr	      "double"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "PWM Duty Cycle"
+	      SID		      "21676"
+	      Position		      [760, 193, 790, 207]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Rate Transition"
+	      SrcPort		      1
+	      DstBlock		      "PWM Duty Cycle"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "pwm_compare"
+	      SrcPort		      1
+	      DstBlock		      "Units Per PWM Count"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Units Per PWM Count"
+	      SrcPort		      1
+	      DstBlock		      "Force Normalization\nBetween \nPositive and Negative One"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Force Normalization\nBetween \nPositive and Negative One"
+	      SrcPort		      1
+	      DstBlock		      "Rate Transition"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      Name		      "Converts PWM count compare values to a normalized duty cycle."
+	      Position		      [194, 118]
+	      HorizontalAlignment     "left"
+	      DropShadow	      on
+	      FontName		      "Arial"
+	      FontSize		      12
+	    }
+	    Annotation {
+	      Name		      "Driver Peripherals"
+	      Tag		      "systemTitleTag"
+	      Position		      [367, 81]
+	      FontSize		      20
+	      FontWeight	      "bold"
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Sensor Peripherals"
+	  SID			  "22782"
+	  Description		  "Elaborate Sensor Models\n\nADC and QEP and Encoder Models"
+	  Ports			  [1, 1]
+	  Position		  [110, 304, 210, 406]
+	  ShowName		  off
+	  LibraryVersion	  "1.216"
+	  FontName		  "Arial"
+	  FontSize		  14
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskDisplay		  "fprintf('Sensor\\nPeripherals')"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "Sensor Peripherals"
+	    Location		    [11, 81, 997, 693]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    212
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "System\nMeasurements"
+	      SID		      "22783"
+	      Position		      [40, 183, 70, 197]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator2"
+	      SID		      "23235"
+	      Ports		      [3, 1]
+	      Position		      [830, 131, 840, 489]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Inputs		      "3"
+	      DisplayOption	      "bar"
+	      OutDataTypeStr	      "Bus: SENSORS_STRUCT"
+	      NonVirtualBus	      on
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector"
+	      SID		      "23391"
+	      Ports		      [1, 2]
+	      Position		      [230, 150, 235, 225]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      OutputSignals	      "mechanical_measurements.current_phase_a,mechanical_measurements.current_phase_b"
+	      Port {
+		PortNumber		1
+		Name			"<current_phase_a>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"<current_phase_b>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector1"
+	      SID		      "22786"
+	      Ports		      [1, 1]
+	      Position		      [235, 418, 240, 442]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      OutputSignals	      "mechanical_measurements.rotor_velocity"
+	      Port {
+		PortNumber		1
+		Name			"<rotor_velocity>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector2"
+	      SID		      "23390"
+	      Ports		      [1, 1]
+	      Position		      [235, 318, 240, 342]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      OutputSignals	      "mechanical_measurements.rotor_angle"
+	      Port {
+		PortNumber		1
+		Name			"<rotor_angle>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Measure Phase Currents\n(Analog to Digital Converter)"
+	      SID		      "22796"
+	      Ports		      [2, 1]
+	      Position		      [385, 154, 670, 221]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      Port {
+		PortNumber		1
+		Name			"adc_phase_currents"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      System {
+		Name			"Measure Phase Currents\n(Analog to Digital Converter)"
+		Location		[11, 81, 997, 709]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"112"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Phase Current A"
+		  SID			  "22797"
+		  Position		  [50, 198, 80, 212]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Phase Current B"
+		  SID			  "23392"
+		  Position		  [50, 243, 80, 257]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "ADC Voltage Conversion"
+		  SID			  "22799"
+		  Ports			  [1, 1]
+		  Position		  [465, 182, 650, 278]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  System {
+		    Name		    "ADC Voltage Conversion"
+		    Location		    [38, 102, 882, 527]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Sensor Voltages"
+		    SID			    "22800"
+		    Position		    [115, 163, 145, 177]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Gain
+		    Name		    "ADC_Integer_per_Volts"
+		    SID			    "22801"
+		    Position		    [235, 134, 320, 206]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Gain		    "4096/3.3"
+		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    OutDataTypeStr	    "uint16"
+		    }
+		    Block {
+		    BlockType		    Saturate
+		    Name		    "Saturation"
+		    SID			    "22802"
+		    Ports		    [1, 1]
+		    Position		    [410, 155, 440, 185]
+		    AttributesFormatString  "----------------------------\\nUpper Limit: %<UpperLimit>\\nLower Limit: %<LowerLimit>"
+		    InputPortMap	    "u0"
+		    FontName		    "Arial"
+		    FontSize		    12
+		    UpperLimit		    "4095"
+		    LowerLimit		    "0"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Peripheral Values"
+		    SID			    "22803"
+		    Position		    [570, 163, 600, 177]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Saturation"
+		    SrcPort		    1
+		    DstBlock		    "Peripheral Values"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Sensor Voltages"
+		    SrcPort		    1
+		    DstBlock		    "ADC_Integer_per_Volts"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "ADC_Integer_per_Volts"
+		    SrcPort		    1
+		    DstBlock		    "Saturation"
+		    DstPort		    1
+		    }
+		    Annotation {
+		    Name		    "ADC Voltage Conversion"
+		    Tag			    "systemTitleTag"
+		    Position		    [352, 46]
+		    FontSize		    20
+		    FontWeight		    "bold"
+		    }
+		    Annotation {
+		    Name		    "Models conversion between current sensor and raw value provided by the peripheral."
+		    Position		    [160, 86]
+		    HorizontalAlignment	    "left"
+		    DropShadow		    on
+		    FontName		    "Arial"
+		    FontSize		    12
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Current Sensor"
+		  SID			  "22804"
+		  Ports			  [1, 1]
+		  Position		  [220, 182, 410, 278]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  System {
+		    Name		    "Current Sensor"
+		    Location		    [11, 84, 845, 640]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Phase Currents"
+		    SID			    "22805"
+		    Position		    [90, 183, 120, 197]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Bias
+		    Name		    "Current_Sensor_Bias"
+		    SID			    "22806"
+		    Position		    [575, 175, 615, 205]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Bias		    "1.65"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Gain
+		    Name		    "Current_Sensor_Gain"
+		    SID			    "22807"
+		    Description		    "Units: Amps / Volt"
+		    Position		    [395, 168, 455, 212]
+		    AttributesFormatString  "--------------------------------\\n%<Description>"
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Gain		    "-3/20"
+		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Gain
+		    Name		    "Current_Sensor_Sign_Flip"
+		    SID			    "22808"
+		    Description		    "Current Sensor on\nHardware measures\nnegative current "
+		    Position		    [205, 168, 265, 212]
+		    AttributesFormatString  "----------------------------------------------\\n%<Description>"
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Gain		    "-1"
+		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Sensor Voltages"
+		    SID			    "22809"
+		    Position		    [730, 183, 760, 197]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Current_Sensor_Sign_Flip"
+		    SrcPort		    1
+		    DstBlock		    "Current_Sensor_Gain"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Phase Currents"
+		    SrcPort		    1
+		    DstBlock		    "Current_Sensor_Sign_Flip"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Current_Sensor_Bias"
+		    SrcPort		    1
+		    DstBlock		    "Sensor Voltages"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Current_Sensor_Gain"
+		    SrcPort		    1
+		    DstBlock		    "Current_Sensor_Bias"
+		    DstPort		    1
+		    }
+		    Annotation {
+		    Name		    "Current Sensor"
+		    Tag			    "systemTitleTag"
+		    Position		    [412, 66]
+		    FontSize		    20
+		    FontWeight		    "bold"
+		    }
+		    Annotation {
+		    Name		    "Models hardware which measures phase currents."
+		    Position		    [291, 107]
+		    HorizontalAlignment	    "left"
+		    DropShadow		    on
+		    FontName		    "Arial"
+		    FontSize		    12
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  Concatenate
+		  Name			  "Vector\nConcatenate"
+		  SID			  "23393"
+		  Ports			  [2, 1]
+		  Position		  [155, 184, 160, 271]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  Mode			  "Vector"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "adc_phase_currents"
+		  SID			  "22810"
+		  Position		  [765, 223, 795, 237]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "ADC Voltage Conversion"
+		  SrcPort		  1
+		  DstBlock		  "adc_phase_currents"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Current Sensor"
+		  SrcPort		  1
+		  DstBlock		  "ADC Voltage Conversion"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Phase Current A"
+		  SrcPort		  1
+		  DstBlock		  "Vector\nConcatenate"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Phase Current B"
+		  SrcPort		  1
+		  DstBlock		  "Vector\nConcatenate"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Vector\nConcatenate"
+		  SrcPort		  1
+		  DstBlock		  "Current Sensor"
+		  DstPort		  1
+		}
+		Annotation {
+		  Name			  "Models the behavior of the current sensor and\nanalog to digital voltage conversion."
+		  Position		  [295, 115]
+		  HorizontalAlignment	  "left"
+		  DropShadow		  on
+		  FontName		  "Arial"
+		  FontSize		  12
+		}
+		Annotation {
+		  Name			  "Measure Phase Currents\n(Analog to Digital Converter)"
+		  Tag			  "systemTitleTag"
+		  Position		  [437, 46]
+		  FontSize		  20
+		  FontWeight		  "bold"
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Measure Rotor Position\n(Quadrature Encoder)"
+	      SID		      "22816"
+	      Ports		      [2, 2]
+	      Position		      [385, 281, 675, 479]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      Port {
+		PortNumber		1
+		Name			"encoder_index"
+		PropagatedSignals	"indexPulse"
+		RTWStorageClass		"Auto"
+		DataLogging		on
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"encoder_counter"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      System {
+		Name			"Measure Rotor Position\n(Quadrature Encoder)"
+		Location		[6, 77, 999, 712]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"92"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Rotor Angle"
+		  SID			  "22817"
+		  Position		  [90, 488, 120, 502]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Rotor Velocity"
+		  SID			  "22818"
+		  Position		  [95, 268, 125, 282]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Create Index Pulse"
+		  SID			  "23303"
+		  Ports			  [2, 1]
+		  Position		  [400, 326, 540, 439]
+		  LibraryVersion	  "1.31"
+		  FontName		  "Arial"
+		  FontSize		  12
+		  ErrorFcn		  "Stateflow.Translate.translate"
+		  PermitHierarchicalResolution "ExplicitOnly"
+		  TreatAsAtomicUnit	  on
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  SFBlockType		  "MATLAB Function"
+		  MaskType		  "Stateflow"
+		  MaskDescription	  "Embedded MATLAB block"
+		  MaskSelfModifiable	  on
+		  MaskDisplay		  "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('private"
+		  "/eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'fcn']);"
+		  MaskIconFrame		  on
+		  MaskIconOpaque	  off
+		  MaskIconRotate	  "none"
+		  MaskPortRotate	  "default"
+		  MaskIconUnits		  "normalized"
+		  System {
+		    Name		    "Create Index Pulse"
+		    Location		    [257, 457, 812, 717]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "24"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "rotorVelocity"
+		    SID			    "23303::18"
+		    Position		    [20, 101, 40, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "currentCount"
+		    SID			    "23303::1"
+		    Position		    [20, 136, 40, 154]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    SID			    "23303::22"
+		    Ports		    [1, 1]
+		    Position		    [270, 160, 320, 200]
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    S-Function
+		    Name		    " SFunction "
+		    SID			    "23303::21"
+		    Tag			    "Stateflow S-Function rtwdemo_pmsmfoc_system_nn 3"
+		    Ports		    [2, 2]
+		    Position		    [180, 100, 230, 160]
+		    FunctionName	    "sf_sfun"
+		    Parameters		    "encoderCountsPerRevolution"
+		    PortCounts		    "[2 2]"
+		    EnableBusSupport	    on
+		    Port {
+		    PortNumber		    2
+		    Name		    "indexPulse"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    SID			    "23303::24"
+		    Position		    [460, 171, 480, 189]
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "indexPulse"
+		    SID			    "23303::5"
+		    Position		    [460, 101, 480, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "rotorVelocity"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "currentCount"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    2
+		    }
+		    Line {
+		    Name		    "indexPulse"
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "indexPulse"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    " SFunction "
+		    SrcPort		    1
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Encoder Count\n(After First Index Pulse)"
+		  SID			  "23296"
+		  Ports			  [1, 1]
+		  Position		  [180, 458, 350, 532]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  System {
+		    Name		    "Encoder Count\n(After First Index Pulse)"
+		    Location		    [29, 85, 1015, 713]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "122"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Rotor Angle"
+		    SID			    "23297"
+		    Position		    [40, 203, 70, 217]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Gain
+		    Name		    "Counts per Radian"
+		    SID			    "23394"
+		    Position		    [315, 209, 385, 281]
+		    AttributesFormatString  "--------------------------------------------------\\nGain:\\n%<Gain>"
+		    Gain		    "encoderCountsPerRevolution/(2*pi)"
+		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    DataTypeConversion
+		    Name		    "Encoder Angle\nData Type"
+		    SID			    "23299"
+		    Position		    [455, 228, 530, 262]
+		    OutDataTypeStr	    "uint16"
+		    RndMeth		    "Floor"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Math
+		    Name		    "Math\nFunction"
+		    SID			    "23300"
+		    Ports		    [2, 1]
+		    Position		    [205, 176, 240, 309]
+		    ShowName		    off
+		    Operator		    "mod"
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Radians Per Cycle"
+		    SID			    "23301"
+		    Position		    [120, 260, 150, 290]
+		    Value		    "2*pi"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Encoder Count"
+		    SID			    "23302"
+		    Position		    [585, 238, 615, 252]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Encoder Angle\nData Type"
+		    SrcPort		    1
+		    DstBlock		    "Encoder Count"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Rotor Angle"
+		    SrcPort		    1
+		    DstBlock		    "Math\nFunction"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Counts per Radian"
+		    SrcPort		    1
+		    DstBlock		    "Encoder Angle\nData Type"
+		    DstPort		    1
+		    }
+		    Line {
+		    Labels		    [0, 0]
+		    SrcBlock		    "Math\nFunction"
+		    SrcPort		    1
+		    DstBlock		    "Counts per Radian"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Radians Per Cycle"
+		    SrcPort		    1
+		    DstBlock		    "Math\nFunction"
+		    DstPort		    2
+		    }
+		    Annotation {
+		    Name		    "Encoder Count\n(After First Index Pulse)"
+		    Tag			    "systemTitleTag"
+		    Position		    [342, 61]
+		    FontSize		    20
+		    FontWeight		    "bold"
+		    }
+		    Annotation {
+		    Name		    "Model the count value provided by the encoder when the absolute position is known.\nThe absolute posi"
+		    "tion is known after reaching the first index pulse.\nThe pulse train generated by the encoder is not modeled."
+		    Position		    [153, 123]
+		    HorizontalAlignment	    "left"
+		    DropShadow		    on
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Encoder Count\n(During Startup)"
+		  SID			  "23288"
+		  Ports			  [1, 1]
+		  Position		  [175, 239, 350, 311]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  System {
+		    Name		    "Encoder Count\n(During Startup)"
+		    Location		    [29, 85, 1015, 713]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "134"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Rotor Velocity"
+		    SID			    "23289"
+		    Position		    [15, 208, 45, 222]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Gain
+		    Name		    "Counts per Radian"
+		    SID			    "23290"
+		    Position		    [285, 224, 355, 296]
+		    AttributesFormatString  "--------------------------------------------------\\nGain:\\n%<Gain>"
+		    Gain		    "encoderCountsPerRevolution/(2*pi)"
+		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    DiscreteIntegrator
+		    Name		    "Discrete-Time\nIntegrator"
+		    SID			    "23291"
+		    Ports		    [1, 1]
+		    Position		    [105, 199, 140, 231]
+		    AttributesFormatString  "------------------------------\\nInitial Condition: %<InitialCondition>"
+		    IntegratorMethod	    "Integration: Forward Euler"
+		    ExternalReset	    "none"
+		    InitialConditionSource  "internal"
+		    SampleTime		    "-1"
+		    ICPrevOutput	    "DiscIntNeverNeededParam"
+		    ICPrevScaledInput	    "DiscIntNeverNeededParam"
+		    }
+		    Block {
+		    BlockType		    DataTypeConversion
+		    Name		    "Encoder Angle\nData Type"
+		    SID			    "23292"
+		    Position		    [430, 243, 505, 277]
+		    OutDataTypeStr	    "uint16"
+		    RndMeth		    "Floor"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Math
+		    Name		    "Math\nFunction"
+		    SID			    "23293"
+		    Ports		    [2, 1]
+		    Position		    [185, 168, 220, 352]
+		    ShowName		    off
+		    Operator		    "mod"
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Radians Per Cycle"
+		    SID			    "23294"
+		    Position		    [55, 290, 85, 320]
+		    Value		    "2*pi"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Encoder Count"
+		    SID			    "23295"
+		    Position		    [555, 253, 585, 267]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Radians Per Cycle"
+		    SrcPort		    1
+		    DstBlock		    "Math\nFunction"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "Math\nFunction"
+		    SrcPort		    1
+		    DstBlock		    "Counts per Radian"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Counts per Radian"
+		    SrcPort		    1
+		    DstBlock		    "Encoder Angle\nData Type"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Rotor Velocity"
+		    SrcPort		    1
+		    DstBlock		    "Discrete-Time\nIntegrator"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Encoder Angle\nData Type"
+		    SrcPort		    1
+		    DstBlock		    "Encoder Count"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Discrete-Time\nIntegrator"
+		    SrcPort		    1
+		    DstBlock		    "Math\nFunction"
+		    DstPort		    1
+		    }
+		    Annotation {
+		    Name		    "Approximate the count value provided by the encoder peripheral during startup (before reaching the fi"
+		    "rst index pulse).\nThe pulse train generated by the encoder is not modeled."
+		    Position		    [73, 138]
+		    HorizontalAlignment	    "left"
+		    DropShadow		    on
+		    }
+		    Annotation {
+		    Name		    "Encoder Count\n(During Startup)"
+		    Tag			    "systemTitleTag"
+		    Position		    [307, 81]
+		    FontSize		    20
+		    FontWeight		    "bold"
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Select Encoder Count"
+		  SID			  "23304"
+		  Ports			  [3, 1]
+		  Position		  [645, 217, 720, 553]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  System {
+		    Name		    "Select Encoder Count"
+		    Location		    [11, 81, 997, 709]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "112"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Startup"
+		    SID			    "23307"
+		    Position		    [75, 403, 105, 417]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Index"
+		    SID			    "23306"
+		    Position		    [75, 308, 105, 322]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Absolute"
+		    SID			    "23305"
+		    Position		    [75, 193, 105, 207]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Port		    "3"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Logic
+		    Name		    "Latch on\nFirst Rising Edge"
+		    SID			    "23484"
+		    Ports		    [2, 1]
+		    Position		    [287, 285, 324, 325]
+		    FontSize		    12
+		    Operator		    "OR"
+		    IconShape		    "distinctive"
+		    AllPortsSameDT	    off
+		    OutDataTypeStr	    "boolean"
+		    }
+		    Block {
+		    BlockType		    Switch
+		    Name		    "Switch"
+		    SID			    "23309"
+		    Position		    [390, 146, 430, 464]
+		    ShowName		    off
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Criteria		    "u2 ~= 0"
+		    InputSameDT		    off
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    UnitDelay
+		    Name		    "Unit Delay"
+		    SID			    "23311"
+		    Position		    [290, 223, 325, 257]
+		    BlockMirror		    on
+		    FontName		    "Arial"
+		    FontSize		    12
+		    InputProcessing	    "Elements as channels (sample based)"
+		    SampleTime		    "-1"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Count"
+		    SID			    "23312"
+		    Position		    [505, 298, 535, 312]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Latch on\nFirst Rising Edge"
+		    SrcPort		    1
+		    Points		    [26, 0]
+		    Branch {
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		    }
+		    Branch {
+		    Points		    [0, -65]
+		    DstBlock		    "Unit Delay"
+		    DstPort		    1
+		    }
+		    }
+		    Line {
+		    SrcBlock		    "Absolute"
+		    SrcPort		    1
+		    DstBlock		    "Switch"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Switch"
+		    SrcPort		    1
+		    DstBlock		    "Count"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Startup"
+		    SrcPort		    1
+		    DstBlock		    "Switch"
+		    DstPort		    3
+		    }
+		    Line {
+		    SrcBlock		    "Unit Delay"
+		    SrcPort		    1
+		    Points		    [-50, 0; 0, 55]
+		    DstBlock		    "Latch on\nFirst Rising Edge"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Index"
+		    SrcPort		    1
+		    DstBlock		    "Latch on\nFirst Rising Edge"
+		    DstPort		    2
+		    }
+		    Annotation {
+		    Name		    "Select Encoder Count"
+		    Tag			    "systemTitleTag"
+		    Position		    [292, 41]
+		    FontSize		    20
+		    FontWeight		    "bold"
+		    }
+		    Annotation {
+		    Name		    "Before the first index pulse is received, pass the startup encoder count value.\nAfter the index puls"
+		    "e first transistions from low to high, pass the absolute count value."
+		    Position		    [57, 94]
+		    HorizontalAlignment	    "left"
+		    DropShadow		    on
+		    FontName		    "Arial"
+		    FontSize		    12
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Index Pulse"
+		  SID			  "22864"
+		  Position		  [580, 413, 610, 427]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Encoder Count"
+		  SID			  "22863"
+		  Position		  [790, 378, 820, 392]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "Select Encoder Count"
+		  SrcPort		  1
+		  DstBlock		  "Encoder Count"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Create Index Pulse"
+		  SrcPort		  1
+		  Points		  [20, 0]
+		  Branch {
+		    DstBlock		    "Index Pulse"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Select Encoder Count"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Encoder Count\n(After First Index Pulse)"
+		  SrcPort		  1
+		  Points		  [15, 0]
+		  Branch {
+		    Labels		    [1, 0]
+		    DstBlock		    "Select Encoder Count"
+		    DstPort		    3
+		  }
+		  Branch {
+		    Labels		    [1, 0]
+		    Points		    [0, -85]
+		    DstBlock		    "Create Index Pulse"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Encoder Count\n(During Startup)"
+		  SrcPort		  1
+		  DstBlock		  "Select Encoder Count"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Rotor Velocity"
+		  SrcPort		  1
+		  Points		  [25, 0]
+		  Branch {
+		    Points		    [0, 80]
+		    DstBlock		    "Create Index Pulse"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Encoder Count\n(During Startup)"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Rotor Angle"
+		  SrcPort		  1
+		  DstBlock		  "Encoder Count\n(After First Index Pulse)"
+		  DstPort		  1
+		}
+		Annotation {
+		  Name			  "Models the behavior of a relative quadrature encoder. The rotor angle and rotor velocity inputs are \"id"
+		  "eal\" measurements from the motor model.\nWhen the motor begins spinning the counter is initialized to some value "
+		  "(assume 0).\nOnce an index pulse is received, the count value is reset to a value corresponding to a valid rotor p"
+		  "osition.\nHence, after the first index pulse is received, the count returned by the peripheral represents the abso"
+		  "lute position of the encoder."
+		  Position		  [53, 143]
+		  HorizontalAlignment	  "left"
+		  DropShadow		  on
+		  FontName		  "Arial"
+		  FontSize		  12
+		}
+		Annotation {
+		  Name			  "Measure Rotor Position\n(Quadrature Encoder)"
+		  Tag			  "systemTitleTag"
+		  Position		  [412, 61]
+		  FontSize		  20
+		  FontWeight		  "bold"
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      RateTransition
+	      Name		      "Rate Transition"
+	      SID		      "23330"
+	      Position		      [135, 169, 175, 211]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      OutPortSampleTime	      "40e-6"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Sensors"
+	      SID		      "22872"
+	      Position		      [970, 303, 1000, 317]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      Name		      "adc_phase_currents"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Measure Phase Currents\n(Analog to Digital Converter)"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator2"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<rotor_angle>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector2"
+	      SrcPort		      1
+	      DstBlock		      "Measure Rotor Position\n(Quadrature Encoder)"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<rotor_velocity>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector1"
+	      SrcPort		      1
+	      DstBlock		      "Measure Rotor Position\n(Quadrature Encoder)"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "System\nMeasurements"
+	      SrcPort		      1
+	      DstBlock		      "Rate Transition"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator2"
+	      SrcPort		      1
+	      DstBlock		      "Sensors"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "encoder_index"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Measure Rotor Position\n(Quadrature Encoder)"
+	      SrcPort		      1
+	      Points		      [95, 0; 0, -20]
+	      DstBlock		      "Bus\nCreator2"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "encoder_counter"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Measure Rotor Position\n(Quadrature Encoder)"
+	      SrcPort		      2
+	      DstBlock		      "Bus\nCreator2"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "<current_phase_a>"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      1
+	      DstBlock		      "Measure Phase Currents\n(Analog to Digital Converter)"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<current_phase_b>"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      2
+	      DstBlock		      "Measure Phase Currents\n(Analog to Digital Converter)"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Rate Transition"
+	      SrcPort		      1
+	      Points		      [25, 0]
+	      Branch {
+		Points			[0, 140]
+		Branch {
+		  Points		  [0, 100]
+		  DstBlock		  "Bus\nSelector1"
+		  DstPort		  1
+		}
+		Branch {
+		  DstBlock		  "Bus\nSelector2"
+		  DstPort		  1
+		}
+	      }
+	      Branch {
+		DstBlock		"Bus\nSelector"
+		DstPort			1
+	      }
+	    }
+	    Annotation {
+	      Name		      "Models the behavior of sensors and peripherals.\nInputs are physical quantities to be measured. Ou"
+	      "tputs raw digital values provided by the peripherals."
+	      Position		      [247, 90]
+	      HorizontalAlignment     "left"
+	      DropShadow	      on
+	      FontName		      "Arial"
+	      FontSize		      12
+	    }
+	    Annotation {
+	      Name		      "Sensor Peripherals"
+	      Tag		      "systemTitleTag"
+	      Position		      [492, 41]
+	      FontSize		      20
+	      FontWeight	      "bold"
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Motor\nCommands"
+	  SID			  "23147"
+	  Position		  [760, 263, 790, 277]
+	  FontSize		  12
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Sensor Peripherals"
+	  SrcPort		  1
+	  DstBlock		  "Controller Algorithm Software Specification"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "System\nInputs"
+	  SrcPort		  1
+	  DstBlock		  "Command Channel"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Motor\nMeasurements"
+	  SrcPort		  1
+	  DstBlock		  "Sensor Peripherals"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Driver Peripherals"
+	  SrcPort		  1
+	  DstBlock		  "Motor\nCommands"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Controller Algorithm Software Specification"
+	  SrcPort		  1
+	  DstBlock		  "Driver Peripherals"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Command Channel"
+	  SrcPort		  2
+	  Points		  [55, 0]
+	  DstBlock		  "Controller Algorithm Software Specification"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Command Channel"
+	  SrcPort		  1
+	  DstBlock		  "Controller Algorithm Software Specification"
+	  DstPort		  1
+	}
+	Annotation {
+	  Name			  "Models hardware on the embedded processor, including\nthe controller algorithm software specification and"
+	  " peripherals."
+	  Position		  [241, 100]
+	  HorizontalAlignment	  "left"
+	  DropShadow		  on
+	  FontSize		  12
+	}
+	Annotation {
+	  Name			  "Embedded Processor"
+	  Tag			  "systemTitleTag"
+	  Position		  [392, 56]
+	  FontSize		  20
+	  FontWeight		  "bold"
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Inverter and Motor"
+      SID		      "22704"
+      Description	      "\n\n"
+      Ports		      [2, 1]
+      Position		      [470, 202, 635, 318]
+      LibraryVersion	      "1.216"
+      FontName		      "Arial"
+      FontSize		      12
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskDisplay	      "image(imread('rtwdemo_pmsmfoc_motor.png'))"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Inverter and Motor"
+	Location		[10, 78, 991, 704]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"88"
+	Block {
+	  BlockType		  Inport
+	  Name			  "System Loads"
+	  SID			  "23438"
+	  Position		  [475, 278, 505, 292]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "PWM Duty Cycles"
+	  SID			  "22706"
+	  Position		  [75, 348, 105, 362]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pwm_duty_cycles"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator"
+	  SID			  "22708"
+	  Ports			  [3, 1]
+	  Position		  [950, 153, 955, 557]
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Inputs		  "3"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector"
+	  SID			  "23437"
+	  Ports			  [1, 1]
+	  Position		  [545, 266, 550, 304]
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  12
+	  OutputSignals		  "load_torque"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<load_torque>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Inverter"
+	  SID			  "22711"
+	  Ports			  [1, 1, 0, 0, 0, 0, 3]
+	  Position		  [265, 259, 420, 446]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  Port {
+	    PortNumber		    1
+	    Name		    "electrical_measurements"
+	    PropagatedSignals	    "phase_voltages, phase_currents"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    "Inverter"
+	    Location		    [16, 82, 976, 661]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "105"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "PWM Duty Cycles"
+	      SID		      "22713"
+	      Position		      [60, 178, 90, 192]
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator"
+	      SID		      "22714"
+	      Ports		      [2, 1]
+	      Position		      [750, 191, 755, 389]
+	      ShowName		      off
+	      FontSize		      12
+	      Inputs		      "2"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Bus Voltage"
+	      SID		      "23494"
+	      Position		      [40, 350, 130, 380]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Value		      "busVoltage"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Controlled Voltage Source"
+	      SID		      "23430"
+	      Ports		      [1, 0, 0, 0, 0, 1, 1]
+	      Position		      [177, 305, 213, 350]
+	      BlockRotation	      270
+	      ShowName		      off
+	      LibraryVersion	      "1.2088"
+	      FontName		      "Verdana"
+	      FontSize		      12
+	      SourceBlock	      "powerlib/Electrical\nSources/Controlled Voltage Source"
+	      SourceType	      "Controlled Voltage Source"
+	      Initialize	      on
+	      Source_Type	      "DC"
+	      Amplitude		      "24"
+	      Phase		      "0"
+	      Frequency		      "0"
+	      Measurements	      "None"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Inverter Bridge"
+	      SID		      "23432"
+	      Ports		      [1, 0, 0, 0, 0, 3, 2]
+	      Position		      [245, 213, 405, 487]
+	      BlockMirror	      on
+	      LibraryVersion	      "1.2088"
+	      FontName		      "Verdana"
+	      FontSize		      12
+	      SourceBlock	      "powerlib/Power\nElectronics/Universal Bridge"
+	      SourceType	      "Universal Bridge"
+	      Arms		      "3"
+	      SnubberResistance	      "1e4"
+	      SnubberCapacitance      "1e-5"
+	      Device		      "Average-model based VSC"
+	      Ron		      "1e-4"
+	      Lon		      "0"
+	      ForwardVoltages	      "[  0  0  ]"
+	      ForwardVoltage	      "0"
+	      GTOparameters	      "[ 10e-6 , 20e-6 ]"
+	      IGBTparameters	      "[ 1e-6 , 2e-6 ]"
+	      Measurements	      "None"
+	      Measurements_2	      "None"
+	      converterType	      "Rectifier"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "L-L 2 L-N"
+	      SID		      "22725"
+	      Ports		      [1, 1]
+	      Position		      [590, 213, 675, 267]
+	      FontSize		      12
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      Port {
+		PortNumber		1
+		Name			"phase_voltages"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      System {
+		Name			"L-L 2 L-N"
+		Location		[1265, 601, 1610, 798]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Vabc"
+		  SID			  "22726"
+		  Position		  [40, 198, 70, 212]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Fcn
+		  Name			  "Fcn"
+		  SID			  "22727"
+		  Position		  [170, 130, 230, 160]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  Expr			  "-2/3*(-u(1)-0.5*u(2))"
+		}
+		Block {
+		  BlockType		  Fcn
+		  Name			  "Fcn1"
+		  SID			  "22728"
+		  Position		  [170, 190, 230, 220]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  Expr			  "-2/3*(-u(2)-0.5*u(3))"
+		}
+		Block {
+		  BlockType		  Fcn
+		  Name			  "Fcn2"
+		  SID			  "22729"
+		  Position		  [170, 250, 230, 280]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  Expr			  "-2/3*(-u(3)-0.5*u(1))"
+		}
+		Block {
+		  BlockType		  Concatenate
+		  Name			  "Vector\nConcatenate"
+		  SID			  "22730"
+		  Ports			  [3, 1]
+		  Position		  [325, 114, 330, 296]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  NumInputs		  "3"
+		  Mode			  "Vector"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Vabcn"
+		  SID			  "22731"
+		  Position		  [395, 198, 425, 212]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "Fcn"
+		  SrcPort		  1
+		  DstBlock		  "Vector\nConcatenate"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Fcn1"
+		  SrcPort		  1
+		  DstBlock		  "Vector\nConcatenate"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Fcn2"
+		  SrcPort		  1
+		  DstBlock		  "Vector\nConcatenate"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Vabc"
+		  SrcPort		  1
+		  Points		  [65, 0]
+		  Branch {
+		    Points		    [0, -60]
+		    DstBlock		    "Fcn"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Fcn1"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 60]
+		    DstBlock		    "Fcn2"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Vector\nConcatenate"
+		  SrcPort		  1
+		  DstBlock		  "Vabcn"
+		  DstPort		  1
+		}
+		Annotation {
+		  Name			  "Convert Line-to-Line measurements to \nequivalent Line-to-Neutral Measurements"
+		  Position		  [134, 88]
+		  HorizontalAlignment	  "left"
+		  DropShadow		  on
+		  FontName		  "Arial"
+		  FontSize		  12
+		}
+		Annotation {
+		  Name			  "L-L 2 L-N"
+		  Tag			  "systemTitleTag"
+		  Position		  [242, 36]
+		  FontSize		  20
+		  FontWeight		  "bold"
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Three-Phase\nV-I Measurement"
+	      SID		      "22732"
+	      Ports		      [0, 2, 0, 0, 0, 3, 3]
+	      Position		      [490, 277, 540, 493]
+	      LibraryVersion	      "1.2088"
+	      FontName		      "Verdana"
+	      FontSize		      12
+	      SourceBlock	      "powerlib/Measurements/Three-Phase\nV-I Measurement"
+	      SourceType	      "Three-Phase VI Measurement"
+	      VoltageMeasurement      "phase-to-phase"
+	      SetLabelV		      off
+	      LabelV		      "Vabc"
+	      Vpu		      off
+	      VpuLL		      off
+	      CurrentMeasurement      "yes"
+	      SetLabelI		      off
+	      LabelI		      "Iabc"
+	      Ipu		      off
+	      Pbase		      "100e6"
+	      Vbase		      "500e3"
+	      OutputType	      "Complex"
+	      PhasorSimulation	      off
+	      PSBequivalent	      "0"
+	      Port {
+		PortNumber		2
+		Name			"phase_currents"
+		PropagatedSignals	"signal"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "A"
+	      SID		      "22733"
+	      Position		      [600, 378, 630, 392]
+	      BlockMirror	      on
+	      FontSize		      12
+	      Port		      "1"
+	      Side		      "Right"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "B"
+	      SID		      "22734"
+	      Position		      [600, 423, 630, 437]
+	      BlockMirror	      on
+	      FontSize		      12
+	      Port		      "2"
+	      Side		      "Right"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "C"
+	      SID		      "22735"
+	      Position		      [600, 468, 630, 482]
+	      BlockMirror	      on
+	      FontSize		      12
+	      Port		      "3"
+	      Side		      "Right"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Measurements"
+	      SID		      "22736"
+	      Position		      [845, 283, 875, 297]
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Bus Voltage"
+	      SrcPort		      1
+	      DstBlock		      "Controlled Voltage Source"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Three-Phase\nV-I Measurement"
+	      SrcPort		      1
+	      Points		      [30, 0]
+	      DstBlock		      "L-L 2 L-N"
+	      DstPort		      1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "A"
+	      SrcPort		      RConn1
+	      DstBlock		      "Three-Phase\nV-I Measurement"
+	      DstPort		      RConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Three-Phase\nV-I Measurement"
+	      SrcPort		      RConn2
+	      DstBlock		      "B"
+	      DstPort		      RConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Three-Phase\nV-I Measurement"
+	      SrcPort		      RConn3
+	      DstBlock		      "C"
+	      DstPort		      RConn1
+	    }
+	    Line {
+	      Name		      "phase_currents"
+	      FontSize		      12
+	      Labels		      [-1, 0]
+	      SrcBlock		      "Three-Phase\nV-I Measurement"
+	      SrcPort		      2
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator"
+	      SrcPort		      1
+	      DstBlock		      "Measurements"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "phase_voltages"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "L-L 2 L-N"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "PWM Duty Cycles"
+	      SrcPort		      1
+	      Points		      [345, 0; 0, 60]
+	      DstBlock		      "Inverter Bridge"
+	      DstPort		      1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Three-Phase\nV-I Measurement"
+	      SrcPort		      LConn2
+	      DstBlock		      "Inverter Bridge"
+	      DstPort		      LConn2
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Controlled Voltage Source"
+	      SrcPort		      RConn1
+	      Points		      [0, -5]
+	      DstBlock		      "Inverter Bridge"
+	      DstPort		      RConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Three-Phase\nV-I Measurement"
+	      SrcPort		      LConn1
+	      DstBlock		      "Inverter Bridge"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Inverter Bridge"
+	      SrcPort		      RConn2
+	      Points		      [-25, 0]
+	      DstBlock		      "Controlled Voltage Source"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Three-Phase\nV-I Measurement"
+	      SrcPort		      LConn3
+	      DstBlock		      "Inverter Bridge"
+	      DstPort		      LConn3
+	    }
+	    Annotation {
+	      Name		      "Construct electrical waveforms for the three motor phases.\nThe inverter constructs the waveform u"
+	      "sing PWMs and an inverter bridge.\nThe inverter control signals must be normalized when using the averaged mode"
+	      "l for the inverter bridge."
+	      Position		      [201, 102]
+	      HorizontalAlignment     "left"
+	      DropShadow	      on
+	      FontSize		      12
+	    }
+	    Annotation {
+	      Name		      "Inverter"
+	      Tag		      "systemTitleTag"
+	      Position		      [437, 41]
+	      FontSize		      20
+	      FontWeight	      "bold"
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Motor"
+	  SID			  "23441"
+	  Ports			  [1, 1, 0, 0, 0, 3]
+	  Position		  [645, 259, 775, 446]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  Port {
+	    PortNumber		    1
+	    Name		    "mechanical_measurements"
+	    PropagatedSignals	    "current_phase_a, current_phase_b, current_phase_c, electromagnetic_torque, rotor_velocity,"
+	    " direct_current, quadrature_current, rotor_angle"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    "Motor"
+	    Location		    [6, 77, 844, 626]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Load Torque"
+	      SID		      "23442"
+	      Position		      [60, 288, 90, 302]
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator"
+	      SID		      "23453"
+	      Ports		      [8, 1]
+	      Position		      [835, 157, 845, 573]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Inputs		      "8"
+	      DisplayOption	      "bar"
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector"
+	      SID		      "23454"
+	      Ports		      [1, 8]
+	      Position		      [440, 166, 450, 564]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      OutputSignals	      "Stator current is_a (A),Stator current is_b (A),Stator current is_c (A),Electromagnetic to"
+	      "rque Te (N*m),Rotor speed wm (rad/s),Stator current is_d (A),Stator current is_q (A),Rotor angle thetam (rad)"
+	      Port {
+		PortNumber		1
+		Name			"<Stator current is_a (A)>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"<Stator current is_b (A)>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"<Stator current is_c (A)>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		4
+		Name			"<Electromagnetic torque Te (N*m)>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		5
+		Name			"<Rotor speed wm (rad/s)>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		6
+		Name			"<Stator current is_d (A)>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		7
+		Name			"<Stator current is_q (A)>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		8
+		Name			"<Rotor angle thetam (rad)>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Bias
+	      Name		      "Map Rotor Angle with Electrical Zero"
+	      SID		      "23468"
+	      Position		      [630, 524, 700, 556]
+	      AttributesFormatString  "----------------------------------------\\n%<Bias>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Bias		      "pmsm.electricalZeroPhaseOffsetRads"
+	      SaturateOnIntegerOverflow	off
+	      Port {
+		PortNumber		1
+		Name			"rotor_angle"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Permanent Magnet\nSynchronous Machine"
+	      SID		      "22707"
+	      Ports		      [1, 1, 0, 0, 0, 3]
+	      Position		      [150, 271, 350, 454]
+	      LibraryVersion	      "1.2088"
+	      FontName		      "Verdana"
+	      FontSize		      12
+	      SourceBlock	      "powerlib/Machines/Permanent Magnet\nSynchronous Machine"
+	      SourceType	      "Permanent Magnet Synchronous Machine"
+	      NbPhases		      "3"
+	      FluxDistribution	      "Sinusoidal"
+	      RotorType		      "Round"
+	      MechanicalLoad	      "Torque Tm"
+	      PresetModel	      "No"
+	      ShowDetailedParameters  on
+	      Resistance	      "0.8*2/3"
+	      Inductance	      "1.2e-3*2/3"
+	      dqInductances	      "[1, 1] * 0.6e-3"
+	      La		      "0.000835"
+	      MachineConstant	      "Torque Constant (N.m / A_peak)"
+	      Flux		      "0.0058847"
+	      VoltageCst	      "4.2694"
+	      TorqueCst		      "0.035308"
+	      Flat		      "0"
+	      Mechanical	      "[4.801855e-006, 1.301336e-005, pmsm.polePairs]"
+	      PolePairs		      "4"
+	      InitialConditions	      "[0, pmsm.thetaInitDegrees, 0, 0]"
+	      InitialConditions5ph    "[0 0 0 0 0 0]"
+	      TsPowergui	      "0"
+	      TsBlock		      "-1"
+	      RefAngle		      "90 degrees behind phase A axis (modified Park)"
+	    }
+	    Block {
+	      BlockType		      SignalConversion
+	      Name		      "Signal\nConversion 1"
+	      SID		      "23455"
+	      Position		      [650, 178, 680, 202]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      ConversionOutput	      "Contiguous copy"
+	      Port {
+		PortNumber		1
+		Name			"current_phase_a"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      SignalConversion
+	      Name		      "Signal\nConversion 2"
+	      SID		      "23464"
+	      Position		      [650, 228, 680, 252]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      ConversionOutput	      "Contiguous copy"
+	      Port {
+		PortNumber		1
+		Name			"current_phase_b"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      SignalConversion
+	      Name		      "Signal\nConversion 3"
+	      SID		      "23465"
+	      Position		      [650, 278, 680, 302]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      ConversionOutput	      "Contiguous copy"
+	      Port {
+		PortNumber		1
+		Name			"current_phase_c"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      SignalConversion
+	      Name		      "Signal\nConversion 4"
+	      SID		      "23467"
+	      Position		      [650, 328, 680, 352]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      ConversionOutput	      "Contiguous copy"
+	      Port {
+		PortNumber		1
+		Name			"electromagnetic_torque"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      SignalConversion
+	      Name		      "Signal\nConversion 5"
+	      SID		      "23466"
+	      Position		      [650, 378, 680, 402]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      ConversionOutput	      "Contiguous copy"
+	      Port {
+		PortNumber		1
+		Name			"rotor_velocity"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      SignalConversion
+	      Name		      "Signal\nConversion 7"
+	      SID		      "23496"
+	      Position		      [650, 428, 680, 452]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      ConversionOutput	      "Contiguous copy"
+	      Port {
+		PortNumber		1
+		Name			"direct_current"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      SignalConversion
+	      Name		      "Signal\nConversion 8"
+	      SID		      "23497"
+	      Position		      [650, 478, 680, 502]
+	      ShowName		      off
+	      FontName		      "Arial"
+	      FontSize		      12
+	      ConversionOutput	      "Contiguous copy"
+	      Port {
+		PortNumber		1
+		Name			"quadrature_current"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "A"
+	      SID		      "23443"
+	      Position		      [60, 333, 90, 347]
+	      FontSize		      12
+	      Port		      "1"
+	      Side		      "Left"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "B"
+	      SID		      "23445"
+	      Position		      [60, 378, 90, 392]
+	      FontSize		      12
+	      Port		      "2"
+	      Side		      "Left"
+	    }
+	    Block {
+	      BlockType		      PMIOPort
+	      Name		      "C"
+	      SID		      "23446"
+	      Position		      [60, 423, 90, 437]
+	      FontSize		      12
+	      Port		      "3"
+	      Side		      "Left"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Measurements"
+	      SID		      "23444"
+	      Position		      [915, 363, 945, 377]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Permanent Magnet\nSynchronous Machine"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nSelector"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Load Torque"
+	      SrcPort		      1
+	      DstBlock		      "Permanent Magnet\nSynchronous Machine"
+	      DstPort		      1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "A"
+	      SrcPort		      RConn1
+	      DstBlock		      "Permanent Magnet\nSynchronous Machine"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "B"
+	      SrcPort		      RConn1
+	      DstBlock		      "Permanent Magnet\nSynchronous Machine"
+	      DstPort		      LConn2
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "C"
+	      SrcPort		      RConn1
+	      DstBlock		      "Permanent Magnet\nSynchronous Machine"
+	      DstPort		      LConn3
+	    }
+	    Line {
+	      Name		      "<Stator current is_a (A)>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      1
+	      DstBlock		      "Signal\nConversion 1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<Stator current is_b (A)>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      2
+	      DstBlock		      "Signal\nConversion 2"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<Stator current is_c (A)>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      3
+	      DstBlock		      "Signal\nConversion 3"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<Rotor speed wm (rad/s)>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      5
+	      DstBlock		      "Signal\nConversion 5"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<Electromagnetic torque Te (N*m)>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      4
+	      DstBlock		      "Signal\nConversion 4"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator"
+	      SrcPort		      1
+	      DstBlock		      "Measurements"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "current_phase_a"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Signal\nConversion 1"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "current_phase_b"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Signal\nConversion 2"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "current_phase_c"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Signal\nConversion 3"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "electromagnetic_torque"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Signal\nConversion 4"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      4
+	    }
+	    Line {
+	      Name		      "rotor_velocity"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Signal\nConversion 5"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      5
+	    }
+	    Line {
+	      Name		      "<Rotor angle thetam (rad)>"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      8
+	      DstBlock		      "Map Rotor Angle with Electrical Zero"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "direct_current"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Signal\nConversion 7"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      6
+	    }
+	    Line {
+	      Name		      "quadrature_current"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Signal\nConversion 8"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      7
+	    }
+	    Line {
+	      Name		      "rotor_angle"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Map Rotor Angle with Electrical Zero"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      8
+	    }
+	    Line {
+	      Name		      "<Stator current is_d (A)>"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      6
+	      DstBlock		      "Signal\nConversion 7"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<Stator current is_q (A)>"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      7
+	      DstBlock		      "Signal\nConversion 8"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      Name		      "Motor"
+	      Tag		      "systemTitleTag"
+	      Position		      [422, 61]
+	      FontName		      "Arial"
+	      FontSize		      20
+	      FontWeight	      "bold"
+	    }
+	    Annotation {
+	      Name		      "Models the PMSM and outputs physical quantities used by the controller and visualizations.\nThe ro"
+	      "tor position angle returned by the SimPowerSystems model must be offset to align with the reference angle that "
+	      "the controller expects.\nSignal conversion blocks are used to enable renaming signals measured from the motor m"
+	      "odel."
+	      Position		      [97, 106]
+	      HorizontalAlignment     "left"
+	      DropShadow	      on
+	      FontSize		      12
+	    }
+	    Annotation {
+	      Position		      [437, 616]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "System Measurements"
+	  SID			  "22781"
+	  Position		  [1030, 348, 1060, 362]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Inverter"
+	  SrcPort		  RConn2
+	  DstBlock		  "Motor"
+	  DstPort		  LConn2
+	}
+	Line {
+	  Name			  "pwm_duty_cycles"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  SrcBlock		  "PWM Duty Cycles"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  Branch {
+	    DstBlock		    "Inverter"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Labels		    [-1, 0]
+	    Points		    [0, 135]
+	    DstBlock		    "Bus\nCreator"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  Name			  "electrical_measurements"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Labels		  [-1, 0]
+	  SrcBlock		  "Inverter"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, -65]
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator"
+	  SrcPort		  1
+	  DstBlock		  "System Measurements"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "mechanical_measurements"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Labels		  [-1, 0]
+	  SrcBlock		  "Motor"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  2
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Inverter"
+	  SrcPort		  RConn1
+	  DstBlock		  "Motor"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Inverter"
+	  SrcPort		  RConn3
+	  DstBlock		  "Motor"
+	  DstPort		  LConn3
+	}
+	Line {
+	  SrcBlock		  "System Loads"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nSelector"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<load_torque>"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector"
+	  SrcPort		  1
+	  DstBlock		  "Motor"
+	  DstPort		  1
+	}
+	Annotation {
+	  Name			  "Models the PMSM motor and inverter power electronics\nOutputs electrical and mechanical measurements."
+	  Position		  [407, 121]
+	  HorizontalAlignment	  "left"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  12
+	}
+	Annotation {
+	  Name			  "Inverter and Motor"
+	  Tag			  "systemTitleTag"
+	  Position		  [567, 71]
+	  FontName		  "Arial"
+	  FontSize		  20
+	  FontWeight		  "bold"
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Model Info"
+      SID		      "23490"
+      Ports		      []
+      Position		      [15, 445, 931, 554]
+      DropShadow	      on
+      ShowName		      off
+      LibraryVersion	      "1.256"
+      FontName		      "Arial"
+      FontSize		      12
+      SourceBlock	      "simulink/Model-Wide\nUtilities/Model Info"
+      SourceType	      "CMBlock"
+      InitialBlockCM	      "None"
+      BlockCM		      "None"
+      Frame		      "on"
+      DisplayStringWithTags   "Model Description: %<Description>"
+      MaskDisplayString	      "Model Description: Field-Oriented Control of Permanent Magnet Synchronous Machine\\n\\n"
+      "Demonstrates a Field-Oriented Control algorithm with Space Vector Modulation for a Permanent Magnet Synchronous "
+      "Machine (PMSM).\\nThe test bench can be used to evaluate the system performance. Examples include turning the mo"
+      "tor on, searching for a valid rotor position, \\ntransitioning to closed loop operation, and changing speed and "
+      "torque during closed loop control.\\nThe Embedded Processor subsystem contains the controller algorithm (which s"
+      "upports C code generation) as well as simulation models of peripherals."
+      HorizontalTextAlignment "Left"
+      LeftAlignmentValue      "0.02"
+      SourceBlockDiagram      "rtwdemo_pmsmfoc_system_nn"
+      TagMaxNumber	      "20"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "System Analysis"
+      SID		      "21677"
+      Description	      "System Analysis for Speed Control Design\n\nAnalyize and plot signals used to analyize perfor"
+      "mance of\nspeed  control designs"
+      Ports		      [2]
+      Position		      [740, 163, 855, 292]
+      ShowName		      off
+      LibraryVersion	      "1.216"
+      FontName		      "Arial"
+      FontSize		      18
+      FontWeight	      "bold"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskDisplay	      "fprintf('System\\nAnalysis')"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"System Analysis"
+	Location		[16, 83, 951, 719]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	212
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"112"
+	Block {
+	  BlockType		  Inport
+	  Name			  "System Inputs"
+	  SID			  "21678"
+	  Position		  [60, 133, 90, 147]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "System Measurements"
+	  SID			  "21679"
+	  Position		  [60, 188, 90, 202]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector1"
+	  SID			  "23384"
+	  Ports			  [1, 1]
+	  Position		  [245, 404, 250, 476]
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  12
+	  OutputSignals		  "pwm_duty_cycles"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<pwm_duty_cycles>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector2"
+	  SID			  "23498"
+	  Ports			  [1, 2]
+	  Position		  [245, 266, 250, 359]
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  12
+	  OutputSignals		  "mechanical_measurements.direct_current,mechanical_measurements.quadrature_current"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<direct_current>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "<quadrature_current>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Convert Rotor Velocity Units"
+	  SID			  "22250"
+	  Ports			  [2, 1]
+	  Position		  [245, 113, 445, 222]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  Port {
+	    PortNumber		    1
+	    Name		    "Command (yellow), Measured (magenta)"
+	    PropagatedSignals	    "rotor_velocities"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    "Convert Rotor Velocity Units"
+	    Location		    [17, 98, 693, 503]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "system_inputs"
+	      SID		      "22251"
+	      Position		      [40, 138, 70, 152]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "system_measurements"
+	      SID		      "22253"
+	      Position		      [40, 208, 70, 222]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator1"
+	      SID		      "22247"
+	      Ports		      [2, 1]
+	      Position		      [500, 108, 505, 252]
+	      ShowName		      off
+	      Inputs		      "2"
+	      DisplayOption	      "bar"
+	      Port {
+		PortNumber		1
+		Name			"rotor_velocities"
+		PropagatedSignals	", rotor_velocity_rpm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector1"
+	      SID		      "22246"
+	      Ports		      [1, 1]
+	      Position		      [155, 202, 160, 228]
+	      ShowName		      off
+	      OutputSignals	      "mechanical_measurements.rotor_velocity"
+	      Port {
+		PortNumber		1
+		Name			"<rotor_velocity>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      BusSelector
+	      Name		      "Bus\nSelector2"
+	      SID		      "22245"
+	      Ports		      [1, 1]
+	      Position		      [155, 132, 160, 158]
+	      ShowName		      off
+	      OutputSignals	      "speed_command"
+	      Port {
+		PortNumber		1
+		Name			"<speed_command>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "rad_per_sec_to_rpm1"
+	      SID		      "23242"
+	      Position		      [280, 118, 330, 172]
+	      Gain		      "30/pi"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "rad_per_sec_to_rpm2"
+	      SID		      "23243"
+	      Position		      [280, 188, 330, 242]
+	      Gain		      "30/pi"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	      Port {
+		PortNumber		1
+		Name			"rotor_velocity_rpm"
+		RTWStorageClass		"Auto"
+		DataLogging		on
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "rotor_velocities"
+	      SID		      "22252"
+	      Position		      [680, 173, 710, 187]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      Name		      "<speed_command>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector2"
+	      SrcPort		      1
+	      DstBlock		      "rad_per_sec_to_rpm1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<rotor_velocity>"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector1"
+	      SrcPort		      1
+	      DstBlock		      "rad_per_sec_to_rpm2"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "rotor_velocities"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nCreator1"
+	      SrcPort		      1
+	      DstBlock		      "rotor_velocities"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "system_inputs"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nSelector2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "system_measurements"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nSelector1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "rad_per_sec_to_rpm1"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "rotor_velocity_rpm"
+	      Labels		      [0, 0]
+	      SrcBlock		      "rad_per_sec_to_rpm2"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator1"
+	      DstPort		      2
+	    }
+	    Annotation {
+	      Name		      "Convert Rotor Velocity Units"
+	      Tag		      "systemTitleTag"
+	      Position		      [287, 41]
+	      FontSize		      20
+	      FontWeight	      "bold"
+	    }
+	    Annotation {
+	      Name		      "Convert velocity units from radians per second to revolutions per minute."
+	      Position		      [139, 74]
+	      HorizontalAlignment     "left"
+	      DropShadow	      on
+	      FontName		      "Arial"
+	      FontSize		      12
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Direct and Quadrature Currents (A)"
+	  SID			  "23499"
+	  Ports			  [2]
+	  Position		  [700, 265, 755, 360]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Floating		  off
+	  Location		  [356, 57, 1019, 489]
+	  Open			  off
+	  NumInputPorts		  "2"
+	  ZoomMode		  "yonly"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	    axes2		    "%<SignalLabel>"
+	  }
+	  List {
+	    ListType		    ScopeGraphics
+	    FigureColor		    "[0.5 0.5 0.5]"
+	    AxesColor		    "[0 0 0]"
+	    AxesTickColor	    "[1 1 1]"
+	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	    LineStyles		    "-|-|-|-|-|-"
+	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+	    MarkerStyles	    "none|none|none|none|none|none"
+	  }
+	  TimeRange		  "2"
+	  YMin			  "-0.5~-0.2"
+	  YMax			  "2~1"
+	  SaveName		  "ScopeData3"
+	  DataFormat		  "StructureWithTime"
+	  LimitDataPoints	  off
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "PWM Duty Cycles"
+	  SID			  "23385"
+	  Ports			  [1]
+	  Position		  [700, 392, 755, 488]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Floating		  off
+	  Location		  [451, 358, 1019, 762]
+	  Open			  off
+	  NumInputPorts		  "1"
+	  ZoomMode		  "xonly"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  List {
+	    ListType		    ScopeGraphics
+	    FigureColor		    "[0.5 0.5 0.5]"
+	    AxesColor		    "[0 0 0]"
+	    AxesTickColor	    "[1 1 1]"
+	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	    LineStyles		    "-|-|-|-|-|-"
+	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+	    MarkerStyles	    "none|none|none|none|none|none"
+	  }
+	  TimeRange		  "2"
+	  YMin			  "-0.2"
+	  YMax			  "0.2"
+	  SaveName		  "ScopeData2"
+	  DataFormat		  "StructureWithTime"
+	  LimitDataPoints	  off
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Rotor Velocities (RPM)"
+	  SID			  "22249"
+	  Ports			  [1]
+	  Position		  [700, 122, 755, 218]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Floating		  off
+	  Location		  [533, 212, 1195, 574]
+	  Open			  off
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  List {
+	    ListType		    ScopeGraphics
+	    FigureColor		    "[0.5 0.5 0.5]"
+	    AxesColor		    "[0 0 0]"
+	    AxesTickColor	    "[1 1 1]"
+	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	    LineStyles		    "-|-|-|-|-|-"
+	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+	    MarkerStyles	    "none|none|none|none|none|none"
+	  }
+	  TimeRange		  "2"
+	  YMin			  "-200"
+	  YMax			  "1200"
+	  SaveName		  "ScopeData1"
+	  DataFormat		  "StructureWithTime"
+	  LimitDataPoints	  off
+	  SampleTime		  "0"
+	}
+	Line {
+	  SrcBlock		  "System Measurements"
+	  SrcPort		  1
+	  Points		  [90, 0]
+	  Branch {
+	    DstBlock		    "Convert Rotor Velocity Units"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 120]
+	    Branch {
+	      Points		      [0, 125]
+	      DstBlock		      "Bus\nSelector1"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "Bus\nSelector2"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "System Inputs"
+	  SrcPort		  1
+	  DstBlock		  "Convert Rotor Velocity Units"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "Command (yellow), Measured (magenta)"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "Convert Rotor Velocity Units"
+	  SrcPort		  1
+	  DstBlock		  "Rotor Velocities (RPM)"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<pwm_duty_cycles>"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  1
+	  DstBlock		  "PWM Duty Cycles"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<direct_current>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  1
+	  DstBlock		  "Direct and Quadrature Currents (A)"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<quadrature_current>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector2"
+	  SrcPort		  2
+	  DstBlock		  "Direct and Quadrature Currents (A)"
+	  DstPort		  2
+	}
+	Annotation {
+	  Name			  "System Analysis"
+	  Tag			  "systemTitleTag"
+	  Position		  [362, 46]
+	  FontSize		  20
+	  FontWeight		  "bold"
+	}
+	Annotation {
+	  Name			  "Visualize common signals of interest."
+	  Position		  [259, 79]
+	  HorizontalAlignment	  "left"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  12
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "System Inputs"
+      SID		      "21638"
+      Description	      "\n\n"
+      Ports		      [0, 1]
+      Position		      [55, 123, 150, 197]
+      ShowName		      off
+      LibraryVersion	      "1.216"
+      FontName		      "Arial"
+      FontSize		      18
+      FontWeight	      "bold"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskDisplay	      "fprintf('System\\nInputs')"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"System Inputs"
+	Location		[29, 85, 1015, 713]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"109"
+	Block {
+	  BlockType		  BusCreator
+	  Name			  "Bus\nCreator"
+	  SID			  "21639"
+	  Ports			  [3, 1]
+	  Position		  [630, 126, 635, 544]
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Inputs		  "3"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Signal  Builder Experiments"
+	  SID			  "21640"
+	  Tag			  "STV Subsys"
+	  Ports			  [0, 3]
+	  Position		  [100, 126, 300, 544]
+	  LibraryVersion	  "1.762"
+	  CopyFcn		  "sigbuilder_block('copy');"
+	  DeleteFcn		  "sigbuilder_block('delete');"
+	  LoadFcn		  "sigbuilder_block('load');"
+	  ModelCloseFcn		  "sigbuilder_block('modelClose');"
+	  PreSaveFcn		  "sigbuilder_block('preSave');"
+	  StartFcn		  "sigbuilder_block('start');"
+	  StopFcn		  "sigbuilder_block('stop');"
+	  NameChangeFcn		  "sigbuilder_block('namechange');"
+	  ClipboardFcn		  "sigbuilder_block('clipboard');"
+	  OpenFcn		  "sigbuilder_block('open',[18.75 75 583.5 447.75 ]);"
+	  CloseFcn		  "sigbuilder_block('close');"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  on
+	  MaskType		  "Sigbuilder block"
+	  MaskDescription	  "Sigbuilder GUI"
+	  MaskInitialization	  "if ~strcmp(get_param(bdroot(gcbh),'SimulationStatus'),'stopped') tuvar = sigbuilder_block('ma"
+	  "skInit'); end"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "plot(0,0,100,100,[10,10,40,40,10],[80,20,20,80,80],[40,10],[50,50], [40,27,10],[65,72,56],[40,25,25"
+	  ",10],[28,28,43,43]);"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "port"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  MaskCapabilities	  "slmaskedcaps(gcbh)"
+	  Port {
+	    PortNumber		    1
+	    Name		    "motor_on"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "load_torque_ozin"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "speed_command_rpm"
+	    RTWStorageClass	    "Auto"
+	    DataLogging		    on
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    "Signal  Builder Experiments"
+	    Location		    [480, 85, 980, 386]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "10"
+	    Block {
+	      BlockType		      Demux
+	      Name		      "Demux"
+	      SID		      "21640:1"
+	      Tag		      "STV Demux"
+	      Ports		      [1, 3]
+	      Position		      [150, 54, 160, 636]
+	      Outputs		      "3"
+	    }
+	    Block {
+	      BlockType		      FromWorkspace
+	      Name		      "FromWs"
+	      SID		      "21640:2"
+	      Tag		      "STV FromWs"
+	      Position		      [30, 300, 115, 350]
+	      VariableName	      "tuvar"
+	      SampleTime	      "1e-5"
+	      ZeroCross		      on
+	      OutputAfterFinalValue   "Holding final value"
+	      SigBuilderData	      "DataTag0"
+	      VnvData		      "DataTag1"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Motor On (Boolean)"
+	      SID		      "21640:10"
+	      Tag		      "STV Outport"
+	      Position		      [280, 30, 300, 40]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Load Torque (oz-in)"
+	      SID		      "21640:3"
+	      Tag		      "STV Outport"
+	      Position		      [280, 60, 300, 70]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Speed Command (RPM)"
+	      SID		      "21640:5"
+	      Tag		      "STV Outport"
+	      Position		      [280, 90, 300, 100]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "FromWs"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      DstBlock		      "Demux"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      1
+	      Points		      [100, 0]
+	      DstBlock		      "Motor On (Boolean)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      2
+	      DstBlock		      "Load Torque (oz-in)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      3
+	      DstBlock		      "Speed Command (RPM)"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "oz-in to\nNewton Meters"
+	  SID			  "21642"
+	  Position		  [415, 304, 530, 366]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Gain			  "0.0070615518333"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	  Port {
+	    PortNumber		    1
+	    Name		    "load_torque"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "rpm to\nrad per sec"
+	  SID			  "21643"
+	  Position		  [430, 448, 480, 502]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Gain			  "pi/30"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	  Port {
+	    PortNumber		    1
+	    Name		    "speed_command"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "System Inputs"
+	  SID			  "21644"
+	  Position		  [705, 328, 735, 342]
+	  FontName		  "Arial"
+	  FontSize		  12
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  Name			  "speed_command_rpm"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "Signal  Builder Experiments"
+	  SrcPort		  3
+	  DstBlock		  "rpm to\nrad per sec"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "load_torque_ozin"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "Signal  Builder Experiments"
+	  SrcPort		  2
+	  DstBlock		  "oz-in to\nNewton Meters"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bus\nCreator"
+	  SrcPort		  1
+	  DstBlock		  "System Inputs"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "motor_on"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "Signal  Builder Experiments"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "load_torque"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "oz-in to\nNewton Meters"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "speed_command"
+	  FontName		  "Arial"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "rpm to\nrad per sec"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  3
+	}
+	Annotation {
+	  Name			  "System Inputs"
+	  Tag			  "systemTitleTag"
+	  Position		  [392, 46]
+	  FontSize		  20
+	  FontWeight		  "bold"
+	}
+	Annotation {
+	  Name			  "Specify groups of tests in Signal Builder. Outputs are combined into a bus \nto simplify signal routing t"
+	  "hrough the model."
+	  Position		  [181, 90]
+	  HorizontalAlignment	  "left"
+	  DropShadow		  on
+	  FontName		  "Arial"
+	  FontSize		  12
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "powergui"
+      SID		      "252"
+      Ports		      []
+      Position		      [490, 355, 606, 392]
+      Priority		      "1"
+      LibraryVersion	      "1.2088"
+      UserDataPersistent      on
+      UserData		      "DataTag2"
+      FontName		      "Verdana"
+      FontSize		      12
+      SourceBlock	      "powerlib/powergui"
+      SourceType	      "PSB option menu block"
+      SimulationMode	      "Discrete"
+      SolverType	      "Tustin"
+      SampleTime	      "1e-005"
+      frequency		      "60"
+      SPID		      off
+      DisableSnubberDevices   off
+      DisableRonSwitches      off
+      DisableVfSwitches	      off
+      SwTol		      "0"
+      Interpol		      off
+      DisplayEquations	      off
+      FunctionMessages	      off
+      frequencyindice	      "0"
+      Pbase		      "100e6"
+      ErrMax		      "1e-4"
+      Iterations	      "50"
+      UnitsV		      "kV"
+      UnitsW		      "MW"
+      echomessages	      off
+      HookPort		      off
+      EnableUseOfTLC	      off
+      x0status		      "blocks"
+      RestoreLinks	      "warning"
+      ResistiveCurrentMeasurement off
+      Frange		      "[0:2:500]"
+      Ylog		      off
+      Xlog		      on
+      ShowGrid		      off
+      save		      off
+      variable		      "ZData"
+      ZoomFFT		      on
+      StartTime		      "0.0"
+      cycles		      "1"
+      DisplayStyle	      "1"
+      fundamental	      "60"
+      FreqAxis		      off
+      MaxFrequency	      "1000"
+      frequencyindicesteady   "1"
+      RmsSteady		      "1"
+      display		      off
+      Ts		      "0"
+      methode		      off
+    }
+    Line {
+      SrcBlock		      "Embedded Processor"
+      SrcPort		      1
+      DstBlock		      "Inverter and Motor"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Inverter and Motor"
+      SrcPort		      1
+      Points		      [50, 0]
+      Branch {
+	DstBlock		"System Analysis"
+	DstPort			2
+      }
+      Branch {
+	Labels			[0, 0]
+	Points			[0, 160; -505, 0; 0, -95]
+	DstBlock		"Embedded Processor"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "System Inputs"
+      SrcPort		      1
+      Points		      [35, 0]
+      Branch {
+	Points			[220, 0]
+	Branch {
+	  Points		  [280, 0; 0, 35]
+	  DstBlock		  "System Analysis"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 70]
+	  DstBlock		  "Inverter and Motor"
+	  DstPort		  1
+	}
+      }
+      Branch {
+	Labels			[0, 0]
+	Points			[0, 95]
+	DstBlock		"Embedded Processor"
+	DstPort			1
+      }
+    }
+    Annotation {
+      Name		      "Field-Oriented Control of Permanent Magnet Synchronous Machine\nSystem Test Bench"
+      Tag		      "systemTitle"
+      Position		      [455, 40]
+      VerticalAlignment	      "top"
+      FontName		      "Arial"
+      FontSize		      24
+      FontWeight	      "bold"
+    }
+    Annotation {
+      Position		      [704, 55]
+    }
+    Annotation {
+      Name		      "Copyright 2010-2011 The MathWorks, Inc."
+      Position		      [451, 121]
+      VerticalAlignment	      "top"
+      FontSize		      12
+    }
+    Annotation {
+      Position		      [593, 247]
+      FontSize		      12
+    }
+    Annotation {
+      Position		      [282, 197]
+    }
+  }
+}
+MatData {
+  NumRecords		  3
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    : ,   8    (     @         %    \"     $    !     0         %  0 #     $   \"0    <&]W9"
+    "7)G=6D     <W1E861Y<W1A=&4 :6YI='-T871E<P  ;&]A9&9L;W<     ;'1I=FEE=P      >FUE=&5R        9F9T=&]O;       <F5P;W)"
+    "T        :'ES=&5R97-I<P  ;&EN97!A<F%M    5',             ;&]A9&9L;W=N97< #@   #     &    \"     8         !0    @ "
+    "              $         \"0         .    ,     8    (    !@         %    \"                0         )          X "
+    "   P    !@    @    &          4    (               !          D         #@   #     &    \"     8         !0    @  "
+    "             $         \"0         .    ,     8    (    !@         %    \"                0         )          X  "
+    "  P    !@    @    &          4    (               !          D         #@   #     &    \"     8         !0    @   "
+    "            $         \"0         .    ,     8    (    !@         %    \"                0         )          X   "
+    " P    !@    @    &          4    (               !          D         #@   #     &    \"     8         !0    @    "
+    "           $         \"0         .    ,     8    (    !@         %    \"                0         )          X    "
+    "P    !@    @    &          4    (               !          D         "
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    R ,   8    (     @         %    \"     $    !     0         %  0 $0    $   #,    =F5R:6"
+    "9Y0FQK4&%T:',   !V97)I9GE\";&M(86YD;&5S '9N=DUG<DED>           86-T:79E1W)O=7        !R97%$:7-P4')C;G0      &)L:T1"
+    "I<W!-;V1E        9W)O=7!#;G0           !G<F]U<%)E<4-N=        &=R;W5P1$]/4E-I9       ;6]D96Q(              !B;&]C:"
+    "T@              &]V97)I9&53971T:6YG<P        X    P    !@    @    &          4    (               !          D    "
+    "     #@   #     &    \"     8         !0    @               $         \"0         .    ,     8    (    !@         "
+    "%    \"                0         )          X    X    !@    @    &          4    (     0    $    !          D    ("
+    "            \\#\\.    ,     8    (    !@         %    \"                0         )          X    P    !@    @    "
+    "&          4    (               !          D         #@   #@    &    \"     8         !0    @    !     0    $     "
+    "    \"0    @            (0 X    P    !@    @    &          4    (               !          D         #@   #     & "
+    "   \"     8         !0    @               $         \"0         .    .     8    (    !@         %    \"     $    !"
+    "     0         )    \"            PA #@   #@    &    \"     8         !0    @    !     0    $         \"0    @    "
+    "   \" !(!Z0 X    P    !@    @    &          4    (               !          D         "
+  }
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    <!0   8    (     @         %    \"     $    !     0         %  0 %@    $   \"P    9W)I9"
+    "%-E='1I;F<              &-H86YN96QS                  !A>&5S                        8V]M;6]N                     &1"
+    "A=&%3970                   !D871A4V5T261X                :7-697)I9FEC871I;VY6:7-I8FQE '-B;V)J                     "
+    "  .    ,     8    (    !          %    \"     $    \"     0         0  ( ;VX   X   \"@!P  !@    @    \"          4"
+    "    (     0    ,    !          4 !  *     0   %H   !S=&5P6       <W1E<%D      'E-:6X       !Y36%X        8V]L;W(  "
+    "    &QI;F53='EL90!L:6YE5VED=&@ ;&%B96P      &]U=$EN9&5X           .    .     8    (    !@         %    \"     $   "
+    " !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @  "
+    "             X    X    !@    @    &          4    (     0    $    !          D    (            \\/\\.    .     8  "
+    "  (    !@         %    \"     $    !     0         )    \"            /!_#@   $@    &    \"     8         !0    @ "
+    "   !     P    $         \"0   !@   \"J\\=)-8A#0/P          JO'236(0T#\\.    ,     8    (    !          %    \"    "
+    " $    !     0         0  $ +0    X    X    !@    @    &          4    (     0    $    !          D    (           "
+    " ^#\\.    2     8    (    !          %    \"     $    2     0         0    $@   $UO=&]R($]N(\"A\";V]L96%N*0       "
+    " X    X    !@    @    &          4    (     0    $    !          D    (            \\#\\.    .     8    (    !@   "
+    "      %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0  "
+    "  $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (         "
+    "   \\/\\.    .     8    (    !@         %    \"     $    !     0         )    \"            /!_#@   $@    &    \" "
+    "    8         !0    @    !     P    $         \"0   !@   !\"/NC9K/KJ/P                     .    ,     8    (    ! "
+    "         %    \"     $    !     0         0  $ +0    X    X    !@    @    &          4    (     0    $    !       "
+    "   D    (            ^#\\.    2     8    (    !          %    \"     $    3     0         0    $P   $QO860@5&]R<75"
+    "E(\"AO>BUI;BD       X    X    !@    @    &          4    (     0    $    !          D    (             $ .    .   "
+    "  8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0 "
+    "   @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !        "
+    "  D    (            \\/\\.    .     8    (    !@         %    \"     $    !     0         )    \"            /!_#@"
+    "   $@    &    \"     8         !0    @    !     P    $         \"0   !@   #8@7-&E/;F/P          V(%S1I3VYC\\.    ,"
+    "     8    (    !          %    \"     $    !     0         0  $ +0    X    X    !@    @    &          4    (     0"
+    "    $    !          D    (            ^#\\.    2     8    (    !          %    \"     $    3     0         0    $P"
+    "   %-P965D($-O;6UA;F0@*%)032D       X    X    !@    @    &          4    (     0    $    !          D    (        "
+    "    \"$ .    , 0   8    (     @         %    \"     $    #     0         %  0 \"P    $    W    8VAA;FYE;',   !Y3&E"
+    "M         &QA8F5L4&]S    ;&%B96Q(      !L86)E;%!A=&-H   .    .     8    (    !@         %    \"     $    !     0  "
+    "       )    \"             A #@   $     &    \"     8         !0    @    !     @    $         \"0   !           #B"
+    "/0       2(] #@   #     &    \"     0         !0    @    !     @    $         $  \" %1,   .    .     8    (    !@ "
+    "        %    \"     $    !     0         )    \"        !2!(== #@   #@    &    \"     8         !0    @    !     0"
+    "    $         \"0    @        602'70 X    X    !@    @    &          4    (     0    $    !          D    (       "
+    "      $ .    0     8    (    !@         %    \"     $    \"     0         )    $            /\"_        \\#\\.    "
+    ",     8    (    !          %    \"     $    \"     0         0  ( 5$P   X    X    !@    @    &          4    (    "
+    " 0    $    !          D    (        %($BUT .    .     8    (    !@         %    \"     $    !     0         )    \""
+    "        !9!(M= #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/PX   !     !"
+    "@    @    &          4    (     0    (    !          D    0    FIF9F9F9N;^:F9F9F9GQ/PX    P    !@    @    $       "
+    "   4    (     0    (    !         !   @!43   #@   #@    &    \"     8         !0    @    !     0    $         \"0 "
+    "   @        4@2/70 X    X    !@    @    &          4    (     0    $    !          D    (        %D$CUT .    8 (  "
+    " 8    (     @         %    \"     $    !     0         %  0 #@    $   !B    9&ES<%1I;64       !D:7-P36]D90       &"
+    "UI;E1I;64         ;6%X5&EM90        !A9G1E<D9I;F%L4W1R '-A;7!L951I;64     >F5R;T-R;W-S               .    0     8 "
+    "   (    !@         %    \"     $    \"     0         )    $                        $ .    .     8    (    !@      "
+    "   %    \"     $    !     0         )    \"            / _#@   #@    &    \"     8         !0    @    !     0    $"
+    "         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (            "
+    " $ .    0     8    (    !          %    \"     $    0     0         0    $    $AO;&0@9FEN86P@=F%L=64.    ,     8  "
+    "  (    !          %    \"     $    $     0         0  0 ,64M-0X    P    !@    @    $          4    (     0    (   "
+    " !         !   @!O;@  #@   /@#   &    \"     (         !0    @    !     P    $         !0 $  X    !    .    &%C=&E"
+    "V941I<W!)9'@ =&EM95)A;F=E      !N86UE             &1I<W!L87E286YG90  #@   $@    &    \"     8         !0    @    !"
+    "     P    $         \"0   !@            (0         !         \\#\\.    0     8    (    !@         %    \"     $   "
+    " \"     0         )    $                        $ .    2     8    (    !          %    \"     $    5     0        "
+    " 0    %0   $YO($QO860@4W!E960@0V]N=')O;     X   !     !@    @    &          4    (     0    (    !          D    0"
+    "                        0 X   !(    !@    @    &          4    (     0    ,    !          D    8            \"$   "
+    "       0        / _#@   $     &    \"     8         !0    @    !     @    $         \"0   !                       "
+    " ! #@   $@    &    \"     0         !0    @    !    $@    $         $    !(   !#:&%N9V4@5&]R<75E($QO860        .  "
+    "  0     8    (    !@         %    \"     $    \"     0         )    $                        $ .    2     8    (  "
+    "  !@         %    \"     $    #     0         )    &             A          $        #P/PX   !     !@    @    &   "
+    "       4    (     0    (    !          D    0                        0 X   !     !@    @    $          4    (     "
+    "0    H    !         !     *    4F%M<\"!3<&5E9         X   !     !@    @    &          4    (     0    (    !      "
+    "    D    0                        0 X    X    !@    @    &          4    (     0    $    !          D    (        "
+    "    \\#\\.    .     8    (    !@         %    \"     $    !     0         )    \"               #@   (     &    \""
+    "    !$          0         !  0 34-/4P$    (    4VEG4W5I=&4.    2     8    (    #0         %    \"     8    !     0"
+    "         &    &        -T\"     0    $    !     P    X   !(%P  !@    @    )          4    (     0   !@7   !       "
+    "   (    8%P    %)30     .    >!8   8    (     @         %    \"     $    !     0         %  0 !0    $    %    34-/"
+    "4P     .    ,!8   8    (    $0         !          $ ! !-0T]3 0    T   !&:6QE5W)A<'!E<E]?    #@   / 5   &    \"    "
+    " $         !0    @    H     0    $         #@   -@$   &    \"     D         !0    @   \"H!    0    $          @   "
+    "*@$   \"    #0   +    #P    \\    $ \"   X!   J 0             1W)O=7!S $YA;64 4VEG;F%L<P!81&%T80!91&%T80!3:6=3=6ET"
+    "95-I9VYA; !5<V5R1&%T80!4:6UE4F%N9V4 4VEG4W5I=&5'<F]U< !!8W1I=F53:6=N86P 4F5Q=6ER96UE;G1);F9O %-I9U-U:71E $%C=&EV94"
+    "=R;W5P                                    !@                    D                    ,                            "
+    "                   #                     0    T    \"                     @    0    !                     P    $  "
+    "  !                    !     (    !                    !0    ,    \"                    !@    @    !              "
+    "      !P    4    !                    \"     8    !                    \"0    <    \"                    \"@    P "
+    "   !                    \"P    D    !                    #     H    !                    #0    L               $  "
+    "  !     0   \"0    #     @    $          P    $    *    \"     $    +     P    (    !     0    0    !     @    4  "
+    "  !     P    ,    \"     0    0    $     0    4    %     0    8    #     @    $    '    !     $    (    !0    $   "
+    " )     P    (    !    #     ,    !    %@    @    !    %P    ,    \"     0    T    $     0    X    %     0    \\   "
+    " #     @    $    0    !     $    1    !0    $    2     P    (    !    $P    0    !    %     4    !    %0    ,    \""
+    "     0   !@    #     0   \"(    (     0   \",    #     @    $    9    !     $    :    !0    $    ;     P    (    !"
+    "    '     0    !    '0    4    !    '@    ,    \"     0   !\\    $     0   \"     %     0   \"$                   "
+    "                                                                                                                  "
+    "                    #@         .    2     8    (    !          %    \"     $    5     0         0    %0   $YO($QO8"
+    "60@4W!E960@0V]N=')O;     X   !(    !@    @    $          4    (     0   !(    !         !     2    36]T;W(@3VX@*$)"
+    "O;VQE86XI        #@   %     &    \"     8         !0    @    !    !     $         \"0   \"               #S?3XV7;I"
+    "(_/-]/C9=NDC\\         0 X   !0    !@    @    &          4    (     0    0    !          D    @                   "
+    "              / _        \\#\\.    2     8    (    !          %    \"     $    3     0         0    $P   $QO860@5&"
+    "]R<75E(\"AO>BUI;BD       X   !     !@    @    &          4    (     0    (    !          D    0                   "
+    "     0 X   !     !@    @    &          4    (     0    (    !          D    0                          X   !(    !"
+    "@    @    $          4    (     0   !,    !         !     3    4W!E960@0V]M;6%N9\" H4E!-*0      #@   $     &    \""
+    "     8         !0    @    !     @    $         \"0   !                        ! #@   $     &    \"     8         !"
+    "0    @    !     @    $         \"0   !           $\"/0       0(] #@   %     &    \"     T         !0    @    (    "
+    " 0    $         !@   \"        #= @    $    #     P    0    %     0    X   !     !@    @    &          4    (     "
+    "0    (    !          D    0                        0 X   !(    !@    @    $          4    (     0   !(    !       "
+    "  !     2    0VAA;F=E(%1O<G%U92!,;V%D        #@   $@    &    \"     0         !0    @    !    $@    $         $   "
+    " !(   !-;W1O<B!/;B H0F]O;&5A;BD        .    4     8    (    !@         %    \"     $    $     0         )    (    "
+    "           NDD, BN'EC^Z20P\"*X>6/P        ! #@   %     &    \"     8         !0    @    !    !     $         \"0  "
+    " \"                                  \\#\\       #P/PX   !(    !@    @    $          4    (     0   !,    !       "
+    "  !     3    3&]A9\"!4;W)Q=64@*&]Z+6EN*0      #@   %     &    \"     8         !0    @    !    !     $         \"0"
+    "   \"               $CA>A2N1_,_2.%Z%*Y'\\S\\         0 X   !0    !@    @    &          4    (     0    0    !     "
+    "     D    @              ![%*Y'X7J$OP       / _        \\#\\.    2     8    (    !          %    \"     $    3    "
+    " 0         0    $P   %-P965D($-O;6UA;F0@*%)032D       X   !     !@    @    &          4    (     0    (    !      "
+    "    D    0                        0 X   !     !@    @    &          4    (     0    (    !          D    0        "
+    "  ! GT       $\"?0 X   !0    !@    @    -          4    (    \"     $    !          8    @        W0(    !     P  "
+    "  <    (    \"0    $    .    0     8    (    !@         %    \"     $    \"     0         )    $                  "
+    "      $ .    0     8    (    !          %    \"     $    *     0         0    \"@   %)A;7 @4W!E960        .    2  "
+    "   8    (    !          %    \"     $    2     0         0    $@   $UO=&]R($]N(\"A\";V]L96%N*0        X   !0    !@"
+    "    @    &          4    (     0    0    !          D    @              !G9F9F9F;V/V=F9F9F9O8_         $ .    4   "
+    "  8    (    !@         %    \"     $    $     0         )    (            / _        \\#\\                     #@ "
+    "  $@    &    \"     0         !0    @    !    $P    $         $    !,   !,;V%D(%1O<G%U92 H;WHM:6XI       .    0   "
+    "  8    (    !@         %    \"     $    \"     0         )    $                        $ .    0     8    (    !@  "
+    "       %    \"     $    \"     0         )    $                          .    2     8    (    !          %    \"  "
+    "   $    3     0         0    $P   %-P965D($-O;6UA;F0@*%)032D       X   !0    !@    @    &          4    (     0   "
+    " 0    !          D    @                      #@/YJ9F9F9F?D_         $ .    4     8    (    !@         %    \"     "
+    "$    $     0         )    (                                $!_P       0'_ #@   %     &    \"     T         !0    @"
+    "    (     0    $         !@   \"        #= @    $    #    \"P    P    -     0    X   !     !@    @    &          4"
+    "    (     0    (    !          D    0                        0 X   !0    !@    @    -          4    (    \"     $ "
+    "   !          8    @        W0(    !     P    (    &    \"@    (    .    . 4   8    (     0         %    \"     0 "
+    "   !     0         .    .     8    (     @         %    \"     $          0         %  0  0    $         #@   $ ! "
+    "  &    \"     (         !0    @    !     0    $         !0 $  D    !    )    $YA;64      %A$871A     %E$871A     %"
+    "5S97)$871A       .    ,     8    (    !          %    \"                0         0          X    P    !@    @    "
+    "&          4    (               !          D         #@   #     &    \"     8         !0    @               $     "
+    "    \"0         .    ,     8    (    !@         %    \"                0         )          X    0 @  !@    @    \""
+    "          4    (     0    $    !          4 !  0     0   &    !.86UE                4VEG;F%L<P           $%C=&EV95"
+    "-I9VYA;     !297%U:7)E;65N=$EN9F\\ 57-E<D1A=&$          %1I;65286YG90         .    ,     8    (    !          %   "
+    " \"                0         0          X   !(    !@    @    -          4    (    !0    $    !          8    4    "
+    "    W0(               $         #@   #     &    \"     8         !0    @               $         \"0         .    "
+    ",     8    (    !          %    \"                0         0          X    P    !@    @    &          4    (     "
+    "          !          D         #@   $     &    \"     8         !0    @    !     @    $         \"0   !           "
+    "            \"1 #@   &@!   &    \"     (         !0    @    !     0    $         !0 $  P    !    ,    $YA;64      "
+    "    $=R;W5P<P       $%C=&EV94=R;W5P %5S97)$871A      X    P    !@    @    $          4    (               !       "
+    "  !          #@   $@    &    \"     T         !0    @    %     0    $         !@   !0       #= @               @  "
+    "       .    .     8    (    !@         %    \"     $    !     0         )    \"            / _#@   #     &    \"  "
+    "   8         !0    @               $         \"0         .    B     8    (    \"0         %    \"     $   !8     0"
+    "         \"    6      !24T     #@   $@    &    \"     (         !0    @    !     0    $         !0 $  4    !    !0"
+    "   $U#3U,     #@         "
+  }
+}
+# Finite State Machines
+#
+#    Stateflow Version 7.6 (R2011b) dated Aug  6 2011, 03:24:51
+#
+#
+
+
+Stateflow {
+  machine {
+    id			    1
+    name		    "rtwdemo_pmsmfoc_system_nn"
+    created		    "28-Sep-2010 10:24:08"
+    isLibrary		    0
+    firstTarget		    11
+    sfVersion		    76014001.0002
+    sfDemoChecksum	    [2412219638 4223498585 2351861405 1580208050]
+  }
+  chart {
+    id			    2
+    name		    "Embedded Processor/Sensor Peripherals/Measure Rotor Position\n(Quadrature Encoder)/Create Index Pulse"
+    windowPosition	    [255.45 300 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1400 1050 1.333333333333333]
+    treeNode		    [0 3 0 0]
+    firstTransition	    5
+    firstJunction	    4
+    viewObj		    2
+    machine		    1
+    ssIdHighWaterMark	    8
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    6
+    chartFileNumber	    3
+    disableImplicitCasting  1
+    eml {
+      name		      "fcn"
+    }
+  }
+  state {
+    id			    3
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 0 0]
+    superState		    SUBCHART
+    subviewer		    2
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function indexPulse = fcn(rotorVelocity, currentCount, encoderCountsPerRevolution )  %#eml\n% Cre"
+      "ate index pulse based \n%   rotorVelocity: Measured motor speed\n%   currentCount: Encoder count representing ab"
+      "solute position of the rotor\n%   encoderCountsPerRevolution: Parameter from the base workspace\n\n    persisten"
+      "t previousCount;\n\n    % Arbitrarily place index pulse at half the number of counts\n    % per revolution. This"
+      " simplifies calculations to identify passing the\n    % position of the index pulse during simulation.\n    inde"
+      "xCount = encoderCountsPerRevolution / 2;\n\n    if isempty(previousCount)\n        previousCount = currentCount;"
+      "\n    end\n\n    isClockwise = rotorVelocity > 0;\n\n    % Check counterclockwise passing angle, then check cloc"
+      "kwise\n    if ( ((currentCount  >= indexCount) && (previousCount <= indexCount)) && ~isClockwise || ...\n       "
+      "  ((currentCount  <= indexCount) && (previousCount >= indexCount)) &&  isClockwise)\n        index = true;\n    "
+      "else\n        index = false;\n    end\n\n    previousCount = currentCount;\n\n    indexPulse = uint16(index);\ne"
+      "nd\n\n"
+      editorLayout	      "100 M4x1[5 14 795 670]"
+    }
+  }
+  junction {
+    id			    4
+    position		    [23.5747 49.5747 7]
+    chart		    2
+    linkNode		    [2 0 0]
+    subviewer		    2
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    5
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      4
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    2
+    linkNode		    [2 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    2
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    6
+    ssIdNumber		    6
+    name		    "rotorVelocity"
+    linkNode		    [2 0 7]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    7
+    ssIdNumber		    4
+    name		    "currentCount"
+    linkNode		    [2 6 8]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    8
+    ssIdNumber		    5
+    name		    "indexPulse"
+    linkNode		    [2 7 9]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    9
+    ssIdNumber		    8
+    name		    "encoderCountsPerRevolution"
+    linkNode		    [2 8 0]
+    scope		    PARAMETER_DATA
+    isNonTunable	    1
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    10
+    name		    "Embedded Processor/Sensor Peripherals/Measure Rotor Position\n(Quadrature Encoder)/Create Index Pulse"
+    machine		    1
+    chart		    2
+  }
+  target {
+    id			    11
+    name		    "sfun"
+    description		    "Default Simulink S-Function Target."
+    machine		    1
+    linkNode		    [1 0 0]
+  }
+}
