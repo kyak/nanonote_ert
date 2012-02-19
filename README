@@ -20,5 +20,11 @@ addpref('nanonote','HOSTNAME','ben');
 Supported features:
 - Generate Standalone executables (not real time) to run on Ben
 - PIL Modes:
+ Top level PIL
+ Model Block PIL
+ Subsystem PIL
 
 Required MathWorks products:
+ MATLAB
+ Simulink
+ Embedded Coder
