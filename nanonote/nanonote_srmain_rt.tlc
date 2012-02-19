@@ -1,0 +1,146 @@
+%selectfile NULL_FILE
+
+%function FcnSingleTaskingMain() void
+  
+  %if GenerateSampleERTMain
+    %assign ::CompiledModel.GenerateSampleERTMain = TLC_FALSE
+    %warning Overriding example ert_main.c!
+  %endif
+
+  %assign cFile = LibCreateSourceFile("Source", "Custom", "ert_main")
+  
+  %openfile tmpBuf
+  static boolean_T OverrunFlag = 0;\
+  
+  %<SLibDeclareFcnProtoCtlGlobalVariables()>\
+  
+  %<LibWriteModelData()>\
+  %closefile tmpBuf
+  
+  %<LibSetSourceFileSection(cFile, "Definitions", tmpBuf)>
+  
+  %openfile tmpBuf
+  #include "%<LibGetMdlPubHdrBaseName()>.h"
+  %closefile tmpBuf
+  
+  %<LibSetSourceFileSection(cFile, "Includes", tmpBuf)>
+  
+  %openfile tmpBuf
+  #include <stdint.h>
+  #include <stdlib.h>
+  #include <stdio.h>
+  #include <fcntl.h>
+  #include <unistd.h>
+  #include <sys/mman.h>
+
+  static uint32_t old_icmr;
+  static volatile void *base;
+
+  #define REG_BASE_PTR base
+  #define SOC_BASE 0x10000000
+  #define REG_WINDOW 0x4000000
+  #define REG(n) (*(volatile uint32_t *) ((void *) (REG_BASE_PTR)+(n)))
+  #define _INTC(n) REG(0x0001000+(n))
+  #define ICMR _INTC(0x04) /* Interrupt controller mask */
+  #define ICMSR _INTC(0x08) /* Interrupt controller mask set */
+  #define ICMCR _INTC(0x0c) /* Interrupt controller mask clear */
+
+  #define STEP_SIZE (%<CompiledModel.FundamentalStepSize>*1000) /* ms */
+
+  static void disable_interrupts(void)
+  {
+      /*
+       * @@@ Race condition alert ! If we get interrupted/preempted between
+       * reading ICMR and masking all interrupts, and the code that runs
+       * between these two operations changes ICMR, then we may set an
+       * incorrect mask when restoring interrupts, which may hang the system.
+       */
+
+      old_icmr = ICMR;
+      ICMSR = 0xffffffff;
+  }
+
+  static void enable_interrupts(void)
+  {
+      ICMCR = ~old_icmr;
+  }
+
+  void *map(off_t addr, size_t size)
+  {
+      int fd;
+      void *mem;
+
+      fd = open("/dev/mem", O_RDWR | O_SYNC);
+      if (fd < 0) {
+	    perror("/dev/mem");
+	    exit(1);
+      }
+      mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, addr);
+      if (mem == MAP_FAILED) {
+	    perror("mmap");
+	    exit(1);
+      }
+
+      return mem;
+  }
+
+  static void ben_setup(void)
+  {
+    base = map(SOC_BASE, REG_WINDOW);
+  }
+
+  void rt_OneStep()
+  {
+    /* Disable interrupts here */
+    disable_interrupts();	
+
+    /* Check for overun */
+    if (OverrunFlag++) {
+      %<LibSetRTModelErrorStatus("\"Overrun\"")>;
+      return;
+    }
+    
+    /* Save FPU context here (if necessary) */
+    /* Re-enable timer or interrupt here */
+    %assign varsbuf = LibWriteModelInputs()
+    %if varsbuf != ""
+      /* Remove conditional, and set model inputs here */
+      %<varsbuf>\
+    %endif
+    
+    %<LibCallModelStep(0)>\
+    
+    %assign varsbuf = LibWriteModelOutputs()
+    %if varsbuf != ""
+      /* Remove conditional, and get model outputs here */
+      %<varsbuf>\
+    %endif
+    
+    OverrunFlag--;
+    
+    /* Disable interrupts here */
+    /* Restore FPU context here (if necessary) */
+    /* Enable interrupts here */
+    enable_interrupts();
+  }
+  
+  int_T main(int_T argc, const char_T *argv[])
+  {
+    ben_setup();
+
+    /* Initialize model */
+    %<LibCallModelInitialize()>\
+    
+    rt_OneStep();
+    printf("Good job!\n");
+
+    %<LibCallModelTerminate()>\
+    return 0;
+  }
+  %closefile tmpBuf
+  
+  %<LibSetSourceFileSection(cFile, "Functions", tmpBuf)>
+  
+%endfunction
+
+%<FcnSingleTaskingMain()>

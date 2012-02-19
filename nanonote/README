@@ -1,0 +1,24 @@
+This is a custom target for Ben NanoNote, small but capable computing device.
+See http://en.qi-hardware.com/wiki/Ben_NanoNote for more details about this device.
+
+Steps to install:
+1) Download OpenWrt toolchain tailored for Ben NanoNote here:
+http://downloads.qi-hardware.com/software/images/NanoNote/Ben/latest/
+Choose the file which name starts with "OpenWrt-Toolchain-xburst..." and suitable for your architecture (i686 or x86_64).
+Alternatively, build your own toolchain following the steps here:
+http://en.qi-hardware.com/wiki/Building_Software_Image
+
+2) Run
+addpref('nanonote','TOOLCHAIN_PREFIX','/your/path/to/toolchain-mipsel_gcc-4.5-linaro_uClibc-0.9.32/bin/mipsel-openwrt-linux-');
+
+3) Set up a passwordless login to Ben NanoNote. Follow the steps described elsewhere to achieve this.
+Add an entry to /etc/hosts to avoid using Ben NanoNote IP (for your convenience).
+Verify that you can login into Ben by typing "ssh ben" (or whatever name you gave it) in your shell.
+Run
+addpref('nanonote','HOSTNAME','ben');
+
+Supported features:
+- Generate Standalone executables (not real time) to run on Ben
+- PIL Modes:
+
+Required MathWorks products:
