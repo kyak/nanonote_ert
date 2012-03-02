@@ -1,29 +1,60 @@
 Model {
   Name			  "rtwdemo_pmsmfoc_system_nn"
-  Version		  7.8
+  Version		  7.9
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1681"
+    ComputedModelVersion    "1.2752"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Controller Algorithm Software Specificatio"
       "n|rtwdemo_pmsmfoc_nn"
     }
-    NumTestPointedSignals   4
+    NumTestPointedSignals   8
     TestPointedSignal {
       SignalName	      "motor_on"
-      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Command Channel/Motor On Data Type Conversion"
+      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Command Channel"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
     }
     TestPointedSignal {
-      SignalName	      "encoder_index"
-      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Sensor Peripherals/Measure Rotor Position (Qua"
-      "drature Encoder)"
+      SignalName	      "command_type"
+      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Command Channel"
+      PortIndex		      2
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "command_value"
+      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Command Channel"
+      PortIndex		      3
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "pwm_compare"
+      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Controller Algorithm Software Specification"
+      LogSignal		      1
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "sensors"
+      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Sensor Peripherals"
+      LogSignal		      1
+      UseCustomName	      1
+      LogName		      "sensors"
+      MaxPoints		      5000
+      Decimation	      2
+    }
+    TestPointedSignal {
+      SignalName	      "rotor_angle"
+      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/Inverter and Motor/Motor/Map Rotor Angle with Electrical Zero"
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
@@ -37,8 +68,8 @@ Model {
     }
     TestPointedSignal {
       SignalName	      "speed_command_rpm"
-      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/System Inputs/Signal  Builder Experiments"
-      PortIndex		      3
+      FullBlockPath	      "rtwdemo_pmsmfoc_system_nn/System Inputs/Signal Builder Experiments"
+      PortIndex		      2
       LogSignal		      1
       MaxPoints		      5000
       Decimation	      2
@@ -50,7 +81,7 @@ Model {
   "n, \ntransitioning to closed loop operation, and changing speed and torque during closed loop control.\nThe Embedded"
   " Processor subsystem contains the controller algorithm (which supports C code generation) as well as simulation mode"
   "ls of peripherals."
-  SavedCharacterEncoding  "windows-1252"
+  SavedCharacterEncoding  "windows-1251"
   slprops.hdlmdlprops {
     $PropName		    "HDLParams"
     $ObjectID		    1
@@ -62,7 +93,7 @@ Model {
       PropName		      "mdlProps"
     }
   }
-  PreLoadFcn		  "rtwdemo_pmsmfoc_data"
+  PreLoadFcn		  "rtwdemo_pmsmfoc_data\n"
   SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
@@ -73,27 +104,28 @@ Model {
   MinMaxOverflowArchiveMode "Overwrite"
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
-  StopFcn		  "\n"
+  StartFcn		  "clear executionProfile"
+  StopFcn		  "try \n  AddExecutionProfileToDataInspector();\nend"
   UserBdParams		  "PhysicalModelingChecksum;PhysicalModelingParameterChecksum;PhysicalModelingProducts"
-  PhysicalModelingChecksum "681464010"
-  PhysicalModelingParameterChecksum "681464010"
-  PhysicalModelingProducts "Simscape"
+  PhysicalModelingChecksum "2928738692"
+  PhysicalModelingParameterChecksum "3279342299"
+  PhysicalModelingProducts "Power_System_Blocks"
   Created		  "Tue Nov 03 10:51:16 2009"
   Creator		  "The MathWorks Inc."
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jan 21 13:23:22 2012"
-  RTWModifiedTimeStamp	  249052430
-  ModelVersionFormat	  "1.%<AutoIncrement:1681>"
+  LastModifiedDate	  "Fri Mar 02 23:47:07 2012"
+  RTWModifiedTimeStamp	  252631616
+  ModelVersionFormat	  "1.%<AutoIncrement:2752>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
   WideLines		  on
   ShowLineDimensions	  on
-  ShowPortDataTypes	  on
+  ShowPortDataTypes	  off
   ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
@@ -109,7 +141,7 @@ Model {
   BlockDescriptionStringDataTip	off
   ToolBar		  on
   StatusBar		  on
-  BrowserShowLibraryLinks on
+  BrowserShowLibraryLinks off
   BrowserLookUnderMasks	  on
   SimulationMode	  "normal"
   LinearizationMsg	  "none"
@@ -124,19 +156,22 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "rtwdemo_pmsmfoc_system_nn"
-    signals_		    []
     overrideMode_	    [2.0]
     Array {
       Type		      "Cell"
-      Dimension		      2
+      Dimension		      4
       Cell		      "rtwdemo_pmsmfoc_system_nn"
+      Cell		      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Controller Algorithm Software Specification"
+      Cell		      "pmsmfoc_velocity_testbench/Embedded Processor/Controller Algorithm Software Specification"
       Cell		      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Controller Algorithm Software Specification"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
       Type		      "Cell"
-      Dimension		      2
+      Dimension		      4
       Cell		      []
+      Cell		      "rtwdemo_pmsmfoc_system_nn:23153"
+      Cell		      ""
       Cell		      "rtwdemo_pmsmfoc_system_nn:23153"
       PropName		      "logAsSpecifiedByModelsSSIDs_"
     }
@@ -144,7 +179,7 @@ Model {
   RecordCoverage	  off
   CovPath		  "/"
   CovSaveName		  "covdata"
-  CovMetricSettings	  "dw"
+  CovMetricSettings	  "dcmtrzow"
   CovHTMLOptions	  " -aTS=1 -bRG=1 -bTC=1 -hTR=0 -nFC=0 -scm=1 -bcm=1 -xEv=0"
   CovNameIncrementing	  off
   CovHtmlReporting	  on
@@ -185,13 +220,13 @@ Model {
     Dimension		    2
     Simulink.ConfigSet {
       $ObjectID		      3
-      Version		      "1.11.1"
+      Version		      "1.12.0"
       Array {
 	Type			"Handle"
 	Dimension		10
 	Simulink.SolverCC {
 	  $ObjectID		  4
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  StartTime		  "0.0"
 	  StopTime		  "0.3"
 	  AbsTol		  "auto"
@@ -209,6 +244,7 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
+	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "ode45"
 	  SolverName		  "ode45"
@@ -225,7 +261,7 @@ Model {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  5
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -257,7 +293,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  6
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    7
@@ -308,11 +344,11 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
-	  AccelParallelForEachSubsystem	on
+	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  7
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -400,7 +436,7 @@ Model {
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  8
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -437,7 +473,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  9
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
@@ -452,7 +488,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  10
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -467,7 +503,7 @@ Model {
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  11
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    6
@@ -508,8 +544,9 @@ Model {
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
 	  GenerateCodeInfo	  off
-	  GenerateSLWebview	  off
+	  GenerateWebview	  off
 	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
@@ -518,7 +555,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      12
-	      Version		      "1.11.1"
+	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
 		Dimension		19
@@ -581,7 +618,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      13
-	      Version		      "1.11.1"
+	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
 		Dimension		17
@@ -607,8 +644,8 @@ Model {
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      TargetFunctionLibrary   "ANSI_C"
-	      UtilityFuncGeneration   "Shared location"
+	      CodeReplacementLibrary  "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
 	      CodeExecutionProfiling  off
 	      ERTMultiwordLength      256
@@ -645,6 +682,7 @@ Model {
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
+	      GRTInterface	      on
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -664,7 +702,7 @@ Model {
 	}
 	hdlcoderui.hdlcc {
 	  $ObjectID		  14
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  Description		  "HDL Coder custom configuration component"
 	  Name			  "HDL Coder"
 	  Array {
@@ -687,7 +725,6 @@ Model {
 	  Name			  "Simscape"
 	  EditingMode		  "Full"
 	  ExplicitSolverDiagnosticOptions "warning"
-	  InputDerivativeDiagnosticOptions "warning"
 	  GlobalZcOffDiagnosticOptions "warning"
 	  SimscapeLogType	  "none"
 	  SimscapeLogName	  "simlog"
@@ -703,15 +740,15 @@ Model {
     }
     Simulink.ConfigSet {
       $ObjectID		      16
-      Version		      "1.11.1"
+      Version		      "1.12.0"
       Array {
 	Type			"Handle"
 	Dimension		10
 	Simulink.SolverCC {
 	  $ObjectID		  17
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "2"
+	  StopTime		  "0.2"
 	  AbsTol		  "auto"
 	  FixedStep		  "40e-6"
 	  InitialStep		  "auto"
@@ -727,6 +764,7 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  SolverMode		  "SingleTasking"
+	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "ode45"
 	  SolverName		  "ode45"
@@ -743,7 +781,7 @@ Model {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  18
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -775,7 +813,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  19
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  BlockReduction	  on
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
@@ -814,11 +852,11 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
-	  AccelParallelForEachSubsystem	on
+	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  20
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -906,7 +944,7 @@ Model {
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  21
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -943,7 +981,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  22
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
@@ -958,7 +996,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  23
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -973,7 +1011,7 @@ Model {
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  24
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -1011,8 +1049,9 @@ Model {
 	  GenerateTraceReportSf	  on
 	  GenerateTraceReportEml  on
 	  GenerateCodeInfo	  off
-	  GenerateSLWebview	  off
+	  GenerateWebview	  off
 	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
@@ -1021,13 +1060,13 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      25
-	      Version		      "1.11.1"
+	      Version		      "1.12.0"
 	      ForceParamTrailComments off
 	      GenerateComments	      on
 	      IgnoreCustomStorageClasses off
 	      IgnoreTestpoints	      on
 	      IncHierarchyInIds	      off
-	      MaxIdLength	      31
+	      MaxIdLength	      64
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
@@ -1060,7 +1099,7 @@ Model {
 	    Simulink.STFCustomTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      26
-	      Version		      "1.11.1"
+	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
 		Dimension		1
@@ -1070,7 +1109,7 @@ Model {
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      TargetFunctionLibrary   "ANSI_C"
+	      CodeReplacementLibrary  "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
 	      CodeExecutionProfiling  off
@@ -1108,6 +1147,7 @@ Model {
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
+	      GRTInterface	      off
 	      SystemTargetFile	      "nanonote.tlc"
 	      DialogCategory	      0
 	      Array {
@@ -1116,7 +1156,7 @@ Model {
 		Simulink.ERTTargetCC {
 		  $BackupClass		  "Simulink.TargetCC"
 		  $ObjectID		  27
-		  Version		  "1.11.1"
+		  Version		  "1.12.0"
 		  Array {
 		    Type		    "Cell"
 		    Dimension		    1
@@ -1126,7 +1166,7 @@ Model {
 		  TargetFcnLib		  "ansi_tfl_table_tmw.mat"
 		  TargetLibSuffix	  ""
 		  TargetPreCompLibLocation ""
-		  TargetFunctionLibrary	  "ANSI_C"
+		  CodeReplacementLibrary  "ANSI_C"
 		  UtilityFuncGeneration	  "Auto"
 		  ERTMultiwordTypeDef	  "System defined"
 		  CodeExecutionProfiling  off
@@ -1164,6 +1204,7 @@ Model {
 		  ModelStepFunctionPrototypeControlCompliant off
 		  CPPClassGenCompliant	  off
 		  AutosarCompliant	  off
+		  GRTInterface		  off
 		  GenerateErtSFunction	  off
 		  CreateSILPILBlock	  "None"
 		  CodeExecutionProfileVariable "executionProfile"
@@ -1174,7 +1215,7 @@ Model {
 		  ExtModeStaticAlloc	  off
 		  ExtModeStaticAllocSize  1000000
 		  ExtModeTesting	  off
-		  ExtModeMexFile	  "noextcomm"
+		  ExtModeMexFile	  "ext_comm"
 		  ExtModeIntrfLevel	  "Level1"
 		  InlinedParameterPlacement "NonHierarchical"
 		  TargetOS		  "BareBoardExample"
@@ -1199,7 +1240,6 @@ Model {
 		  GlobalDataReference	  "Auto"
 		  ERTFilePackagingFormat  "Modular"
 		  DataReferenceFile	  "global.h"
-		  GRTInterface		  off
 		  PreserveExpressionOrder off
 		  PreserveIfCondition	  off
 		  ConvertIfToSwitch	  off
@@ -1248,7 +1288,7 @@ Model {
 	}
 	hdlcoderui.hdlcc {
 	  $ObjectID		  28
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  Description		  "HDL Coder custom configuration component"
 	  Name			  "Component"
 	  Array {
@@ -1262,16 +1302,9 @@ Model {
 	SSC.SimscapeCC {
 	  $ObjectID		  29
 	  Version		  "1.0"
-	  Array {
-	    Type		    "Cell"
-	    Dimension		    1
-	    Cell		    "Name"
-	    PropName		    "DisabledProps"
-	  }
 	  Name			  "Simscape"
 	  EditingMode		  "Full"
 	  ExplicitSolverDiagnosticOptions "warning"
-	  InputDerivativeDiagnosticOptions "warning"
 	  GlobalZcOffDiagnosticOptions "warning"
 	  SimscapeLogType	  "none"
 	  SimscapeLogName	  "simlog"
@@ -1291,6 +1324,7 @@ Model {
     $PropName		    "ActiveConfigurationSet"
     $ObjectID		    16
   }
+  ExplicitPartitioning	  off
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -1342,6 +1376,7 @@ Model {
     Block {
       BlockType		      Concatenate
       NumInputs		      "2"
+      Mode		      "Vector"
       ConcatenateDimension    "1"
     }
     Block {
@@ -1399,13 +1434,21 @@ Model {
       RTWStateStorageClass    "Auto"
     }
     Block {
-      BlockType		      Fcn
-      Expr		      "sin(u[1])"
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
       SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      From
+      IconDisplay	      "Tag"
+      TagVisibility	      "local"
     }
     Block {
       BlockType		      FromWorkspace
       VariableName	      "simulink_input"
+      OutDataTypeStr	      "Inherit: auto"
       SampleTime	      "-1"
       Interpolate	      on
       ZeroCross		      off
@@ -1427,6 +1470,11 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      Goto
+      IconDisplay	      "Tag"
+      TagVisibility	      "local"
+    }
+    Block {
       BlockType		      Inport
       Port		      "1"
       OutputFunctionCall      off
@@ -1442,6 +1490,21 @@ Model {
       SamplingMode	      "auto"
       LatchByDelayingOutsideSignal off
       LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      InportShadow
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
       Interpolate	      on
     }
     Block {
@@ -1470,6 +1533,7 @@ Model {
     }
     Block {
       BlockType		      ModelReference
+      SimulationMode	      "Accelerator"
       Variant		      off
       GeneratePreprocessorConditionals off
       CopyOfModelProtected    off
@@ -1493,6 +1557,21 @@ Model {
     }
     Block {
       BlockType		      PMIOPort
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
     }
     Block {
       BlockType		      RateTransition
@@ -1536,6 +1615,7 @@ Model {
       YMax		      "5"
       SaveToWorkspace	      off
       SaveName		      "ScopeData"
+      DataFormat	      "Array"
       LimitDataPoints	      on
       MaxDataPoints	      "5000"
       Decimation	      "1"
@@ -1543,9 +1623,38 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      Selector
+      NumberOfDimensions      "1"
+      IndexMode		      "One-based"
+      InputPortWidth	      "-1"
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      SignalConversion
+      ConversionOutput	      "Signal copy"
       OutDataTypeStr	      "Inherit: auto"
       OverrideOpt	      off
+    }
+    Block {
+      BlockType		      SignalViewerScope
+      Floating		      off
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      DataFormat	      "Array"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "0"
+      Disabled		      off
+      ScrollMode	      on
     }
     Block {
       BlockType		      SubSystem
@@ -1571,6 +1680,22 @@ Model {
       GeneratePreprocessorConditionals off
     }
     Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      AccumDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      Switch
       Criteria		      "u2 >= Threshold"
       Threshold		      "0"
@@ -1589,6 +1714,14 @@ Model {
       BlockType		      Terminator
     }
     Block {
+      BlockType		      UniformRandomNumber
+      Minimum		      "-1"
+      Maximum		      "1"
+      Seed		      "0"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+    }
+    Block {
       BlockType		      UnitDelay
       X0		      "0"
       InputProcessing	      "Inherited"
@@ -1600,10 +1733,10 @@ Model {
   }
   System {
     Name		    "rtwdemo_pmsmfoc_system_nn"
-    Location		    [197, 111, 1174, 746]
+    Location		    [242, 203, 1022, 692]
     Open		    on
     ModelBrowserVisibility  off
-    ModelBrowserWidth	    200
+    ModelBrowserWidth	    212
     ScreenColor		    "white"
     PaperOrientation	    "landscape"
     PaperPositionMode	    "auto"
@@ -1612,15 +1745,15 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "79"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "23505"
+    SIDHighWatermark	    "23726"
     Block {
       BlockType		      SubSystem
       Name		      "Embedded Processor"
       SID		      "23145"
       Ports		      [2, 1]
-      Position		      [235, 221, 375, 359]
+      Position		      [245, 221, 385, 359]
       FontName		      "Arial"
       FontSize		      12
       MinAlgLoopOccurrences   off
@@ -1638,10 +1771,10 @@ Model {
       MaskIconUnits	      "autoscale"
       System {
 	Name			"Embedded Processor"
-	Location		[-1, 6, 992, 641]
+	Location		[0, 26, 780, 484]
 	Open			off
 	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
+	ModelBrowserWidth	212
 	ScreenColor		"white"
 	PaperOrientation	"landscape"
 	PaperPositionMode	"auto"
@@ -1650,12 +1783,13 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"112"
+	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
 	  Name			  "System\nInputs"
 	  SID			  "23146"
-	  Position		  [30, 198, 60, 212]
+	  Position		  [30, 193, 60, 207]
+	  FontName		  "Arial"
 	  FontSize		  12
 	  IconDisplay		  "Port number"
 	}
@@ -1664,6 +1798,7 @@ Model {
 	  Name			  "Motor\nMeasurements"
 	  SID			  "23148"
 	  Position		  [30, 348, 60, 362]
+	  FontName		  "Arial"
 	  FontSize		  12
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1673,12 +1808,12 @@ Model {
 	  Name			  "Command Channel"
 	  SID			  "21645"
 	  Description		  "\n\n"
-	  Ports			  [1, 2]
-	  Position		  [110, 168, 210, 237]
+	  Ports			  [1, 3]
+	  Position		  [95, 141, 175, 259]
 	  ShowName		  off
 	  LibraryVersion	  "1.216"
 	  FontName		  "Arial"
-	  FontSize		  14
+	  FontSize		  12
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -1692,9 +1827,30 @@ Model {
 	  MaskIconRotate	  "none"
 	  MaskPortRotate	  "default"
 	  MaskIconUnits		  "autoscale"
+	  Port {
+	    PortNumber		    1
+	    Name		    "motor_on"
+	    RTWStorageClass	    "Auto"
+	    DataLogging		    on
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "command_type"
+	    RTWStorageClass	    "Auto"
+	    DataLogging		    on
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "command_value"
+	    RTWStorageClass	    "Auto"
+	    DataLogging		    on
+	    DataLoggingNameMode	    "SignalName"
+	  }
 	  System {
 	    Name		    "Command Channel"
-	    Location		    [11, 81, 997, 709]
+	    Location		    [2, 82, 782, 557]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1706,12 +1862,12 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "112"
+	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "System Inputs"
 	      SID		      "21646"
-	      Position		      [55, 228, 85, 242]
+	      Position		      [55, 268, 85, 282]
 	      FontName		      "Arial"
 	      FontSize		      12
 	      IconDisplay	      "Port number"
@@ -1720,12 +1876,12 @@ Model {
 	      BlockType		      BusSelector
 	      Name		      "Bus\nSelector"
 	      SID		      "21647"
-	      Ports		      [1, 2]
-	      Position		      [145, 165, 150, 305]
+	      Ports		      [1, 3]
+	      Position		      [145, 161, 150, 389]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
-	      OutputSignals	      "motor_on,speed_command"
+	      OutputSignals	      "motor_on,command_type,command"
 	      Port {
 		PortNumber		1
 		Name			"<motor_on>"
@@ -1734,10 +1890,26 @@ Model {
 	      }
 	      Port {
 		PortNumber		2
-		Name			"<speed_command>"
+		Name			"<command_type>"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
+	      Port {
+		PortNumber		3
+		Name			"<command>"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      RateTransition
+	      Name		      "Command Type\nRate Transition"
+	      SID		      "23532"
+	      Position		      [270, 261, 295, 289]
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Integrity		      off
+	      Deterministic	      off
 	    }
 	    Block {
 	      BlockType		      DataTypeConversion
@@ -1752,7 +1924,6 @@ Model {
 		PortNumber		1
 		Name			"motor_on"
 		RTWStorageClass		"Auto"
-		DataLogging		on
 		DataLoggingNameMode	"SignalName"
 	      }
 	    }
@@ -1770,7 +1941,7 @@ Model {
 	      BlockType		      DataTypeConversion
 	      Name		      "Speed Command\nData Type Conversion"
 	      SID		      "23142"
-	      Position		      [400, 253, 475, 287]
+	      Position		      [400, 333, 475, 367]
 	      FontName		      "Arial"
 	      FontSize		      12
 	      RndMeth		      "Floor"
@@ -1780,7 +1951,7 @@ Model {
 	      BlockType		      RateTransition
 	      Name		      "Speed Command\nRate Transition"
 	      SID		      "23233"
-	      Position		      [270, 256, 295, 284]
+	      Position		      [270, 336, 295, 364]
 	      FontName		      "Arial"
 	      FontSize		      12
 	      Integrity		      off
@@ -1797,23 +1968,23 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "velocity_commmand"
-	      SID		      "21648"
-	      Position		      [630, 263, 660, 277]
+	      Name		      "command_type"
+	      SID		      "23531"
+	      Position		      [630, 268, 660, 282]
 	      FontName		      "Arial"
 	      FontSize		      12
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
-	    Line {
-	      Name		      "<speed_command>"
+	    Block {
+	      BlockType		      Outport
+	      Name		      "command_value"
+	      SID		      "21648"
+	      Position		      [630, 343, 660, 357]
 	      FontName		      "Arial"
 	      FontSize		      12
-	      Labels		      [0, 0]
-	      SrcBlock		      "Bus\nSelector"
-	      SrcPort		      2
-	      DstBlock		      "Speed Command\nRate Transition"
-	      DstPort		      1
+	      Port		      "3"
+	      IconDisplay	      "Port number"
 	    }
 	    Line {
 	      SrcBlock		      "System Inputs"
@@ -1825,7 +1996,7 @@ Model {
 	      Labels		      [0, 0]
 	      SrcBlock		      "Speed Command\nData Type Conversion"
 	      SrcPort		      1
-	      DstBlock		      "velocity_commmand"
+	      DstBlock		      "command_value"
 	      DstPort		      1
 	    }
 	    Line {
@@ -1840,7 +2011,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "motor_on"
-	      FontName		      "Arial"
+	      FontName		      "Arial Narrow"
 	      FontSize		      12
 	      Labels		      [0, 0]
 	      SrcBlock		      "Motor On\nData Type Conversion"
@@ -1860,7 +2031,32 @@ Model {
 	      DstBlock		      "Speed Command\nData Type Conversion"
 	      DstPort		      1
 	    }
+	    Line {
+	      Name		      "<command>"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      3
+	      DstBlock		      "Speed Command\nRate Transition"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "<command_type>"
+	      FontSize		      12
+	      Labels		      [0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      2
+	      DstBlock		      "Command Type\nRate Transition"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Command Type\nRate Transition"
+	      SrcPort		      1
+	      DstBlock		      "command_type"
+	      DstPort		      1
+	    }
 	    Annotation {
+	      SID		      "23673"
 	      Name		      "Converts the command signals to the rates and data types specified in the controller algorithm.\nD"
 	      "ata type conversions and rate conversions inherit their attributes via back propagation from the \nport attribu"
 	      "tes specified in the controller algorithm model."
@@ -1871,6 +2067,7 @@ Model {
 	      FontSize		      12
 	    }
 	    Annotation {
+	      SID		      "23674"
 	      Name		      "Command Channel"
 	      Tag		      "systemTitleTag"
 	      Position		      [407, 61]
@@ -1883,46 +2080,57 @@ Model {
 	  BlockType		  ModelReference
 	  Name			  "Controller Algorithm Software Specification"
 	  SID			  "23153"
-	  Ports			  [3, 1]
-	  Position		  [285, 140, 560, 400]
+	  Ports			  [4, 2]
+	  Position		  [295, 128, 535, 387]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  ModelNameDialog	  "rtwdemo_pmsmfoc_nn"
 	  SimulationMode	  "Processor-in-the-loop (PIL)"
-	  ModelReferenceVersion	  "1.1917"
+	  ModelReferenceVersion	  "1.2950"
 	  List {
 	    ListType		    InputPortNames
 	    port0		    "motor_on"
-	    port1		    "velocity_command"
-	    port2		    "sensors"
+	    port1		    "command_type"
+	    port2		    "command_value"
+	    port3		    "sensors"
 	  }
 	  List {
 	    ListType		    OutputPortNames
-	    port0		    "PWM Compare"
+	    port0		    "pwm_compare"
+	    port1		    "error"
 	  }
 	  List {
 	    ListType		    InputPortBusObjects
 	    port0		    ""
 	    port1		    ""
-	    port2		    "SENSORS_STRUCT"
+	    port2		    ""
+	    port3		    "SENSORS_STRUCT"
 	  }
 	  List {
 	    ListType		    OutputPortOutputBusAsStructs
 	    port0		    "off"
+	    port1		    "off"
 	  }
 	  List {
-	    ListType		    InputPortLatchByCopyingInsideSignal
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
+	    ListType		    OutputPortSignalNames
+	    port0		    "pwm_compare"
+	    port1		    ""
 	  }
 	  CopyOfModelName	  "rtwdemo_pmsmfoc_nn"
 	  DefaultDataLogging	  on
-	  List {
-	    ListType		    InputPortLatchByDelayingOutsideSignal
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
+	  Port {
+	    PortNumber		    1
+	    Name		    "pwm_compare"
+	    PropagatedSignals	    "pwm_compare"
+	    RTWStorageClass	    "Auto"
+	    DataLogging		    on
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "error"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -1930,12 +2138,12 @@ Model {
 	  Name			  "Driver Peripherals"
 	  SID			  "21673"
 	  Description		  "\n\n"
-	  Ports			  [1, 1]
-	  Position		  [615, 201, 705, 339]
+	  Ports			  [2, 1]
+	  Position		  [635, 130, 715, 390]
 	  ShowName		  off
 	  LibraryVersion	  "1.216"
 	  FontName		  "Arial"
-	  FontSize		  14
+	  FontSize		  12
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -1951,7 +2159,7 @@ Model {
 	  MaskIconUnits		  "autoscale"
 	  System {
 	    Name		    "Driver Peripherals"
-	    Location		    [11, 81, 997, 709]
+	    Location		    [2, 82, 782, 557]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1968,40 +2176,59 @@ Model {
 	      BlockType		      Inport
 	      Name		      "pwm_compare"
 	      SID		      "21674"
-	      Position		      [65, 193, 95, 207]
+	      Position		      [50, 158, 80, 172]
 	      FontName		      "Arial"
 	      FontSize		      12
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
-	      BlockType		      Bias
-	      Name		      "Force Normalization\nBetween \nPositive and Negative One"
-	      SID		      "22383"
-	      Position		      [425, 185, 465, 215]
+	      BlockType		      Inport
+	      Name		      "error"
+	      SID		      "23660"
+	      Position		      [50, 248, 80, 262]
 	      FontName		      "Arial"
 	      FontSize		      12
-	      Bias		      "-1"
-	      SaturateOnIntegerOverflow	off
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      BusCreator
+	      Name		      "Bus\nCreator"
+	      SID		      "23661"
+	      Ports		      [2, 1]
+	      Position		      [520, 118, 525, 302]
+	      ZOrder		      -2
+	      ShowName		      off
+	      FontSize		      12
+	      Inputs		      "2"
+	      DisplayOption	      "bar"
 	    }
 	    Block {
 	      BlockType		      RateTransition
 	      Name		      "Rate Transition"
 	      SID		      "21675"
-	      Position		      [590, 179, 630, 221]
+	      Position		      [345, 144, 385, 186]
 	      FontName		      "Arial"
 	      FontSize		      12
+	      Integrity		      off
 	      Deterministic	      off
 	      OutPortSampleTime	      "1e-5"
+	      Port {
+		PortNumber		1
+		Name			"pwm_duty_cycle"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
 	    }
 	    Block {
 	      BlockType		      Gain
 	      Name		      "Units Per PWM Count"
-	      SID		      "22382"
-	      Position		      [200, 182, 275, 218]
+	      SID		      "23579"
+	      Position		      [175, 147, 250, 183]
 	      AttributesFormatString  "------------------------------------------\\nGain:\\n%<Gain>"
 	      FontName		      "Arial"
 	      FontSize		      12
-	      Gain		      "2 / pwmCountsPerRevolution"
+	      Gain		      "1 / ctrlConst.PwmCountsPerRevolution"
 	      ParamDataTypeStr	      "double"
 	      OutDataTypeStr	      "double"
 	      SaturateOnIntegerOverflow	off
@@ -2010,15 +2237,18 @@ Model {
 	      BlockType		      Outport
 	      Name		      "PWM Duty Cycle"
 	      SID		      "21676"
-	      Position		      [760, 193, 790, 207]
+	      Position		      [600, 203, 630, 217]
 	      FontName		      "Arial"
 	      FontSize		      12
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      Name		      "pwm_duty_cycle"
+	      FontSize		      12
+	      Labels		      [0, 0]
 	      SrcBlock		      "Rate Transition"
 	      SrcPort		      1
-	      DstBlock		      "PWM Duty Cycle"
+	      DstBlock		      "Bus\nCreator"
 	      DstPort		      1
 	    }
 	    Line {
@@ -2030,27 +2260,35 @@ Model {
 	    Line {
 	      SrcBlock		      "Units Per PWM Count"
 	      SrcPort		      1
-	      DstBlock		      "Force Normalization\nBetween \nPositive and Negative One"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Force Normalization\nBetween \nPositive and Negative One"
-	      SrcPort		      1
 	      DstBlock		      "Rate Transition"
 	      DstPort		      1
 	    }
+	    Line {
+	      SrcBlock		      "error"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Bus\nCreator"
+	      SrcPort		      1
+	      DstBlock		      "PWM Duty Cycle"
+	      DstPort		      1
+	    }
 	    Annotation {
+	      SID		      "23675"
 	      Name		      "Converts PWM count compare values to a normalized duty cycle."
-	      Position		      [194, 118]
+	      Position		      [124, 83]
 	      HorizontalAlignment     "left"
 	      DropShadow	      on
 	      FontName		      "Arial"
 	      FontSize		      12
 	    }
 	    Annotation {
+	      SID		      "23676"
 	      Name		      "Driver Peripherals"
 	      Tag		      "systemTitleTag"
-	      Position		      [367, 81]
+	      Position		      [297, 46]
 	      FontSize		      20
 	      FontWeight	      "bold"
 	    }
@@ -2062,11 +2300,11 @@ Model {
 	  SID			  "22782"
 	  Description		  "Elaborate Sensor Models\n\nADC and QEP and Encoder Models"
 	  Ports			  [1, 1]
-	  Position		  [110, 304, 210, 406]
+	  Position		  [95, 305, 175, 405]
 	  ShowName		  off
 	  LibraryVersion	  "1.216"
 	  FontName		  "Arial"
-	  FontSize		  14
+	  FontSize		  12
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2080,9 +2318,17 @@ Model {
 	  MaskIconRotate	  "none"
 	  MaskPortRotate	  "default"
 	  MaskIconUnits		  "autoscale"
+	  Port {
+	    PortNumber		    1
+	    Name		    "sensors"
+	    RTWStorageClass	    "Auto"
+	    DataLogging		    on
+	    DataLoggingNameMode	    "Custom"
+	    DataLoggingName	    "sensors"
+	  }
 	  System {
 	    Name		    "Sensor Peripherals"
-	    Location		    [11, 81, 997, 693]
+	    Location		    [2, 82, 782, 557]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    212
@@ -2099,7 +2345,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "System\nMeasurements"
 	      SID		      "22783"
-	      Position		      [40, 183, 70, 197]
+	      Position		      [35, 168, 65, 182]
 	      FontName		      "Arial"
 	      FontSize		      12
 	      IconDisplay	      "Port number"
@@ -2109,21 +2355,20 @@ Model {
 	      Name		      "Bus\nCreator2"
 	      SID		      "23235"
 	      Ports		      [3, 1]
-	      Position		      [830, 131, 840, 489]
+	      Position		      [670, 119, 680, 451]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
 	      Inputs		      "3"
 	      DisplayOption	      "bar"
 	      OutDataTypeStr	      "Bus: SENSORS_STRUCT"
-	      NonVirtualBus	      on
 	    }
 	    Block {
 	      BlockType		      BusSelector
 	      Name		      "Bus\nSelector"
 	      SID		      "23391"
 	      Ports		      [1, 2]
-	      Position		      [230, 150, 235, 225]
+	      Position		      [190, 135, 195, 210]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -2146,7 +2391,7 @@ Model {
 	      Name		      "Bus\nSelector1"
 	      SID		      "22786"
 	      Ports		      [1, 1]
-	      Position		      [235, 418, 240, 442]
+	      Position		      [195, 383, 200, 407]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -2163,7 +2408,7 @@ Model {
 	      Name		      "Bus\nSelector2"
 	      SID		      "23390"
 	      Ports		      [1, 1]
-	      Position		      [235, 318, 240, 342]
+	      Position		      [195, 303, 200, 327]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -2180,7 +2425,7 @@ Model {
 	      Name		      "Measure Phase Currents\n(Analog to Digital Converter)"
 	      SID		      "22796"
 	      Ports		      [2, 1]
-	      Position		      [385, 154, 670, 221]
+	      Position		      [325, 138, 535, 207]
 	      FontName		      "Arial"
 	      FontSize		      12
 	      MinAlgLoopOccurrences   off
@@ -2210,7 +2455,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"112"
+		ZoomFactor		"100"
 		Block {
 		  BlockType		  Inport
 		  Name			  "Phase Current A"
@@ -2232,117 +2477,10 @@ Model {
 		}
 		Block {
 		  BlockType		  SubSystem
-		  Name			  "ADC Voltage Conversion"
-		  SID			  "22799"
-		  Ports			  [1, 1]
-		  Position		  [465, 182, 650, 278]
-		  FontName		  "Arial"
-		  FontSize		  12
-		  MinAlgLoopOccurrences	  off
-		  PropExecContextOutsideSubsystem off
-		  RTWSystemCode		  "Auto"
-		  FunctionWithSeparateData off
-		  Opaque		  off
-		  RequestExecContextInheritance	off
-		  MaskHideContents	  off
-		  System {
-		    Name		    "ADC Voltage Conversion"
-		    Location		    [38, 102, 882, 527]
-		    Open		    off
-		    ModelBrowserVisibility  off
-		    ModelBrowserWidth	    200
-		    ScreenColor		    "white"
-		    PaperOrientation	    "landscape"
-		    PaperPositionMode	    "auto"
-		    PaperType		    "usletter"
-		    PaperUnits		    "inches"
-		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
-		    TiledPageScale	    1
-		    ShowPageBoundaries	    off
-		    ZoomFactor		    "100"
-		    Block {
-		    BlockType		    Inport
-		    Name		    "Sensor Voltages"
-		    SID			    "22800"
-		    Position		    [115, 163, 145, 177]
-		    FontName		    "Arial"
-		    FontSize		    12
-		    IconDisplay		    "Port number"
-		    }
-		    Block {
-		    BlockType		    Gain
-		    Name		    "ADC_Integer_per_Volts"
-		    SID			    "22801"
-		    Position		    [235, 134, 320, 206]
-		    FontName		    "Arial"
-		    FontSize		    12
-		    Gain		    "4096/3.3"
-		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutDataTypeStr	    "uint16"
-		    }
-		    Block {
-		    BlockType		    Saturate
-		    Name		    "Saturation"
-		    SID			    "22802"
-		    Ports		    [1, 1]
-		    Position		    [410, 155, 440, 185]
-		    AttributesFormatString  "----------------------------\\nUpper Limit: %<UpperLimit>\\nLower Limit: %<LowerLimit>"
-		    InputPortMap	    "u0"
-		    FontName		    "Arial"
-		    FontSize		    12
-		    UpperLimit		    "4095"
-		    LowerLimit		    "0"
-		    }
-		    Block {
-		    BlockType		    Outport
-		    Name		    "Peripheral Values"
-		    SID			    "22803"
-		    Position		    [570, 163, 600, 177]
-		    FontName		    "Arial"
-		    FontSize		    12
-		    IconDisplay		    "Port number"
-		    }
-		    Line {
-		    SrcBlock		    "Saturation"
-		    SrcPort		    1
-		    DstBlock		    "Peripheral Values"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "Sensor Voltages"
-		    SrcPort		    1
-		    DstBlock		    "ADC_Integer_per_Volts"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "ADC_Integer_per_Volts"
-		    SrcPort		    1
-		    DstBlock		    "Saturation"
-		    DstPort		    1
-		    }
-		    Annotation {
-		    Name		    "ADC Voltage Conversion"
-		    Tag			    "systemTitleTag"
-		    Position		    [352, 46]
-		    FontSize		    20
-		    FontWeight		    "bold"
-		    }
-		    Annotation {
-		    Name		    "Models conversion between current sensor and raw value provided by the peripheral."
-		    Position		    [160, 86]
-		    HorizontalAlignment	    "left"
-		    DropShadow		    on
-		    FontName		    "Arial"
-		    FontSize		    12
-		    }
-		  }
-		}
-		Block {
-		  BlockType		  SubSystem
 		  Name			  "Current Sensor"
 		  SID			  "22804"
 		  Ports			  [1, 1]
-		  Position		  [220, 182, 410, 278]
+		  Position		  [195, 182, 385, 278]
 		  FontName		  "Arial"
 		  FontSize		  12
 		  MinAlgLoopOccurrences	  off
@@ -2357,7 +2495,7 @@ Model {
 		    Location		    [11, 84, 845, 640]
 		    Open		    off
 		    ModelBrowserVisibility  off
-		    ModelBrowserWidth	    200
+		    ModelBrowserWidth	    185
 		    ScreenColor		    "white"
 		    PaperOrientation	    "landscape"
 		    PaperPositionMode	    "auto"
@@ -2371,92 +2509,429 @@ Model {
 		    BlockType		    Inport
 		    Name		    "Phase Currents"
 		    SID			    "22805"
-		    Position		    [90, 183, 120, 197]
+		    Position		    [65, 98, 95, 112]
 		    FontName		    "Arial"
 		    FontSize		    12
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
-		    BlockType		    Bias
-		    Name		    "Current_Sensor_Bias"
-		    SID			    "22806"
-		    Position		    [575, 175, 615, 205]
+		    BlockType		    Constant
+		    Name		    "ADC Amps To Volts"
+		    SID			    "23629"
+		    Position		    [30, 144, 245, 176]
+		    ZOrder		    -5
+		    ShowName		    off
 		    FontName		    "Arial"
 		    FontSize		    12
-		    Bias		    "1.65"
-		    SaturateOnIntegerOverflow off
+		    Value		    "sensors.ADC.AmpsToVolts"
 		    }
 		    Block {
-		    BlockType		    Gain
-		    Name		    "Current_Sensor_Gain"
-		    SID			    "22807"
-		    Description		    "Units: Amps / Volt"
-		    Position		    [395, 168, 455, 212]
-		    AttributesFormatString  "--------------------------------\\n%<Description>"
+		    BlockType		    Constant
+		    Name		    "ADC Bias Volts"
+		    SID			    "23630"
+		    Position		    [30, 199, 240, 231]
+		    ZOrder		    -5
+		    ShowName		    off
 		    FontName		    "Arial"
 		    FontSize		    12
-		    Gain		    "-3/20"
-		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    Value		    "sensors.ADC.BiasVolts"
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "ADC Volts To Driver Units"
+		    SID			    "23639"
+		    Position		    [30, 254, 245, 286]
+		    ZOrder		    -5
+		    ShowName		    off
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Value		    "sensors.ADC.VoltsToDriverUnits"
+		    }
+		    Block {
+		    BlockType		    Sum
+		    Name		    "Add\nBias"
+		    SID			    "23631"
+		    Ports		    [2, 1]
+		    Position		    [380, 192, 410, 223]
+		    ZOrder		    -2
+		    FontName		    "Arial"
+		    FontSize		    12
+		    InputSameDT		    off
 		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
 		    SaturateOnIntegerOverflow off
 		    }
 		    Block {
-		    BlockType		    Gain
-		    Name		    "Current_Sensor_Sign_Flip"
-		    SID			    "22808"
-		    Description		    "Current Sensor on\nHardware measures\nnegative current "
-		    Position		    [205, 168, 265, 212]
-		    AttributesFormatString  "----------------------------------------------\\n%<Description>"
+		    BlockType		    Product
+		    Name		    "Product\nAmps To Volts"
+		    SID			    "23632"
+		    Ports		    [2, 1]
+		    Position		    [305, 137, 335, 168]
+		    ZOrder		    -19
 		    FontName		    "Arial"
 		    FontSize		    12
-		    Gain		    "-1"
-		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    InputSameDT		    off
 		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
 		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Product
+		    Name		    "Product\nVolts To Driver Units"
+		    SID			    "23640"
+		    Ports		    [2, 1]
+		    Position		    [460, 247, 490, 278]
+		    ZOrder		    -19
+		    FontName		    "Arial"
+		    FontSize		    12
+		    InputSameDT		    off
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Saturate
+		    Name		    "Saturation"
+		    SID			    "23641"
+		    Ports		    [1, 1]
+		    Position		    [620, 250, 650, 280]
+		    AttributesFormatString  "----------------------------\\nUpper Limit: %<UpperLimit>\\nLower Limit: %<LowerLimit>"
+		    InputPortMap	    "u0"
+		    FontName		    "Arial"
+		    FontSize		    12
+		    UpperLimit		    "sensors.ADC.MaxDriverUnits"
+		    LowerLimit		    "0"
+		    OutDataTypeStr	    "uint16"
 		    }
 		    Block {
 		    BlockType		    Outport
-		    Name		    "Sensor Voltages"
+		    Name		    "Driver Units"
 		    SID			    "22809"
-		    Position		    [730, 183, 760, 197]
+		    Position		    [715, 258, 745, 272]
 		    FontName		    "Arial"
 		    FontSize		    12
 		    IconDisplay		    "Port number"
-		    }
-		    Line {
-		    SrcBlock		    "Current_Sensor_Sign_Flip"
-		    SrcPort		    1
-		    DstBlock		    "Current_Sensor_Gain"
-		    DstPort		    1
 		    }
 		    Line {
 		    SrcBlock		    "Phase Currents"
 		    SrcPort		    1
-		    DstBlock		    "Current_Sensor_Sign_Flip"
+		    Points		    [190, 0]
+		    DstBlock		    "Product\nAmps To Volts"
 		    DstPort		    1
 		    }
 		    Line {
-		    SrcBlock		    "Current_Sensor_Bias"
+		    SrcBlock		    "ADC Amps To Volts"
 		    SrcPort		    1
-		    DstBlock		    "Sensor Voltages"
+		    DstBlock		    "Product\nAmps To Volts"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "Product\nAmps To Volts"
+		    SrcPort		    1
+		    Points		    [25, 0]
+		    DstBlock		    "Add\nBias"
 		    DstPort		    1
 		    }
 		    Line {
-		    SrcBlock		    "Current_Sensor_Gain"
+		    SrcBlock		    "ADC Bias Volts"
 		    SrcPort		    1
-		    DstBlock		    "Current_Sensor_Bias"
+		    DstBlock		    "Add\nBias"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "Add\nBias"
+		    SrcPort		    1
+		    Points		    [30, 0]
+		    DstBlock		    "Product\nVolts To Driver Units"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "ADC Volts To Driver Units"
+		    SrcPort		    1
+		    DstBlock		    "Product\nVolts To Driver Units"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "Product\nVolts To Driver Units"
+		    SrcPort		    1
+		    DstBlock		    "Saturation"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Saturation"
+		    SrcPort		    1
+		    DstBlock		    "Driver Units"
 		    DstPort		    1
 		    }
 		    Annotation {
+		    SID			    "23677"
 		    Name		    "Current Sensor"
 		    Tag			    "systemTitleTag"
-		    Position		    [412, 66]
+		    Position		    [392, 36]
 		    FontSize		    20
 		    FontWeight		    "bold"
 		    }
 		    Annotation {
-		    Name		    "Models hardware which measures phase currents."
-		    Position		    [291, 107]
+		    SID			    "23678"
+		    Name		    "Models hardware which measures phase currents and converts to raw driver units."
+		    Position		    [171, 72]
+		    HorizontalAlignment	    "left"
+		    DropShadow		    on
+		    FontName		    "Arial"
+		    FontSize		    12
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Driver Noise"
+		  SID			  "22799"
+		  Ports			  [1, 1]
+		  Position		  [420, 182, 605, 278]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  MaskInitialization	  "if evalin('base','sensors.ADC.NoiseEnable')\n    enable = 'Enabled';\nelse\n    enable = 'Di"
+		  "sabled';\nend"
+		  MaskDisplay		  "fprintf(['ADC Driver Noise\\n(' enable ')'])"
+		  MaskIconFrame		  on
+		  MaskIconOpaque	  on
+		  MaskIconRotate	  "none"
+		  MaskPortRotate	  "default"
+		  MaskIconUnits		  "autoscale"
+		  System {
+		    Name		    "Driver Noise"
+		    Location		    [413, 209, 1136, 706]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    212
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In"
+		    SID			    "22800"
+		    Position		    [465, 113, 495, 127]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Sum
+		    Name		    "Add"
+		    SID			    "23626"
+		    Ports		    [2, 1]
+		    Position		    [555, 157, 585, 188]
+		    ZOrder		    -2
+		    FontSize		    12
+		    InputSameDT		    off
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    RndMeth		    "Convergent"
+		    }
+		    Block {
+		    BlockType		    Sum
+		    Name		    "Add1"
+		    SID			    "23646"
+		    Ports		    [2, 1]
+		    Position		    [295, 162, 325, 193]
+		    ZOrder		    -2
+		    ShowName		    off
+		    FontSize		    12
+		    InputSameDT		    off
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    RndMeth		    "Convergent"
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Constant"
+		    SID			    "23643"
+		    Position		    [40, 260, 260, 290]
+		    ZOrder		    -5
+		    ShowName		    off
+		    FontSize		    12
+		    Value		    "sensors.ADC.NoiseOffsetDriverUnits"
+		    }
+		    Block {
+		    BlockType		    DataTypeConversion
+		    Name		    "Data Type Conversion"
+		    SID			    "23627"
+		    Position		    [440, 163, 515, 197]
+		    ZOrder		    -7
+		    ShowName		    off
+		    FontSize		    12
+		    OutDataTypeStr	    "uint16"
+		    RndMeth		    "Convergent"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Enable"
+		    SID			    "23650"
+		    Position		    [455, 260, 625, 290]
+		    ZOrder		    -5
+		    ShowName		    off
+		    FontSize		    12
+		    Value		    "sensors.ADC.NoiseEnable"
+		    }
+		    Block {
+		    BlockType		    InportShadow
+		    Name		    "In\n(Duplicate)"
+		    SID			    "23649"
+		    Position		    [470, 368, 500, 382]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Port		    "1"
+		    IconDisplay		    "Port number"
+		    LatchByDelayingOutsideSignal off
+		    LatchInputForFeedbackSignals off
+		    }
+		    Block {
+		    BlockType		    Gain
+		    Name		    "Noise Level"
+		    SID			    "23645"
+		    Position		    [165, 155, 195, 185]
+		    ZOrder		    -11
+		    AttributesFormatString  "------------------------------------\\n%<Gain>"
+		    FontSize		    12
+		    Gain		    "sensors.ADC.NoiseLevelDriverUnits"
+		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Saturate
+		    Name		    "Saturation"
+		    SID			    "23647"
+		    Ports		    [1, 1]
+		    Position		    [385, 165, 415, 195]
+		    AttributesFormatString  "----------------------------\\nUpper Limit: %<UpperLimit>\\nLower Limit: %<LowerLimit>"
+		    InputPortMap	    "u0"
+		    FontName		    "Arial"
+		    FontSize		    12
+		    UpperLimit		    "sensors.ADC.MaxDriverUnits"
+		    LowerLimit		    "0"
+		    OutDataTypeStr	    "uint16"
+		    }
+		    Block {
+		    BlockType		    Switch
+		    Name		    "Switch"
+		    SID			    "23648"
+		    Position		    [650, 124, 680, 426]
+		    ZOrder		    -18
+		    Criteria		    "u2 ~= 0"
+		    InputSameDT		    off
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    UniformRandomNumber
+		    Name		    "Uniform Random\nNumber"
+		    SID			    "23625"
+		    Position		    [40, 154, 70, 186]
+		    ZOrder		    -23
+		    FontSize		    12
+		    Minimum		    "[0 0]"
+		    Maximum		    "[1 1]"
+		    SampleTime		    "ctrlConst.TsHi"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Out"
+		    SID			    "22803"
+		    Position		    [725, 268, 755, 282]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Switch"
+		    SrcPort		    1
+		    DstBlock		    "Out"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Uniform Random\nNumber"
+		    SrcPort		    1
+		    DstBlock		    "Noise Level"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Noise Level"
+		    SrcPort		    1
+		    DstBlock		    "Add1"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Constant"
+		    SrcPort		    1
+		    Points		    [10, 0; 0, -90]
+		    DstBlock		    "Add1"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "Add1"
+		    SrcPort		    1
+		    DstBlock		    "Saturation"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Saturation"
+		    SrcPort		    1
+		    DstBlock		    "Data Type Conversion"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Add"
+		    SrcPort		    1
+		    DstBlock		    "Switch"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "In"
+		    SrcPort		    1
+		    Points		    [40, 0]
+		    DstBlock		    "Add"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Data Type Conversion"
+		    SrcPort		    1
+		    DstBlock		    "Add"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "In\n(Duplicate)"
+		    SrcPort		    1
+		    DstBlock		    "Switch"
+		    DstPort		    3
+		    }
+		    Line {
+		    SrcBlock		    "Enable"
+		    SrcPort		    1
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		    }
+		    Annotation {
+		    SID			    "23679"
+		    Name		    "ADC Driver Noise"
+		    Tag			    "systemTitleTag"
+		    Position		    [387, 41]
+		    FontSize		    20
+		    FontWeight		    "bold"
+		    }
+		    Annotation {
+		    SID			    "23680"
+		    Name		    "Models noise applied to current sensor."
+		    Position		    [260, 81]
 		    HorizontalAlignment	    "left"
 		    DropShadow		    on
 		    FontName		    "Arial"
@@ -2469,30 +2944,35 @@ Model {
 		  Name			  "Vector\nConcatenate"
 		  SID			  "23393"
 		  Ports			  [2, 1]
-		  Position		  [155, 184, 160, 271]
+		  Position		  [145, 184, 150, 271]
 		  FontName		  "Arial"
 		  FontSize		  12
-		  Mode			  "Vector"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "adc_phase_currents"
 		  SID			  "22810"
-		  Position		  [765, 223, 795, 237]
+		  Position		  [665, 223, 695, 237]
 		  FontName		  "Arial"
 		  FontSize		  12
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  SrcBlock		  "ADC Voltage Conversion"
+		  SrcBlock		  "Current Sensor"
 		  SrcPort		  1
-		  DstBlock		  "adc_phase_currents"
+		  DstBlock		  "Driver Noise"
 		  DstPort		  1
 		}
 		Line {
-		  SrcBlock		  "Current Sensor"
+		  SrcBlock		  "Vector\nConcatenate"
 		  SrcPort		  1
-		  DstBlock		  "ADC Voltage Conversion"
+		  DstBlock		  "Current Sensor"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Driver Noise"
+		  SrcPort		  1
+		  DstBlock		  "adc_phase_currents"
 		  DstPort		  1
 		}
 		Line {
@@ -2507,24 +2987,20 @@ Model {
 		  DstBlock		  "Vector\nConcatenate"
 		  DstPort		  2
 		}
-		Line {
-		  SrcBlock		  "Vector\nConcatenate"
-		  SrcPort		  1
-		  DstBlock		  "Current Sensor"
-		  DstPort		  1
-		}
 		Annotation {
-		  Name			  "Models the behavior of the current sensor and\nanalog to digital voltage conversion."
-		  Position		  [295, 115]
+		  SID			  "23681"
+		  Name			  "Models the behavior of the current sensor and analog to digital voltage conversion."
+		  Position		  [125, 145]
 		  HorizontalAlignment	  "left"
 		  DropShadow		  on
 		  FontName		  "Arial"
 		  FontSize		  12
 		}
 		Annotation {
+		  SID			  "23682"
 		  Name			  "Measure Phase Currents\n(Analog to Digital Converter)"
 		  Tag			  "systemTitleTag"
-		  Position		  [437, 46]
+		  Position		  [357, 96]
 		  FontSize		  20
 		  FontWeight		  "bold"
 		}
@@ -2535,7 +3011,7 @@ Model {
 	      Name		      "Measure Rotor Position\n(Quadrature Encoder)"
 	      SID		      "22816"
 	      Ports		      [2, 2]
-	      Position		      [385, 281, 675, 479]
+	      Position		      [325, 273, 535, 437]
 	      FontName		      "Arial"
 	      FontSize		      12
 	      MinAlgLoopOccurrences   off
@@ -2547,10 +3023,8 @@ Model {
 	      MaskHideContents	      off
 	      Port {
 		PortNumber		1
-		Name			"encoder_index"
-		PropagatedSignals	"indexPulse"
+		Name			"encoder_valid"
 		RTWStorageClass		"Auto"
-		DataLogging		on
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
@@ -2561,7 +3035,7 @@ Model {
 	      }
 	      System {
 		Name			"Measure Rotor Position\n(Quadrature Encoder)"
-		Location		[6, 77, 999, 712]
+		Location		[886, 507, 1592, 987]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -2573,12 +3047,12 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"92"
+		ZoomFactor		"100"
 		Block {
 		  BlockType		  Inport
 		  Name			  "Rotor Angle"
 		  SID			  "22817"
-		  Position		  [90, 488, 120, 502]
+		  Position		  [40, 373, 70, 387]
 		  FontName		  "Arial"
 		  FontSize		  12
 		  IconDisplay		  "Port number"
@@ -2587,7 +3061,7 @@ Model {
 		  BlockType		  Inport
 		  Name			  "Rotor Velocity"
 		  SID			  "22818"
-		  Position		  [95, 268, 125, 282]
+		  Position		  [45, 183, 75, 197]
 		  FontName		  "Arial"
 		  FontSize		  12
 		  Port			  "2"
@@ -2597,8 +3071,8 @@ Model {
 		  BlockType		  SubSystem
 		  Name			  "Create Index Pulse"
 		  SID			  "23303"
-		  Ports			  [2, 1]
-		  Position		  [400, 326, 540, 439]
+		  Ports			  [1, 1]
+		  Position		  [345, 241, 485, 329]
 		  LibraryVersion	  "1.31"
 		  FontName		  "Arial"
 		  FontSize		  12
@@ -2638,40 +3112,34 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "24"
-		    Block {
-		    BlockType		    Inport
-		    Name		    "rotorVelocity"
-		    SID			    "23303::18"
-		    Position		    [20, 101, 40, 119]
-		    IconDisplay		    "Port number"
-		    }
+		    SIDHighWatermark	    "33"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "currentCount"
 		    SID			    "23303::1"
-		    Position		    [20, 136, 40, 154]
-		    Port		    "2"
+		    Position		    [20, 101, 40, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "23303::22"
+		    SID			    "23303::31"
 		    Ports		    [1, 1]
 		    Position		    [270, 160, 320, 200]
+		    ZOrder		    2
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "23303::21"
+		    SID			    "23303::30"
 		    Tag			    "Stateflow S-Function rtwdemo_pmsmfoc_system_nn 3"
-		    Ports		    [2, 2]
+		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
+		    ZOrder		    1
 		    FunctionName	    "sf_sfun"
-		    Parameters		    "encoderCountsPerRevolution"
-		    PortCounts		    "[2 2]"
+		    Parameters		    "ctrlConst"
+		    PortCounts		    "[1 2]"
 		    EnableBusSupport	    on
 		    Port {
 		    PortNumber		    2
@@ -2683,8 +3151,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "23303::24"
+		    SID			    "23303::33"
 		    Position		    [460, 171, 480, 189]
+		    ZOrder		    4
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -2694,16 +3163,10 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    SrcBlock		    "rotorVelocity"
-		    SrcPort		    1
-		    DstBlock		    " SFunction "
-		    DstPort		    1
-		    }
-		    Line {
 		    SrcBlock		    "currentCount"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
-		    DstPort		    2
+		    DstPort		    1
 		    }
 		    Line {
 		    Name		    "indexPulse"
@@ -2729,137 +3192,10 @@ Model {
 		}
 		Block {
 		  BlockType		  SubSystem
-		  Name			  "Encoder Count\n(After First Index Pulse)"
-		  SID			  "23296"
-		  Ports			  [1, 1]
-		  Position		  [180, 458, 350, 532]
-		  FontName		  "Arial"
-		  FontSize		  12
-		  MinAlgLoopOccurrences	  off
-		  PropExecContextOutsideSubsystem off
-		  RTWSystemCode		  "Auto"
-		  FunctionWithSeparateData off
-		  Opaque		  off
-		  RequestExecContextInheritance	off
-		  MaskHideContents	  off
-		  System {
-		    Name		    "Encoder Count\n(After First Index Pulse)"
-		    Location		    [29, 85, 1015, 713]
-		    Open		    off
-		    ModelBrowserVisibility  off
-		    ModelBrowserWidth	    200
-		    ScreenColor		    "white"
-		    PaperOrientation	    "landscape"
-		    PaperPositionMode	    "auto"
-		    PaperType		    "usletter"
-		    PaperUnits		    "inches"
-		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
-		    TiledPageScale	    1
-		    ShowPageBoundaries	    off
-		    ZoomFactor		    "122"
-		    Block {
-		    BlockType		    Inport
-		    Name		    "Rotor Angle"
-		    SID			    "23297"
-		    Position		    [40, 203, 70, 217]
-		    IconDisplay		    "Port number"
-		    }
-		    Block {
-		    BlockType		    Gain
-		    Name		    "Counts per Radian"
-		    SID			    "23394"
-		    Position		    [315, 209, 385, 281]
-		    AttributesFormatString  "--------------------------------------------------\\nGain:\\n%<Gain>"
-		    Gain		    "encoderCountsPerRevolution/(2*pi)"
-		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
-		    BlockType		    DataTypeConversion
-		    Name		    "Encoder Angle\nData Type"
-		    SID			    "23299"
-		    Position		    [455, 228, 530, 262]
-		    OutDataTypeStr	    "uint16"
-		    RndMeth		    "Floor"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
-		    BlockType		    Math
-		    Name		    "Math\nFunction"
-		    SID			    "23300"
-		    Ports		    [2, 1]
-		    Position		    [205, 176, 240, 309]
-		    ShowName		    off
-		    Operator		    "mod"
-		    }
-		    Block {
-		    BlockType		    Constant
-		    Name		    "Radians Per Cycle"
-		    SID			    "23301"
-		    Position		    [120, 260, 150, 290]
-		    Value		    "2*pi"
-		    }
-		    Block {
-		    BlockType		    Outport
-		    Name		    "Encoder Count"
-		    SID			    "23302"
-		    Position		    [585, 238, 615, 252]
-		    IconDisplay		    "Port number"
-		    }
-		    Line {
-		    SrcBlock		    "Encoder Angle\nData Type"
-		    SrcPort		    1
-		    DstBlock		    "Encoder Count"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "Rotor Angle"
-		    SrcPort		    1
-		    DstBlock		    "Math\nFunction"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "Counts per Radian"
-		    SrcPort		    1
-		    DstBlock		    "Encoder Angle\nData Type"
-		    DstPort		    1
-		    }
-		    Line {
-		    Labels		    [0, 0]
-		    SrcBlock		    "Math\nFunction"
-		    SrcPort		    1
-		    DstBlock		    "Counts per Radian"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "Radians Per Cycle"
-		    SrcPort		    1
-		    DstBlock		    "Math\nFunction"
-		    DstPort		    2
-		    }
-		    Annotation {
-		    Name		    "Encoder Count\n(After First Index Pulse)"
-		    Tag			    "systemTitleTag"
-		    Position		    [342, 61]
-		    FontSize		    20
-		    FontWeight		    "bold"
-		    }
-		    Annotation {
-		    Name		    "Model the count value provided by the encoder when the absolute position is known.\nThe absolute posi"
-		    "tion is known after reaching the first index pulse.\nThe pulse train generated by the encoder is not modeled."
-		    Position		    [153, 123]
-		    HorizontalAlignment	    "left"
-		    DropShadow		    on
-		    }
-		  }
-		}
-		Block {
-		  BlockType		  SubSystem
 		  Name			  "Encoder Count\n(During Startup)"
 		  SID			  "23288"
 		  Ports			  [1, 1]
-		  Position		  [175, 239, 350, 311]
+		  Position		  [120, 154, 295, 226]
 		  FontName		  "Arial"
 		  FontSize		  12
 		  MinAlgLoopOccurrences	  off
@@ -2883,7 +3219,7 @@ Model {
 		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "134"
+		    ZoomFactor		    "100"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "Rotor Velocity"
@@ -2895,9 +3231,9 @@ Model {
 		    BlockType		    Gain
 		    Name		    "Counts per Radian"
 		    SID			    "23290"
-		    Position		    [285, 224, 355, 296]
+		    Position		    [390, 224, 460, 296]
 		    AttributesFormatString  "--------------------------------------------------\\nGain:\\n%<Gain>"
-		    Gain		    "encoderCountsPerRevolution/(2*pi)"
+		    Gain		    "ctrlConst.EncoderCountsPerRevolution/(2*pi)"
 		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
 		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
 		    SaturateOnIntegerOverflow off
@@ -2907,11 +3243,9 @@ Model {
 		    Name		    "Discrete-Time\nIntegrator"
 		    SID			    "23291"
 		    Ports		    [1, 1]
-		    Position		    [105, 199, 140, 231]
+		    Position		    [140, 199, 175, 231]
 		    AttributesFormatString  "------------------------------\\nInitial Condition: %<InitialCondition>"
-		    IntegratorMethod	    "Integration: Forward Euler"
-		    ExternalReset	    "none"
-		    InitialConditionSource  "internal"
+		    InitialCondition	    "sensors.Encoder.InitialAngleRads"
 		    SampleTime		    "-1"
 		    ICPrevOutput	    "DiscIntNeverNeededParam"
 		    ICPrevScaledInput	    "DiscIntNeverNeededParam"
@@ -2920,7 +3254,7 @@ Model {
 		    BlockType		    DataTypeConversion
 		    Name		    "Encoder Angle\nData Type"
 		    SID			    "23292"
-		    Position		    [430, 243, 505, 277]
+		    Position		    [535, 243, 610, 277]
 		    OutDataTypeStr	    "uint16"
 		    RndMeth		    "Floor"
 		    SaturateOnIntegerOverflow off
@@ -2930,7 +3264,7 @@ Model {
 		    Name		    "Math\nFunction"
 		    SID			    "23293"
 		    Ports		    [2, 1]
-		    Position		    [185, 168, 220, 352]
+		    Position		    [275, 168, 310, 352]
 		    ShowName		    off
 		    Operator		    "mod"
 		    }
@@ -2938,14 +3272,14 @@ Model {
 		    BlockType		    Constant
 		    Name		    "Radians Per Cycle"
 		    SID			    "23294"
-		    Position		    [55, 290, 85, 320]
+		    Position		    [140, 290, 170, 320]
 		    Value		    "2*pi"
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Encoder Count"
 		    SID			    "23295"
-		    Position		    [555, 253, 585, 267]
+		    Position		    [660, 253, 690, 267]
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
@@ -2985,6 +3319,7 @@ Model {
 		    DstPort		    1
 		    }
 		    Annotation {
+		    SID			    "23683"
 		    Name		    "Approximate the count value provided by the encoder peripheral during startup (before reaching the fi"
 		    "rst index pulse).\nThe pulse train generated by the encoder is not modeled."
 		    Position		    [73, 138]
@@ -2992,6 +3327,7 @@ Model {
 		    DropShadow		    on
 		    }
 		    Annotation {
+		    SID			    "23684"
 		    Name		    "Encoder Count\n(During Startup)"
 		    Tag			    "systemTitleTag"
 		    Position		    [307, 81]
@@ -3002,10 +3338,183 @@ Model {
 		}
 		Block {
 		  BlockType		  SubSystem
+		  Name			  "Encoder Count\n(Valid After First Index Pulse)"
+		  SID			  "23296"
+		  Ports			  [1, 1]
+		  Position		  [125, 343, 295, 417]
+		  FontName		  "Arial"
+		  FontSize		  12
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  System {
+		    Name		    "Encoder Count\n(Valid After First Index Pulse)"
+		    Location		    [29, 85, 1015, 713]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Rotor Angle"
+		    SID			    "23297"
+		    Position		    [30, 198, 60, 212]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Sum
+		    Name		    "Add"
+		    SID			    "23618"
+		    Ports		    [2, 1]
+		    Position		    [375, 197, 405, 228]
+		    ZOrder		    -2
+		    FontName		    "Arial"
+		    FontSize		    12
+		    InputSameDT		    off
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Gain
+		    Name		    "Counts per Radian"
+		    SID			    "23394"
+		    Position		    [525, 214, 595, 286]
+		    AttributesFormatString  "-------------------------------------------\\nGain:\\n%<Gain>"
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Gain		    "ctrlConst.EncoderCountsPerRevolution/(2*pi)"
+		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
+		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    DataTypeConversion
+		    Name		    "Encoder Angle\nData Type"
+		    SID			    "23299"
+		    Position		    [625, 233, 700, 267]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    OutDataTypeStr	    "uint16"
+		    RndMeth		    "Floor"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Math
+		    Name		    "Math\nFunction"
+		    SID			    "23300"
+		    Ports		    [2, 1]
+		    Position		    [430, 181, 465, 314]
+		    ShowName		    off
+		    Operator		    "mod"
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Offset_Between_Mechanical_Zero_And_Encoder_Zero"
+		    SID			    "23617"
+		    Position		    [15, 239, 345, 271]
+		    ZOrder		    -5
+		    FontSize		    12
+		    Value		    "sensors.Encoder.MechanicalToEncoderZeroOffsetRads"
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Radians\nPer Cycle"
+		    SID			    "23301"
+		    Position		    [370, 265, 400, 295]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Value		    "2*pi"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Encoder Count"
+		    SID			    "23302"
+		    Position		    [735, 243, 765, 257]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Encoder Angle\nData Type"
+		    SrcPort		    1
+		    DstBlock		    "Encoder Count"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Counts per Radian"
+		    SrcPort		    1
+		    DstBlock		    "Encoder Angle\nData Type"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Radians\nPer Cycle"
+		    SrcPort		    1
+		    DstBlock		    "Math\nFunction"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "Offset_Between_Mechanical_Zero_And_Encoder_Zero"
+		    SrcPort		    1
+		    Points		    [5, 0; 0, -35]
+		    DstBlock		    "Add"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "Math\nFunction"
+		    SrcPort		    1
+		    DstBlock		    "Counts per Radian"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Rotor Angle"
+		    SrcPort		    1
+		    DstBlock		    "Add"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Add"
+		    SrcPort		    1
+		    DstBlock		    "Math\nFunction"
+		    DstPort		    1
+		    }
+		    Annotation {
+		    SID			    "23685"
+		    Name		    "Encoder Count\n(Valid After First Index Pulse)"
+		    Tag			    "systemTitleTag"
+		    Position		    [342, 61]
+		    FontSize		    20
+		    FontWeight		    "bold"
+		    }
+		    Annotation {
+		    SID			    "23686"
+		    Name		    "Model the count value provided by the encoder when the absolute position is known.\nThe absolute posi"
+		    "tion is known after reaching the first index pulse.\nThe pulse train generated by the encoder is not modeled."
+		    Position		    [153, 123]
+		    HorizontalAlignment	    "left"
+		    DropShadow		    on
+		    FontName		    "Arial"
+		    FontSize		    12
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
 		  Name			  "Select Encoder Count"
 		  SID			  "23304"
-		  Ports			  [3, 1]
-		  Position		  [645, 217, 720, 553]
+		  Ports			  [3, 2]
+		  Position		  [520, 139, 615, 431]
 		  FontName		  "Arial"
 		  FontSize		  12
 		  MinAlgLoopOccurrences	  off
@@ -3029,12 +3538,12 @@ Model {
 		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "112"
+		    ZoomFactor		    "100"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "Startup"
 		    SID			    "23307"
-		    Position		    [75, 403, 105, 417]
+		    Position		    [20, 373, 50, 387]
 		    FontName		    "Arial"
 		    FontSize		    12
 		    IconDisplay		    "Port number"
@@ -3043,7 +3552,7 @@ Model {
 		    BlockType		    Inport
 		    Name		    "Index"
 		    SID			    "23306"
-		    Position		    [75, 308, 105, 322]
+		    Position		    [20, 243, 50, 257]
 		    FontName		    "Arial"
 		    FontSize		    12
 		    Port		    "2"
@@ -3053,20 +3562,43 @@ Model {
 		    BlockType		    Inport
 		    Name		    "Absolute"
 		    SID			    "23305"
-		    Position		    [75, 193, 105, 207]
+		    Position		    [20, 113, 50, 127]
 		    FontName		    "Arial"
 		    FontSize		    12
 		    Port		    "3"
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
+		    BlockType		    DataTypeConversion
+		    Name		    "Data Type Conversion"
+		    SID			    "23616"
+		    Position		    [485, 313, 535, 337]
+		    ZOrder		    -7
+		    ShowName		    off
+		    FontSize		    12
+		    OutDataTypeStr	    "uint16"
+		    RndMeth		    "Floor"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Encoder Position Valid At Startup"
+		    SID			    "23584"
+		    Position		    [20, 285, 270, 315]
+		    ZOrder		    -5
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Value		    "sensors.Encoder.PositionValidAtStartup"
+		    }
+		    Block {
 		    BlockType		    Logic
 		    Name		    "Latch on\nFirst Rising Edge"
 		    SID			    "23484"
-		    Ports		    [2, 1]
-		    Position		    [287, 285, 324, 325]
+		    Ports		    [3, 1]
+		    Position		    [372, 230, 409, 270]
 		    FontSize		    12
 		    Operator		    "OR"
+		    Inputs		    "3"
 		    IconShape		    "distinctive"
 		    AllPortsSameDT	    off
 		    OutDataTypeStr	    "boolean"
@@ -3075,7 +3607,7 @@ Model {
 		    BlockType		    Switch
 		    Name		    "Switch"
 		    SID			    "23309"
-		    Position		    [390, 146, 430, 464]
+		    Position		    [635, 52, 675, 448]
 		    ShowName		    off
 		    FontName		    "Arial"
 		    FontSize		    12
@@ -3087,7 +3619,7 @@ Model {
 		    BlockType		    UnitDelay
 		    Name		    "Unit Delay"
 		    SID			    "23311"
-		    Position		    [290, 223, 325, 257]
+		    Position		    [365, 168, 400, 202]
 		    BlockMirror		    on
 		    FontName		    "Arial"
 		    FontSize		    12
@@ -3098,9 +3630,19 @@ Model {
 		    BlockType		    Outport
 		    Name		    "Count"
 		    SID			    "23312"
-		    Position		    [505, 298, 535, 312]
+		    Position		    [710, 243, 740, 257]
 		    FontName		    "Arial"
 		    FontSize		    12
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Valid"
+		    SID			    "23615"
+		    Position		    [575, 318, 605, 332]
+		    FontName		    "Arial"
+		    FontSize		    12
+		    Port		    "2"
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
@@ -3108,13 +3650,21 @@ Model {
 		    SrcPort		    1
 		    Points		    [26, 0]
 		    Branch {
+		    Points		    [0, -65]
+		    DstBlock		    "Unit Delay"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [25, 0]
+		    Branch {
 		    DstBlock		    "Switch"
 		    DstPort		    2
 		    }
 		    Branch {
-		    Points		    [0, -65]
-		    DstBlock		    "Unit Delay"
+		    Points		    [0, 75]
+		    DstBlock		    "Data Type Conversion"
 		    DstPort		    1
+		    }
 		    }
 		    }
 		    Line {
@@ -3138,7 +3688,7 @@ Model {
 		    Line {
 		    SrcBlock		    "Unit Delay"
 		    SrcPort		    1
-		    Points		    [-50, 0; 0, 55]
+		    Points		    [-40, 0; 0, 50]
 		    DstBlock		    "Latch on\nFirst Rising Edge"
 		    DstPort		    1
 		    }
@@ -3148,17 +3698,32 @@ Model {
 		    DstBlock		    "Latch on\nFirst Rising Edge"
 		    DstPort		    2
 		    }
+		    Line {
+		    SrcBlock		    "Encoder Position Valid At Startup"
+		    SrcPort		    1
+		    Points		    [40, 0; 0, -35]
+		    DstBlock		    "Latch on\nFirst Rising Edge"
+		    DstPort		    3
+		    }
+		    Line {
+		    SrcBlock		    "Data Type Conversion"
+		    SrcPort		    1
+		    DstBlock		    "Valid"
+		    DstPort		    1
+		    }
 		    Annotation {
+		    SID			    "23687"
 		    Name		    "Select Encoder Count"
 		    Tag			    "systemTitleTag"
-		    Position		    [292, 41]
+		    Position		    [342, 21]
 		    FontSize		    20
 		    FontWeight		    "bold"
 		    }
 		    Annotation {
+		    SID			    "23688"
 		    Name		    "Before the first index pulse is received, pass the startup encoder count value.\nAfter the index puls"
-		    "e first transistions from low to high, pass the absolute count value."
-		    Position		    [57, 94]
+		    "e first transitions from low to high, pass the absolute count value."
+		    Position		    [107, 59]
 		    HorizontalAlignment	    "left"
 		    DropShadow		    on
 		    FontName		    "Arial"
@@ -3168,9 +3733,9 @@ Model {
 		}
 		Block {
 		  BlockType		  Outport
-		  Name			  "Index Pulse"
+		  Name			  "Encoder Valid"
 		  SID			  "22864"
-		  Position		  [580, 413, 610, 427]
+		  Position		  [655, 353, 685, 367]
 		  FontName		  "Arial"
 		  FontSize		  12
 		  IconDisplay		  "Port number"
@@ -3179,7 +3744,7 @@ Model {
 		  BlockType		  Outport
 		  Name			  "Encoder Count"
 		  SID			  "22863"
-		  Position		  [790, 378, 820, 392]
+		  Position		  [655, 208, 685, 222]
 		  FontName		  "Arial"
 		  FontSize		  12
 		  Port			  "2"
@@ -3194,30 +3759,21 @@ Model {
 		Line {
 		  SrcBlock		  "Create Index Pulse"
 		  SrcPort		  1
-		  Points		  [20, 0]
-		  Branch {
-		    DstBlock		    "Index Pulse"
-		    DstPort		    1
-		  }
-		  Branch {
-		    DstBlock		    "Select Encoder Count"
-		    DstPort		    2
-		  }
+		  DstBlock		  "Select Encoder Count"
+		  DstPort		  2
 		}
 		Line {
-		  SrcBlock		  "Encoder Count\n(After First Index Pulse)"
+		  SrcBlock		  "Encoder Count\n(Valid After First Index Pulse)"
 		  SrcPort		  1
-		  Points		  [15, 0]
+		  Points		  [20, 0]
 		  Branch {
-		    Labels		    [1, 0]
 		    DstBlock		    "Select Encoder Count"
 		    DstPort		    3
 		  }
 		  Branch {
-		    Labels		    [1, 0]
-		    Points		    [0, -85]
+		    Points		    [0, -95]
 		    DstBlock		    "Create Index Pulse"
-		    DstPort		    2
+		    DstPort		    1
 		  }
 		}
 		Line {
@@ -3229,39 +3785,39 @@ Model {
 		Line {
 		  SrcBlock		  "Rotor Velocity"
 		  SrcPort		  1
-		  Points		  [25, 0]
-		  Branch {
-		    Points		    [0, 80]
-		    DstBlock		    "Create Index Pulse"
-		    DstPort		    1
-		  }
-		  Branch {
-		    DstBlock		    "Encoder Count\n(During Startup)"
-		    DstPort		    1
-		  }
+		  DstBlock		  "Encoder Count\n(During Startup)"
+		  DstPort		  1
 		}
 		Line {
 		  SrcBlock		  "Rotor Angle"
 		  SrcPort		  1
-		  DstBlock		  "Encoder Count\n(After First Index Pulse)"
+		  DstBlock		  "Encoder Count\n(Valid After First Index Pulse)"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Select Encoder Count"
+		  SrcPort		  2
+		  DstBlock		  "Encoder Valid"
 		  DstPort		  1
 		}
 		Annotation {
+		  SID			  "23689"
 		  Name			  "Models the behavior of a relative quadrature encoder. The rotor angle and rotor velocity inputs are \"id"
 		  "eal\" measurements from the motor model.\nWhen the motor begins spinning the counter is initialized to some value "
 		  "(assume 0).\nOnce an index pulse is received, the count value is reset to a value corresponding to a valid rotor p"
 		  "osition.\nHence, after the first index pulse is received, the count returned by the peripheral represents the abso"
 		  "lute position of the encoder."
-		  Position		  [53, 143]
+		  Position		  [18, 93]
 		  HorizontalAlignment	  "left"
 		  DropShadow		  on
 		  FontName		  "Arial"
 		  FontSize		  12
 		}
 		Annotation {
+		  SID			  "23690"
 		  Name			  "Measure Rotor Position\n(Quadrature Encoder)"
 		  Tag			  "systemTitleTag"
-		  Position		  [412, 61]
+		  Position		  [377, 31]
 		  FontSize		  20
 		  FontWeight		  "bold"
 		}
@@ -3271,7 +3827,8 @@ Model {
 	      BlockType		      RateTransition
 	      Name		      "Rate Transition"
 	      SID		      "23330"
-	      Position		      [135, 169, 175, 211]
+	      Position		      [100, 154, 140, 196]
+	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
 	      OutPortSampleTime	      "40e-6"
@@ -3280,7 +3837,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Sensors"
 	      SID		      "22872"
-	      Position		      [970, 303, 1000, 317]
+	      Position		      [720, 278, 750, 292]
 	      FontName		      "Arial"
 	      FontSize		      12
 	      IconDisplay	      "Port number"
@@ -3328,13 +3885,13 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      Name		      "encoder_index"
+	      Name		      "encoder_valid"
 	      FontName		      "Arial"
 	      FontSize		      12
 	      Labels		      [0, 0]
 	      SrcBlock		      "Measure Rotor Position\n(Quadrature Encoder)"
 	      SrcPort		      1
-	      Points		      [95, 0; 0, -20]
+	      Points		      [90, 0; 0, -30]
 	      DstBlock		      "Bus\nCreator2"
 	      DstPort		      2
 	    }
@@ -3369,11 +3926,11 @@ Model {
 	    Line {
 	      SrcBlock		      "Rate Transition"
 	      SrcPort		      1
-	      Points		      [25, 0]
+	      Points		      [20, 0]
 	      Branch {
 		Points			[0, 140]
 		Branch {
-		  Points		  [0, 100]
+		  Points		  [0, 80]
 		  DstBlock		  "Bus\nSelector1"
 		  DstPort		  1
 		}
@@ -3388,18 +3945,20 @@ Model {
 	      }
 	    }
 	    Annotation {
+	      SID		      "23691"
 	      Name		      "Models the behavior of sensors and peripherals.\nInputs are physical quantities to be measured. Ou"
 	      "tputs raw digital values provided by the peripherals."
-	      Position		      [247, 90]
+	      Position		      [147, 75]
 	      HorizontalAlignment     "left"
 	      DropShadow	      on
 	      FontName		      "Arial"
 	      FontSize		      12
 	    }
 	    Annotation {
+	      SID		      "23692"
 	      Name		      "Sensor Peripherals"
 	      Tag		      "systemTitleTag"
-	      Position		      [492, 41]
+	      Position		      [392, 26]
 	      FontSize		      20
 	      FontWeight	      "bold"
 	    }
@@ -3409,15 +3968,10 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Motor\nCommands"
 	  SID			  "23147"
-	  Position		  [760, 263, 790, 277]
+	  Position		  [745, 253, 775, 267]
+	  FontName		  "Arial"
 	  FontSize		  12
 	  IconDisplay		  "Port number"
-	}
-	Line {
-	  SrcBlock		  "Sensor Peripherals"
-	  SrcPort		  1
-	  DstBlock		  "Controller Algorithm Software Specification"
-	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "System\nInputs"
@@ -3438,36 +3992,76 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  Name			  "motor_on"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "Command Channel"
+	  SrcPort		  1
+	  DstBlock		  "Controller Algorithm Software Specification"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "sensors"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "Sensor Peripherals"
+	  SrcPort		  1
+	  DstBlock		  "Controller Algorithm Software Specification"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "pwm_compare"
+	  FontSize		  12
+	  Labels		  [0, 0]
 	  SrcBlock		  "Controller Algorithm Software Specification"
 	  SrcPort		  1
 	  DstBlock		  "Driver Peripherals"
 	  DstPort		  1
 	}
 	Line {
+	  Name			  "command_type"
+	  FontSize		  12
+	  Labels		  [0, 0]
 	  SrcBlock		  "Command Channel"
 	  SrcPort		  2
-	  Points		  [55, 0]
+	  Points		  [100, 0]
 	  DstBlock		  "Controller Algorithm Software Specification"
 	  DstPort		  2
 	}
 	Line {
+	  Name			  "command_value"
+	  FontSize		  12
+	  Labels		  [0, 0]
 	  SrcBlock		  "Command Channel"
-	  SrcPort		  1
+	  SrcPort		  3
+	  Points		  [100, 0]
 	  DstBlock		  "Controller Algorithm Software Specification"
-	  DstPort		  1
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "error"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "Controller Algorithm Software Specification"
+	  SrcPort		  2
+	  DstBlock		  "Driver Peripherals"
+	  DstPort		  2
 	}
 	Annotation {
+	  SID			  "23693"
 	  Name			  "Models hardware on the embedded processor, including\nthe controller algorithm software specification and"
 	  " peripherals."
-	  Position		  [241, 100]
+	  Position		  [261, 80]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
+	  FontName		  "Arial"
 	  FontSize		  12
 	}
 	Annotation {
+	  SID			  "23694"
 	  Name			  "Embedded Processor"
 	  Tag			  "systemTitleTag"
-	  Position		  [392, 56]
+	  Position		  [412, 36]
 	  FontSize		  20
 	  FontWeight		  "bold"
 	}
@@ -3498,7 +4092,7 @@ Model {
       MaskIconUnits	      "autoscale"
       System {
 	Name			"Inverter and Motor"
-	Location		[10, 78, 991, 704]
+	Location		[10, 82, 991, 708]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -3510,28 +4104,28 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"88"
+	ZoomFactor		"97"
 	Block {
 	  BlockType		  Inport
-	  Name			  "System Loads"
+	  Name			  "System\nLoads"
 	  SID			  "23438"
-	  Position		  [475, 278, 505, 292]
+	  Position		  [20, 88, 50, 102]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "PWM Duty Cycles"
+	  Name			  "Motor\nCommands"
 	  SID			  "22706"
-	  Position		  [75, 348, 105, 362]
+	  Position		  [20, 148, 50, 162]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	  Port {
 	    PortNumber		    1
-	    Name		    "pwm_duty_cycles"
+	    Name		    "motor_commands"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -3541,7 +4135,7 @@ Model {
 	  Name			  "Bus\nCreator"
 	  SID			  "22708"
 	  Ports			  [3, 1]
-	  Position		  [950, 153, 955, 557]
+	  Position		  [710, 99, 715, 481]
 	  ShowName		  off
 	  FontName		  "Arial"
 	  FontSize		  12
@@ -3553,7 +4147,7 @@ Model {
 	  Name			  "Bus\nSelector"
 	  SID			  "23437"
 	  Ports			  [1, 1]
-	  Position		  [545, 266, 550, 304]
+	  Position		  [90, 76, 95, 114]
 	  ShowName		  off
 	  FontName		  "Arial"
 	  FontSize		  12
@@ -3566,11 +4160,44 @@ Model {
 	  }
 	}
 	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector1"
+	  SID			  "23662"
+	  Ports			  [1, 1]
+	  Position		  [90, 136, 95, 174]
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  12
+	  OutputSignals		  "pwm_duty_cycle"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<pwm_duty_cycle>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "From"
+	  SID			  "23720"
+	  Position		  [310, 207, 410, 233]
+	  ZOrder		  -9
+	  GotoTag		  "LOAD_TORQUE"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto"
+	  SID			  "23719"
+	  Position		  [205, 83, 310, 107]
+	  ZOrder		  -10
+	  GotoTag		  "LOAD_TORQUE"
+	}
+	Block {
 	  BlockType		  SubSystem
 	  Name			  "Inverter"
 	  SID			  "22711"
 	  Ports			  [1, 1, 0, 0, 0, 0, 3]
-	  Position		  [265, 259, 420, 446]
+	  Position		  [135, 195, 270, 380]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  MinAlgLoopOccurrences	  off
@@ -3583,16 +4210,15 @@ Model {
 	  Port {
 	    PortNumber		    1
 	    Name		    "electrical_measurements"
-	    PropagatedSignals	    "phase_voltages, phase_currents"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  System {
 	    Name		    "Inverter"
-	    Location		    [16, 82, 976, 661]
+	    Location		    [16, 82, 1010, 644]
 	    Open		    off
 	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
+	    ModelBrowserWidth	    212
 	    ScreenColor		    "white"
 	    PaperOrientation	    "landscape"
 	    PaperPositionMode	    "auto"
@@ -3601,12 +4227,12 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "105"
+	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "PWM Duty Cycles"
 	      SID		      "22713"
-	      Position		      [60, 178, 90, 192]
+	      Position		      [40, 123, 70, 137]
 	      FontSize		      12
 	      IconDisplay	      "Port number"
 	    }
@@ -3615,230 +4241,149 @@ Model {
 	      Name		      "Bus\nCreator"
 	      SID		      "22714"
 	      Ports		      [2, 1]
-	      Position		      [750, 191, 755, 389]
+	      Position		      [630, 96, 635, 189]
 	      ShowName		      off
 	      FontSize		      12
 	      Inputs		      "2"
 	      DisplayOption	      "bar"
 	    }
 	    Block {
-	      BlockType		      Constant
-	      Name		      "Bus Voltage"
-	      SID		      "23494"
-	      Position		      [40, 350, 130, 380]
-	      FontName		      "Arial"
-	      FontSize		      12
-	      Value		      "busVoltage"
-	    }
-	    Block {
 	      BlockType		      Reference
-	      Name		      "Controlled Voltage Source"
-	      SID		      "23430"
+	      Name		      "Controlled Voltage Source1"
+	      SID		      "23594"
 	      Ports		      [1, 0, 0, 0, 0, 1, 1]
-	      Position		      [177, 305, 213, 350]
-	      BlockRotation	      270
+	      Position		      [370, 122, 415, 158]
 	      ShowName		      off
-	      LibraryVersion	      "1.2088"
+	      LibraryVersion	      "1.2119"
 	      FontName		      "Verdana"
 	      FontSize		      12
 	      SourceBlock	      "powerlib/Electrical\nSources/Controlled Voltage Source"
 	      SourceType	      "Controlled Voltage Source"
-	      Initialize	      on
+	      Initialize	      off
 	      Source_Type	      "DC"
-	      Amplitude		      "24"
+	      Amplitude		      "12"
 	      Phase		      "0"
 	      Frequency		      "0"
 	      Measurements	      "None"
 	    }
 	    Block {
 	      BlockType		      Reference
-	      Name		      "Inverter Bridge"
-	      SID		      "23432"
-	      Ports		      [1, 0, 0, 0, 0, 3, 2]
-	      Position		      [245, 213, 405, 487]
-	      BlockMirror	      on
-	      LibraryVersion	      "1.2088"
+	      Name		      "Controlled Voltage Source2"
+	      SID		      "23595"
+	      Ports		      [1, 0, 0, 0, 0, 1, 1]
+	      Position		      [370, 192, 415, 228]
+	      ShowName		      off
+	      LibraryVersion	      "1.2119"
 	      FontName		      "Verdana"
 	      FontSize		      12
-	      SourceBlock	      "powerlib/Power\nElectronics/Universal Bridge"
-	      SourceType	      "Universal Bridge"
-	      Arms		      "3"
-	      SnubberResistance	      "1e4"
-	      SnubberCapacitance      "1e-5"
-	      Device		      "Average-model based VSC"
-	      Ron		      "1e-4"
-	      Lon		      "0"
-	      ForwardVoltages	      "[  0  0  ]"
-	      ForwardVoltage	      "0"
-	      GTOparameters	      "[ 10e-6 , 20e-6 ]"
-	      IGBTparameters	      "[ 1e-6 , 2e-6 ]"
+	      SourceBlock	      "powerlib/Electrical\nSources/Controlled Voltage Source"
+	      SourceType	      "Controlled Voltage Source"
+	      Initialize	      off
+	      Source_Type	      "DC"
+	      Amplitude		      "12"
+	      Phase		      "0"
+	      Frequency		      "0"
 	      Measurements	      "None"
-	      Measurements_2	      "None"
-	      converterType	      "Rectifier"
 	    }
 	    Block {
-	      BlockType		      SubSystem
-	      Name		      "L-L 2 L-N"
-	      SID		      "22725"
-	      Ports		      [1, 1]
-	      Position		      [590, 213, 675, 267]
+	      BlockType		      Reference
+	      Name		      "Controlled Voltage Source3"
+	      SID		      "23596"
+	      Ports		      [1, 0, 0, 0, 0, 1, 1]
+	      Position		      [370, 262, 415, 298]
+	      ShowName		      off
+	      LibraryVersion	      "1.2119"
+	      FontName		      "Verdana"
 	      FontSize		      12
-	      MinAlgLoopOccurrences   off
-	      PropExecContextOutsideSubsystem off
-	      RTWSystemCode	      "Auto"
-	      FunctionWithSeparateData off
-	      Opaque		      off
-	      RequestExecContextInheritance off
-	      MaskHideContents	      off
-	      Port {
-		PortNumber		1
-		Name			"phase_voltages"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	      System {
-		Name			"L-L 2 L-N"
-		Location		[1265, 601, 1610, 798]
-		Open			off
-		ModelBrowserVisibility	off
-		ModelBrowserWidth	200
-		ScreenColor		"white"
-		PaperOrientation	"landscape"
-		PaperPositionMode	"auto"
-		PaperType		"usletter"
-		PaperUnits		"inches"
-		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-		TiledPageScale		1
-		ShowPageBoundaries	off
-		ZoomFactor		"100"
-		Block {
-		  BlockType		  Inport
-		  Name			  "Vabc"
-		  SID			  "22726"
-		  Position		  [40, 198, 70, 212]
-		  FontName		  "Arial"
-		  FontSize		  12
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Fcn
-		  Name			  "Fcn"
-		  SID			  "22727"
-		  Position		  [170, 130, 230, 160]
-		  FontName		  "Arial"
-		  FontSize		  12
-		  Expr			  "-2/3*(-u(1)-0.5*u(2))"
-		}
-		Block {
-		  BlockType		  Fcn
-		  Name			  "Fcn1"
-		  SID			  "22728"
-		  Position		  [170, 190, 230, 220]
-		  FontName		  "Arial"
-		  FontSize		  12
-		  Expr			  "-2/3*(-u(2)-0.5*u(3))"
-		}
-		Block {
-		  BlockType		  Fcn
-		  Name			  "Fcn2"
-		  SID			  "22729"
-		  Position		  [170, 250, 230, 280]
-		  FontName		  "Arial"
-		  FontSize		  12
-		  Expr			  "-2/3*(-u(3)-0.5*u(1))"
-		}
-		Block {
-		  BlockType		  Concatenate
-		  Name			  "Vector\nConcatenate"
-		  SID			  "22730"
-		  Ports			  [3, 1]
-		  Position		  [325, 114, 330, 296]
-		  FontName		  "Arial"
-		  FontSize		  12
-		  NumInputs		  "3"
-		  Mode			  "Vector"
-		}
-		Block {
-		  BlockType		  Outport
-		  Name			  "Vabcn"
-		  SID			  "22731"
-		  Position		  [395, 198, 425, 212]
-		  FontName		  "Arial"
-		  FontSize		  12
-		  IconDisplay		  "Port number"
-		}
-		Line {
-		  SrcBlock		  "Fcn"
-		  SrcPort		  1
-		  DstBlock		  "Vector\nConcatenate"
-		  DstPort		  1
-		}
-		Line {
-		  SrcBlock		  "Fcn1"
-		  SrcPort		  1
-		  DstBlock		  "Vector\nConcatenate"
-		  DstPort		  2
-		}
-		Line {
-		  SrcBlock		  "Fcn2"
-		  SrcPort		  1
-		  DstBlock		  "Vector\nConcatenate"
-		  DstPort		  3
-		}
-		Line {
-		  SrcBlock		  "Vabc"
-		  SrcPort		  1
-		  Points		  [65, 0]
-		  Branch {
-		    Points		    [0, -60]
-		    DstBlock		    "Fcn"
-		    DstPort		    1
-		  }
-		  Branch {
-		    DstBlock		    "Fcn1"
-		    DstPort		    1
-		  }
-		  Branch {
-		    Points		    [0, 60]
-		    DstBlock		    "Fcn2"
-		    DstPort		    1
-		  }
-		}
-		Line {
-		  SrcBlock		  "Vector\nConcatenate"
-		  SrcPort		  1
-		  DstBlock		  "Vabcn"
-		  DstPort		  1
-		}
-		Annotation {
-		  Name			  "Convert Line-to-Line measurements to \nequivalent Line-to-Neutral Measurements"
-		  Position		  [134, 88]
-		  HorizontalAlignment	  "left"
-		  DropShadow		  on
-		  FontName		  "Arial"
-		  FontSize		  12
-		}
-		Annotation {
-		  Name			  "L-L 2 L-N"
-		  Tag			  "systemTitleTag"
-		  Position		  [242, 36]
-		  FontSize		  20
-		  FontWeight		  "bold"
-		}
-	      }
+	      SourceBlock	      "powerlib/Electrical\nSources/Controlled Voltage Source"
+	      SourceType	      "Controlled Voltage Source"
+	      Initialize	      off
+	      Source_Type	      "DC"
+	      Amplitude		      "12"
+	      Phase		      "0"
+	      Frequency		      "0"
+	      Measurements	      "None"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Ground2"
+	      SID		      "23597"
+	      Ports		      [0, 0, 0, 0, 0, 1]
+	      Position		      [229, 320, 251, 345]
+	      BlockRotation	      270
+	      BlockMirror	      on
+	      ShowName		      off
+	      LibraryVersion	      "1.2119"
+	      FontName		      "Verdana"
+	      FontSize		      12
+	      SourceBlock	      "powerlib/Elements/Ground"
+	      SourceType	      "Ground"
+	      LConnTagsString	      "a"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Scale To\nBus Voltage"
+	      SID		      "23601"
+	      Position		      [115, 112, 190, 148]
+	      AttributesFormatString  "------------------------------\\nGain:\\n%<Gain>"
+	      FontName		      "Arial"
+	      FontSize		      12
+	      Gain		      "ctrlConst.BusVoltage"
+	      ParamDataTypeStr	      "double"
+	      OutDataTypeStr	      "double"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Selector
+	      Name		      "Selector3"
+	      SID		      "23598"
+	      Ports		      [1, 1]
+	      Position		      [300, 118, 330, 142]
+	      ShowName		      off
+	      FontSize		      12
+	      InputPortWidth	      "3"
+	      IndexOptions	      "Index vector (dialog)"
+	      Indices		      "[1]"
+	      OutputSizes	      "1"
+	    }
+	    Block {
+	      BlockType		      Selector
+	      Name		      "Selector4"
+	      SID		      "23599"
+	      Ports		      [1, 1]
+	      Position		      [300, 188, 330, 212]
+	      ShowName		      off
+	      FontSize		      12
+	      InputPortWidth	      "3"
+	      IndexOptions	      "Index vector (dialog)"
+	      Indices		      "2"
+	      OutputSizes	      "1"
+	    }
+	    Block {
+	      BlockType		      Selector
+	      Name		      "Selector5"
+	      SID		      "23600"
+	      Ports		      [1, 1]
+	      Position		      [300, 258, 330, 282]
+	      ShowName		      off
+	      FontSize		      12
+	      InputPortWidth	      "3"
+	      IndexOptions	      "Index vector (dialog)"
+	      Indices		      "3"
+	      OutputSizes	      "1"
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Three-Phase\nV-I Measurement"
 	      SID		      "22732"
 	      Ports		      [0, 2, 0, 0, 0, 3, 3]
-	      Position		      [490, 277, 540, 493]
-	      LibraryVersion	      "1.2088"
+	      Position		      [440, 102, 490, 318]
+	      LibraryVersion	      "1.2119"
 	      FontName		      "Verdana"
 	      FontSize		      12
 	      SourceBlock	      "powerlib/Measurements/Three-Phase\nV-I Measurement"
 	      SourceType	      "Three-Phase VI Measurement"
-	      VoltageMeasurement      "phase-to-phase"
+	      VoltageMeasurement      "phase-to-ground"
 	      SetLabelV		      off
 	      LabelV		      "Vabc"
 	      Vpu		      off
@@ -3853,6 +4398,13 @@ Model {
 	      PhasorSimulation	      off
 	      PSBequivalent	      "0"
 	      Port {
+		PortNumber		1
+		Name			"phase_voltages"
+		PropagatedSignals	"signal"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
 		PortNumber		2
 		Name			"phase_currents"
 		PropagatedSignals	"signal"
@@ -3864,7 +4416,7 @@ Model {
 	      BlockType		      PMIOPort
 	      Name		      "A"
 	      SID		      "22733"
-	      Position		      [600, 378, 630, 392]
+	      Position		      [690, 203, 720, 217]
 	      BlockMirror	      on
 	      FontSize		      12
 	      Port		      "1"
@@ -3874,7 +4426,7 @@ Model {
 	      BlockType		      PMIOPort
 	      Name		      "B"
 	      SID		      "22734"
-	      Position		      [600, 423, 630, 437]
+	      Position		      [690, 248, 720, 262]
 	      BlockMirror	      on
 	      FontSize		      12
 	      Port		      "2"
@@ -3884,7 +4436,7 @@ Model {
 	      BlockType		      PMIOPort
 	      Name		      "C"
 	      SID		      "22735"
-	      Position		      [600, 468, 630, 482]
+	      Position		      [690, 293, 720, 307]
 	      BlockMirror	      on
 	      FontSize		      12
 	      Port		      "3"
@@ -3894,43 +4446,9 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Measurements"
 	      SID		      "22736"
-	      Position		      [845, 283, 875, 297]
+	      Position		      [695, 138, 725, 152]
 	      FontSize		      12
 	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      SrcBlock		      "Bus Voltage"
-	      SrcPort		      1
-	      DstBlock		      "Controlled Voltage Source"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Three-Phase\nV-I Measurement"
-	      SrcPort		      1
-	      Points		      [30, 0]
-	      DstBlock		      "L-L 2 L-N"
-	      DstPort		      1
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "A"
-	      SrcPort		      RConn1
-	      DstBlock		      "Three-Phase\nV-I Measurement"
-	      DstPort		      RConn1
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "Three-Phase\nV-I Measurement"
-	      SrcPort		      RConn2
-	      DstBlock		      "B"
-	      DstPort		      RConn1
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "Three-Phase\nV-I Measurement"
-	      SrcPort		      RConn3
-	      DstBlock		      "C"
-	      DstPort		      RConn1
 	    }
 	    Line {
 	      Name		      "phase_currents"
@@ -3948,71 +4466,142 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      Name		      "phase_voltages"
-	      FontSize		      12
-	      Labels		      [0, 0]
-	      SrcBlock		      "L-L 2 L-N"
-	      SrcPort		      1
-	      DstBlock		      "Bus\nCreator"
-	      DstPort		      1
-	    }
-	    Line {
 	      SrcBlock		      "PWM Duty Cycles"
 	      SrcPort		      1
-	      Points		      [345, 0; 0, 60]
-	      DstBlock		      "Inverter Bridge"
+	      DstBlock		      "Scale To\nBus Voltage"
 	      DstPort		      1
 	    }
 	    Line {
 	      LineType		      "Connection"
 	      SrcBlock		      "Three-Phase\nV-I Measurement"
-	      SrcPort		      LConn2
-	      DstBlock		      "Inverter Bridge"
-	      DstPort		      LConn2
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "Controlled Voltage Source"
 	      SrcPort		      RConn1
-	      Points		      [0, -5]
-	      DstBlock		      "Inverter Bridge"
+	      DstBlock		      "A"
 	      DstPort		      RConn1
 	    }
 	    Line {
 	      LineType		      "Connection"
 	      SrcBlock		      "Three-Phase\nV-I Measurement"
-	      SrcPort		      LConn1
-	      DstBlock		      "Inverter Bridge"
-	      DstPort		      LConn1
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "Inverter Bridge"
 	      SrcPort		      RConn2
-	      Points		      [-25, 0]
-	      DstBlock		      "Controlled Voltage Source"
-	      DstPort		      LConn1
+	      DstBlock		      "B"
+	      DstPort		      RConn1
 	    }
 	    Line {
 	      LineType		      "Connection"
 	      SrcBlock		      "Three-Phase\nV-I Measurement"
-	      SrcPort		      LConn3
-	      DstBlock		      "Inverter Bridge"
+	      SrcPort		      RConn3
+	      DstBlock		      "C"
+	      DstPort		      RConn1
+	    }
+	    Line {
+	      Name		      "phase_voltages"
+	      FontSize		      12
+	      Labels		      [-1, 0]
+	      SrcBlock		      "Three-Phase\nV-I Measurement"
+	      SrcPort		      1
+	      DstBlock		      "Bus\nCreator"
+	      DstPort		      1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      FontSize		      12
+	      Points		      [240, 290; 0, 15]
+	      DstBlock		      "Ground2"
+	      DstPort		      LConn1
+	      Branch {
+		ConnectType		"SRC_DEST"
+		SrcBlock		"Controlled Voltage Source3"
+		SrcPort			LConn1
+		Points			[-115, 0]
+	      }
+	      Branch {
+		ConnectType		"SRC_SRC"
+		Points			[0, -70]
+		Branch {
+		  ConnectType		  "DEST_SRC"
+		  Points		  [0, -70]
+		  DstBlock		  "Controlled Voltage Source1"
+		  DstPort		  LConn1
+		}
+		Branch {
+		  ConnectType		  "DEST_SRC"
+		  DstBlock		  "Controlled Voltage Source2"
+		  DstPort		  LConn1
+		}
+	      }
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Controlled Voltage Source2"
+	      SrcPort		      RConn1
+	      DstBlock		      "Three-Phase\nV-I Measurement"
+	      DstPort		      LConn2
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Controlled Voltage Source1"
+	      SrcPort		      RConn1
+	      DstBlock		      "Three-Phase\nV-I Measurement"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Controlled Voltage Source3"
+	      SrcPort		      RConn1
+	      DstBlock		      "Three-Phase\nV-I Measurement"
 	      DstPort		      LConn3
 	    }
+	    Line {
+	      SrcBlock		      "Selector3"
+	      SrcPort		      1
+	      DstBlock		      "Controlled Voltage Source1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Selector4"
+	      SrcPort		      1
+	      DstBlock		      "Controlled Voltage Source2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Selector5"
+	      SrcPort		      1
+	      DstBlock		      "Controlled Voltage Source3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Scale To\nBus Voltage"
+	      SrcPort		      1
+	      Points		      [70, 0]
+	      Branch {
+		DstBlock		"Selector3"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 70]
+		Branch {
+		  Points		  [0, 70]
+		  DstBlock		  "Selector5"
+		  DstPort		  1
+		}
+		Branch {
+		  DstBlock		  "Selector4"
+		  DstPort		  1
+		}
+	      }
+	    }
 	    Annotation {
-	      Name		      "Construct electrical waveforms for the three motor phases.\nThe inverter constructs the waveform u"
-	      "sing PWMs and an inverter bridge.\nThe inverter control signals must be normalized when using the averaged mode"
-	      "l for the inverter bridge."
-	      Position		      [201, 102]
+	      SID		      "23695"
+	      Name		      "Construct electrical waveforms for the three motor phases."
+	      Position		      [201, 62]
 	      HorizontalAlignment     "left"
 	      DropShadow	      on
 	      FontSize		      12
 	    }
 	    Annotation {
+	      SID		      "23696"
 	      Name		      "Inverter"
 	      Tag		      "systemTitleTag"
-	      Position		      [437, 41]
+	      Position		      [387, 26]
 	      FontSize		      20
 	      FontWeight	      "bold"
 	    }
@@ -4023,7 +4612,7 @@ Model {
 	  Name			  "Motor"
 	  SID			  "23441"
 	  Ports			  [1, 1, 0, 0, 0, 3]
-	  Position		  [645, 259, 775, 446]
+	  Position		  [425, 194, 555, 381]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  MinAlgLoopOccurrences	  off
@@ -4036,17 +4625,15 @@ Model {
 	  Port {
 	    PortNumber		    1
 	    Name		    "mechanical_measurements"
-	    PropagatedSignals	    "current_phase_a, current_phase_b, current_phase_c, electromagnetic_torque, rotor_velocity,"
-	    " direct_current, quadrature_current, rotor_angle"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  System {
 	    Name		    "Motor"
-	    Location		    [6, 77, 844, 626]
+	    Location		    [16, 82, 1025, 752]
 	    Open		    off
 	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
+	    ModelBrowserWidth	    212
 	    ScreenColor		    "white"
 	    PaperOrientation	    "landscape"
 	    PaperPositionMode	    "auto"
@@ -4055,12 +4642,12 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
+	    ZoomFactor		    "77"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "Load Torque"
 	      SID		      "23442"
-	      Position		      [60, 288, 90, 302]
+	      Position		      [35, 253, 65, 267]
 	      FontSize		      12
 	      IconDisplay	      "Port number"
 	    }
@@ -4069,7 +4656,7 @@ Model {
 	      Name		      "Bus\nCreator"
 	      SID		      "23453"
 	      Ports		      [8, 1]
-	      Position		      [835, 157, 845, 573]
+	      Position		      [740, 122, 750, 538]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -4081,7 +4668,7 @@ Model {
 	      Name		      "Bus\nSelector"
 	      SID		      "23454"
 	      Ports		      [1, 8]
-	      Position		      [440, 166, 450, 564]
+	      Position		      [345, 131, 355, 529]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -4140,48 +4727,50 @@ Model {
 	      BlockType		      Bias
 	      Name		      "Map Rotor Angle with Electrical Zero"
 	      SID		      "23468"
-	      Position		      [630, 524, 700, 556]
+	      Position		      [535, 489, 605, 521]
 	      AttributesFormatString  "----------------------------------------\\n%<Bias>"
 	      FontName		      "Arial"
 	      FontSize		      12
-	      Bias		      "pmsm.electricalZeroPhaseOffsetRads"
+	      Bias		      "pmsm.ElectricalZeroPhaseOffsetRads"
 	      SaturateOnIntegerOverflow	off
 	      Port {
 		PortNumber		1
 		Name			"rotor_angle"
 		RTWStorageClass		"Auto"
+		DataLogging		on
 		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Permanent Magnet\nSynchronous Machine"
-	      SID		      "22707"
+	      SID		      "23592"
 	      Ports		      [1, 1, 0, 0, 0, 3]
-	      Position		      [150, 271, 350, 454]
-	      LibraryVersion	      "1.2088"
+	      Position		      [110, 236, 310, 419]
+	      ZOrder		      1
+	      LibraryVersion	      "1.2119"
 	      FontName		      "Verdana"
-	      FontSize		      12
+	      FontSize		      11
 	      SourceBlock	      "powerlib/Machines/Permanent Magnet\nSynchronous Machine"
 	      SourceType	      "Permanent Magnet Synchronous Machine"
 	      NbPhases		      "3"
 	      FluxDistribution	      "Sinusoidal"
-	      RotorType		      "Round"
+	      RotorType		      "Salient-pole"
 	      MechanicalLoad	      "Torque Tm"
 	      PresetModel	      "No"
 	      ShowDetailedParameters  on
-	      Resistance	      "0.8*2/3"
-	      Inductance	      "1.2e-3*2/3"
-	      dqInductances	      "[1, 1] * 0.6e-3"
+	      Resistance	      "pmsm.StatorPhaseResistance"
+	      Inductance	      "8.5e-3"
+	      dqInductances	      "[pmsm.InductanceLd pmsm.InductanceLq]"
 	      La		      "0.000835"
 	      MachineConstant	      "Torque Constant (N.m / A_peak)"
 	      Flux		      "0.0058847"
 	      VoltageCst	      "4.2694"
-	      TorqueCst		      "0.035308"
-	      Flat		      "0"
-	      Mechanical	      "[4.801855e-006, 1.301336e-005, pmsm.polePairs]"
+	      TorqueCst		      "pmsm.TorqueConstant"
+	      Flat		      "120"
+	      Mechanical	      "[pmsm.Inertia, pmsm.ViscousDamping, pmsm.PolePairs, pmsm.StaticFriction]"
 	      PolePairs		      "4"
-	      InitialConditions	      "[0, pmsm.thetaInitDegrees, 0, 0]"
+	      InitialConditions	      "[0, pmsm.ThetaInitDegrees, 0, 0]"
 	      InitialConditions5ph    "[0 0 0 0 0 0]"
 	      TsPowergui	      "0"
 	      TsBlock		      "-1"
@@ -4191,7 +4780,7 @@ Model {
 	      BlockType		      SignalConversion
 	      Name		      "Signal\nConversion 1"
 	      SID		      "23455"
-	      Position		      [650, 178, 680, 202]
+	      Position		      [555, 143, 585, 167]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -4207,7 +4796,7 @@ Model {
 	      BlockType		      SignalConversion
 	      Name		      "Signal\nConversion 2"
 	      SID		      "23464"
-	      Position		      [650, 228, 680, 252]
+	      Position		      [555, 193, 585, 217]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -4223,7 +4812,7 @@ Model {
 	      BlockType		      SignalConversion
 	      Name		      "Signal\nConversion 3"
 	      SID		      "23465"
-	      Position		      [650, 278, 680, 302]
+	      Position		      [555, 243, 585, 267]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -4239,7 +4828,7 @@ Model {
 	      BlockType		      SignalConversion
 	      Name		      "Signal\nConversion 4"
 	      SID		      "23467"
-	      Position		      [650, 328, 680, 352]
+	      Position		      [555, 293, 585, 317]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -4255,7 +4844,7 @@ Model {
 	      BlockType		      SignalConversion
 	      Name		      "Signal\nConversion 5"
 	      SID		      "23466"
-	      Position		      [650, 378, 680, 402]
+	      Position		      [555, 343, 585, 367]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -4271,7 +4860,7 @@ Model {
 	      BlockType		      SignalConversion
 	      Name		      "Signal\nConversion 7"
 	      SID		      "23496"
-	      Position		      [650, 428, 680, 452]
+	      Position		      [555, 393, 585, 417]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -4287,7 +4876,7 @@ Model {
 	      BlockType		      SignalConversion
 	      Name		      "Signal\nConversion 8"
 	      SID		      "23497"
-	      Position		      [650, 478, 680, 502]
+	      Position		      [555, 443, 585, 467]
 	      ShowName		      off
 	      FontName		      "Arial"
 	      FontSize		      12
@@ -4303,7 +4892,7 @@ Model {
 	      BlockType		      PMIOPort
 	      Name		      "A"
 	      SID		      "23443"
-	      Position		      [60, 333, 90, 347]
+	      Position		      [35, 298, 65, 312]
 	      FontSize		      12
 	      Port		      "1"
 	      Side		      "Left"
@@ -4312,7 +4901,7 @@ Model {
 	      BlockType		      PMIOPort
 	      Name		      "B"
 	      SID		      "23445"
-	      Position		      [60, 378, 90, 392]
+	      Position		      [35, 343, 65, 357]
 	      FontSize		      12
 	      Port		      "2"
 	      Side		      "Left"
@@ -4321,7 +4910,7 @@ Model {
 	      BlockType		      PMIOPort
 	      Name		      "C"
 	      SID		      "23446"
-	      Position		      [60, 423, 90, 437]
+	      Position		      [35, 388, 65, 402]
 	      FontSize		      12
 	      Port		      "3"
 	      Side		      "Left"
@@ -4330,7 +4919,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Measurements"
 	      SID		      "23444"
-	      Position		      [915, 363, 945, 377]
+	      Position		      [790, 323, 820, 337]
 	      FontName		      "Arial"
 	      FontSize		      12
 	      IconDisplay	      "Port number"
@@ -4346,27 +4935,6 @@ Model {
 	      SrcPort		      1
 	      DstBlock		      "Permanent Magnet\nSynchronous Machine"
 	      DstPort		      1
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "A"
-	      SrcPort		      RConn1
-	      DstBlock		      "Permanent Magnet\nSynchronous Machine"
-	      DstPort		      LConn1
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "B"
-	      SrcPort		      RConn1
-	      DstBlock		      "Permanent Magnet\nSynchronous Machine"
-	      DstPort		      LConn2
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "C"
-	      SrcPort		      RConn1
-	      DstBlock		      "Permanent Magnet\nSynchronous Machine"
-	      DstPort		      LConn3
 	    }
 	    Line {
 	      Name		      "<Stator current is_a (A)>"
@@ -4528,34 +5096,58 @@ Model {
 	      DstBlock		      "Signal\nConversion 8"
 	      DstPort		      1
 	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "A"
+	      SrcPort		      RConn1
+	      DstBlock		      "Permanent Magnet\nSynchronous Machine"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "B"
+	      SrcPort		      RConn1
+	      DstBlock		      "Permanent Magnet\nSynchronous Machine"
+	      DstPort		      LConn2
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "C"
+	      SrcPort		      RConn1
+	      DstBlock		      "Permanent Magnet\nSynchronous Machine"
+	      DstPort		      LConn3
+	    }
 	    Annotation {
+	      SID		      "23697"
 	      Name		      "Motor"
 	      Tag		      "systemTitleTag"
-	      Position		      [422, 61]
+	      Position		      [387, 31]
 	      FontName		      "Arial"
 	      FontSize		      20
 	      FontWeight	      "bold"
 	    }
 	    Annotation {
+	      SID		      "23698"
 	      Name		      "Models the PMSM and outputs physical quantities used by the controller and visualizations.\nThe ro"
 	      "tor position angle returned by the SimPowerSystems model must be offset to align with the reference angle that "
 	      "the controller expects.\nSignal conversion blocks are used to enable renaming signals measured from the motor m"
 	      "odel."
-	      Position		      [97, 106]
+	      Position		      [32, 86]
 	      HorizontalAlignment     "left"
 	      DropShadow	      on
 	      FontSize		      12
 	    }
 	    Annotation {
-	      Position		      [437, 616]
+	      SID		      "23699"
+	      Position		      [382, 581]
 	    }
 	  }
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "System Measurements"
+	  Name			  "System\nMeasurements"
 	  SID			  "22781"
-	  Position		  [1030, 348, 1060, 362]
+	  Position		  [750, 283, 780, 297]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  IconDisplay		  "Port number"
@@ -4568,44 +5160,26 @@ Model {
 	  DstPort		  LConn2
 	}
 	Line {
-	  Name			  "pwm_duty_cycles"
-	  FontName		  "Arial"
-	  FontSize		  12
-	  SrcBlock		  "PWM Duty Cycles"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  Branch {
-	    DstBlock		    "Inverter"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Labels		    [-1, 0]
-	    Points		    [0, 135]
-	    DstBlock		    "Bus\nCreator"
-	    DstPort		    3
-	  }
-	}
-	Line {
 	  Name			  "electrical_measurements"
 	  FontName		  "Arial"
-	  FontSize		  12
+	  FontSize		  10
 	  Labels		  [-1, 0]
 	  SrcBlock		  "Inverter"
 	  SrcPort		  1
-	  Points		  [10, 0; 0, -65]
+	  Points		  [15, 0; 0, -55]
 	  DstBlock		  "Bus\nCreator"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Bus\nCreator"
 	  SrcPort		  1
-	  DstBlock		  "System Measurements"
+	  DstBlock		  "System\nMeasurements"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "mechanical_measurements"
 	  FontName		  "Arial"
-	  FontSize		  12
+	  FontSize		  10
 	  Labels		  [-1, 0]
 	  SrcBlock		  "Motor"
 	  SrcPort		  1
@@ -4627,33 +5201,66 @@ Model {
 	  DstPort		  LConn3
 	}
 	Line {
-	  SrcBlock		  "System Loads"
+	  SrcBlock		  "System\nLoads"
 	  SrcPort		  1
 	  DstBlock		  "Bus\nSelector"
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "<load_torque>"
+	  Name			  "motor_commands"
 	  FontName		  "Arial"
-	  FontSize		  12
+	  FontSize		  10
+	  SrcBlock		  "Motor\nCommands"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    DstBlock		    "Bus\nSelector1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Labels		    [-1, 0]
+	    Points		    [0, 260]
+	    DstBlock		    "Bus\nCreator"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  Name			  "<load_torque>"
 	  Labels		  [0, 0]
 	  SrcBlock		  "Bus\nSelector"
+	  SrcPort		  1
+	  DstBlock		  "Goto"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<pwm_duty_cycle>"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, 135]
+	  DstBlock		  "Inverter"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "From"
 	  SrcPort		  1
 	  DstBlock		  "Motor"
 	  DstPort		  1
 	}
 	Annotation {
+	  SID			  "23700"
 	  Name			  "Models the PMSM motor and inverter power electronics\nOutputs electrical and mechanical measurements."
-	  Position		  [407, 121]
+	  Position		  [337, 71]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	  FontName		  "Arial"
 	  FontSize		  12
 	}
 	Annotation {
+	  SID			  "23701"
 	  Name			  "Inverter and Motor"
 	  Tag			  "systemTitleTag"
-	  Position		  [567, 71]
+	  Position		  [497, 26]
 	  FontName		  "Arial"
 	  FontSize		  20
 	  FontWeight		  "bold"
@@ -4665,10 +5272,10 @@ Model {
       Name		      "Model Info"
       SID		      "23490"
       Ports		      []
-      Position		      [15, 445, 931, 554]
+      Position		      [15, 445, 895, 555]
       DropShadow	      on
       ShowName		      off
-      LibraryVersion	      "1.256"
+      LibraryVersion	      "1.260"
       FontName		      "Arial"
       FontSize		      12
       SourceBlock	      "simulink/Model-Wide\nUtilities/Model Info"
@@ -4695,7 +5302,7 @@ Model {
       Description	      "System Analysis for Speed Control Design\n\nAnalyize and plot signals used to analyize perfor"
       "mance of\nspeed  control designs"
       Ports		      [2]
-      Position		      [740, 163, 855, 292]
+      Position		      [760, 163, 875, 292]
       ShowName		      off
       LibraryVersion	      "1.216"
       FontName		      "Arial"
@@ -4716,7 +5323,7 @@ Model {
       MaskIconUnits	      "autoscale"
       System {
 	Name			"System Analysis"
-	Location		[16, 83, 951, 719]
+	Location		[2, 82, 782, 554]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	212
@@ -4728,12 +5335,12 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"112"
+	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
 	  Name			  "System Inputs"
 	  SID			  "21678"
-	  Position		  [60, 133, 90, 147]
+	  Position		  [55, 113, 85, 127]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  IconDisplay		  "Port number"
@@ -4742,7 +5349,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "System Measurements"
 	  SID			  "21679"
-	  Position		  [60, 188, 90, 202]
+	  Position		  [55, 168, 85, 182]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  Port			  "2"
@@ -4753,14 +5360,14 @@ Model {
 	  Name			  "Bus\nSelector1"
 	  SID			  "23384"
 	  Ports			  [1, 1]
-	  Position		  [245, 404, 250, 476]
+	  Position		  [205, 333, 210, 387]
 	  ShowName		  off
 	  FontName		  "Arial"
 	  FontSize		  12
-	  OutputSignals		  "pwm_duty_cycles"
+	  OutputSignals		  "motor_commands.pwm_duty_cycle"
 	  Port {
 	    PortNumber		    1
-	    Name		    "<pwm_duty_cycles>"
+	    Name		    "<pwm_duty_cycle>"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -4770,7 +5377,7 @@ Model {
 	  Name			  "Bus\nSelector2"
 	  SID			  "23498"
 	  Ports			  [1, 2]
-	  Position		  [245, 266, 250, 359]
+	  Position		  [205, 228, 210, 297]
 	  ShowName		  off
 	  FontName		  "Arial"
 	  FontSize		  12
@@ -4789,11 +5396,28 @@ Model {
 	  }
 	}
 	Block {
+	  BlockType		  BusSelector
+	  Name			  "Bus\nSelector3"
+	  SID			  "23664"
+	  Ports			  [1, 1]
+	  Position		  [205, 403, 210, 457]
+	  ShowName		  off
+	  FontName		  "Arial"
+	  FontSize		  12
+	  OutputSignals		  "motor_commands.error"
+	  Port {
+	    PortNumber		    1
+	    Name		    "<error>"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
 	  BlockType		  SubSystem
 	  Name			  "Convert Rotor Velocity Units"
 	  SID			  "22250"
 	  Ports			  [2, 1]
-	  Position		  [245, 113, 445, 222]
+	  Position		  [205, 93, 405, 202]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  MinAlgLoopOccurrences	  off
@@ -4812,7 +5436,7 @@ Model {
 	  }
 	  System {
 	    Name		    "Convert Rotor Velocity Units"
-	    Location		    [17, 98, 693, 503]
+	    Location		    [2, 82, 782, 557]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -4852,7 +5476,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"rotor_velocities"
-		PropagatedSignals	", rotor_velocity_rpm"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -4879,10 +5502,10 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [155, 132, 160, 158]
 	      ShowName		      off
-	      OutputSignals	      "speed_command"
+	      OutputSignals	      "command"
 	      Port {
 		PortNumber		1
-		Name			"<speed_command>"
+		Name			"<command>"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -4922,7 +5545,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      Name		      "<speed_command>"
+	      Name		      "<command>"
 	      Labels		      [0, 0]
 	      SrcBlock		      "Bus\nSelector2"
 	      SrcPort		      1
@@ -4972,6 +5595,7 @@ Model {
 	      DstPort		      2
 	    }
 	    Annotation {
+	      SID		      "23702"
 	      Name		      "Convert Rotor Velocity Units"
 	      Tag		      "systemTitleTag"
 	      Position		      [287, 41]
@@ -4979,6 +5603,7 @@ Model {
 	      FontWeight	      "bold"
 	    }
 	    Annotation {
+	      SID		      "23703"
 	      Name		      "Convert velocity units from radians per second to revolutions per minute."
 	      Position		      [139, 74]
 	      HorizontalAlignment     "left"
@@ -4993,11 +5618,11 @@ Model {
 	  Name			  "Direct and Quadrature Currents (A)"
 	  SID			  "23499"
 	  Ports			  [2]
-	  Position		  [700, 265, 755, 360]
+	  Position		  [660, 229, 715, 296]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  Floating		  off
-	  Location		  [356, 57, 1019, 489]
+	  Location		  [850, 363, 1513, 795]
 	  Open			  off
 	  NumInputPorts		  "2"
 	  ZoomMode		  "yonly"
@@ -5016,20 +5641,32 @@ Model {
 	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 	    MarkerStyles	    "none|none|none|none|none|none"
 	  }
-	  TimeRange		  "2"
-	  YMin			  "-0.5~-0.2"
-	  YMax			  "2~1"
+	  ShowLegends		  off
+	  TimeRange		  "0.2"
+	  YMin			  "-0.04~-0.1"
+	  YMax			  "0.1~0.6000000000000001"
 	  SaveName		  "ScopeData3"
 	  DataFormat		  "StructureWithTime"
 	  LimitDataPoints	  off
 	  SampleTime		  "0"
 	}
 	Block {
+	  BlockType		  Display
+	  Name			  "Error Display"
+	  SID			  "23614"
+	  Ports			  [1]
+	  Position		  [535, 418, 720, 442]
+	  ZOrder		  -1
+	  FontSize		  12
+	  Decimation		  "1"
+	  Lockdown		  off
+	}
+	Block {
 	  BlockType		  Scope
 	  Name			  "PWM Duty Cycles"
 	  SID			  "23385"
 	  Ports			  [1]
-	  Position		  [700, 392, 755, 488]
+	  Position		  [660, 322, 715, 388]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  Floating		  off
@@ -5051,9 +5688,10 @@ Model {
 	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 	    MarkerStyles	    "none|none|none|none|none|none"
 	  }
-	  TimeRange		  "2"
-	  YMin			  "-0.2"
-	  YMax			  "0.2"
+	  ShowLegends		  off
+	  TimeRange		  "1.4"
+	  YMin			  "-0.25"
+	  YMax			  "0.25"
 	  SaveName		  "ScopeData2"
 	  DataFormat		  "StructureWithTime"
 	  LimitDataPoints	  off
@@ -5064,13 +5702,14 @@ Model {
 	  Name			  "Rotor Velocities (RPM)"
 	  SID			  "22249"
 	  Ports			  [1]
-	  Position		  [700, 122, 755, 218]
+	  Position		  [660, 117, 715, 183]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  Floating		  off
-	  Location		  [533, 212, 1195, 574]
+	  Location		  [251, 183, 730, 483]
 	  Open			  off
 	  NumInputPorts		  "1"
+	  ZoomMode		  "yonly"
 	  List {
 	    ListType		    AxesTitles
 	    axes1		    "%<SignalLabel>"
@@ -5085,9 +5724,10 @@ Model {
 	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 	    MarkerStyles	    "none|none|none|none|none|none"
 	  }
-	  TimeRange		  "2"
+	  ShowLegends		  off
+	  TimeRange		  "0.2"
 	  YMin			  "-200"
-	  YMax			  "1200"
+	  YMax			  "1000"
 	  SaveName		  "ScopeData1"
 	  DataFormat		  "StructureWithTime"
 	  LimitDataPoints	  off
@@ -5096,17 +5736,24 @@ Model {
 	Line {
 	  SrcBlock		  "System Measurements"
 	  SrcPort		  1
-	  Points		  [90, 0]
+	  Points		  [55, 0]
 	  Branch {
 	    DstBlock		    "Convert Rotor Velocity Units"
 	    DstPort		    2
 	  }
 	  Branch {
-	    Points		    [0, 120]
+	    Points		    [0, 90]
 	    Branch {
-	      Points		      [0, 125]
-	      DstBlock		      "Bus\nSelector1"
-	      DstPort		      1
+	      Points		      [0, 95]
+	      Branch {
+		Points			[0, 70]
+		DstBlock		"Bus\nSelector3"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Bus\nSelector1"
+		DstPort			1
+	      }
 	    }
 	    Branch {
 	      DstBlock		      "Bus\nSelector2"
@@ -5131,17 +5778,19 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "<pwm_duty_cycles>"
+	  Name			  "<pwm_duty_cycle>"
 	  FontName		  "Arial"
 	  FontSize		  12
 	  Labels		  [0, 0]
 	  SrcBlock		  "Bus\nSelector1"
 	  SrcPort		  1
+	  Points		  [0, -5]
 	  DstBlock		  "PWM Duty Cycles"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "<direct_current>"
+	  FontSize		  12
 	  Labels		  [0, 0]
 	  SrcBlock		  "Bus\nSelector2"
 	  SrcPort		  1
@@ -5150,22 +5799,34 @@ Model {
 	}
 	Line {
 	  Name			  "<quadrature_current>"
+	  FontSize		  12
 	  Labels		  [0, 0]
 	  SrcBlock		  "Bus\nSelector2"
 	  SrcPort		  2
 	  DstBlock		  "Direct and Quadrature Currents (A)"
 	  DstPort		  2
 	}
+	Line {
+	  Name			  "<error>"
+	  FontSize		  12
+	  Labels		  [0, 0]
+	  SrcBlock		  "Bus\nSelector3"
+	  SrcPort		  1
+	  DstBlock		  "Error Display"
+	  DstPort		  1
+	}
 	Annotation {
+	  SID			  "23705"
 	  Name			  "System Analysis"
 	  Tag			  "systemTitleTag"
-	  Position		  [362, 46]
+	  Position		  [417, 26]
 	  FontSize		  20
 	  FontWeight		  "bold"
 	}
 	Annotation {
+	  SID			  "23706"
 	  Name			  "Visualize common signals of interest."
-	  Position		  [259, 79]
+	  Position		  [314, 59]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	  FontName		  "Arial"
@@ -5200,10 +5861,10 @@ Model {
       MaskIconUnits	      "autoscale"
       System {
 	Name			"System Inputs"
-	Location		[29, 85, 1015, 713]
+	Location		[14, 82, 773, 547]
 	Open			off
 	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
+	ModelBrowserWidth	212
 	ScreenColor		"white"
 	PaperOrientation	"landscape"
 	PaperPositionMode	"auto"
@@ -5212,26 +5873,46 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"109"
+	ZoomFactor		"100"
 	Block {
 	  BlockType		  BusCreator
 	  Name			  "Bus\nCreator"
 	  SID			  "21639"
-	  Ports			  [3, 1]
-	  Position		  [630, 126, 635, 544]
+	  Ports			  [4, 1]
+	  Position		  [610, 77, 620, 433]
 	  ShowName		  off
 	  FontName		  "Arial"
 	  FontSize		  12
-	  Inputs		  "3"
 	  DisplayOption		  "bar"
 	}
 	Block {
+	  BlockType		  Reference
+	  Name			  "Command Type"
+	  SID			  "23593"
+	  Ports			  [0, 1]
+	  Position		  [105, 104, 300, 136]
+	  ZOrder		  -9
+	  LibraryVersion	  "1.260"
+	  FontSize		  12
+	  SourceBlock		  "simulink/Sources/Enumerated\nConstant"
+	  SourceType		  "Enumerated Constant"
+	  OutDataTypeStr	  "Enum: EnumCommandType"
+	  Value			  "EnumCommandType.Velocity"
+	  SampleTime		  "inf"
+	  Port {
+	    PortNumber		    1
+	    Name		    "command_type"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
 	  BlockType		  SubSystem
-	  Name			  "Signal  Builder Experiments"
+	  Name			  "Signal Builder Experiments"
 	  SID			  "21640"
 	  Tag			  "STV Subsys"
 	  Ports			  [0, 3]
-	  Position		  [100, 126, 300, 544]
+	  Position		  [50, 161, 300, 439]
 	  LibraryVersion	  "1.762"
 	  CopyFcn		  "sigbuilder_block('copy');"
 	  DeleteFcn		  "sigbuilder_block('delete');"
@@ -5239,10 +5920,12 @@ Model {
 	  ModelCloseFcn		  "sigbuilder_block('modelClose');"
 	  PreSaveFcn		  "sigbuilder_block('preSave');"
 	  StartFcn		  "sigbuilder_block('start');"
+	  PauseFcn		  "sigbuilder_block('pause')"
+	  ContinueFcn		  "sigbuilder_block('continue')"
 	  StopFcn		  "sigbuilder_block('stop');"
 	  NameChangeFcn		  "sigbuilder_block('namechange');"
 	  ClipboardFcn		  "sigbuilder_block('clipboard');"
-	  OpenFcn		  "sigbuilder_block('open',[18.75 75 583.5 447.75 ]);"
+	  OpenFcn		  "sigbuilder_block('open',[64.5 56.25 624.75 441 ]);"
 	  CloseFcn		  "sigbuilder_block('close');"
 	  FontName		  "Arial"
 	  FontSize		  12
@@ -5258,8 +5941,8 @@ Model {
 	  MaskInitialization	  "if ~strcmp(get_param(bdroot(gcbh),'SimulationStatus'),'stopped') tuvar = sigbuilder_block('ma"
 	  "skInit'); end"
 	  MaskSelfModifiable	  on
-	  MaskDisplay		  "plot(0,0,100,100,[10,10,40,40,10],[80,20,20,80,80],[40,10],[50,50], [40,27,10],[65,72,56],[40,25,25"
-	  ",10],[28,28,43,43]);"
+	  MaskDisplay		  "plot(0, 0, 100, 100,[2, 2, 32, 32, 2], [68, 8, 8, 68, 68],[32, 2], [38, 38], [32, 19, 2],[53, 60, 4"
+	  "4], [32, 17, 17, 2],[16, 16, 31, 31]);txt = getActiveGroup(gcbh);text(2, 100, txt,'verticalAlignment', 'top');"
 	  MaskIconFrame		  on
 	  MaskIconOpaque	  off
 	  MaskIconRotate	  "port"
@@ -5274,19 +5957,19 @@ Model {
 	  }
 	  Port {
 	    PortNumber		    2
-	    Name		    "load_torque_ozin"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    3
 	    Name		    "speed_command_rpm"
 	    RTWStorageClass	    "Auto"
 	    DataLogging		    on
 	    DataLoggingNameMode	    "SignalName"
 	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "load_torque_ozin"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
 	  System {
-	    Name		    "Signal  Builder Experiments"
+	    Name		    "Signal Builder Experiments"
 	    Location		    [480, 85, 980, 386]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -5300,14 +5983,14 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "10"
+	    SIDHighWatermark	    "14"
 	    Block {
 	      BlockType		      Demux
 	      Name		      "Demux"
 	      SID		      "21640:1"
 	      Tag		      "STV Demux"
 	      Ports		      [1, 3]
-	      Position		      [150, 54, 160, 636]
+	      Position		      [150, 70, 160, 660]
 	      Outputs		      "3"
 	    }
 	    Block {
@@ -5333,8 +6016,8 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "Load Torque (oz-in)"
-	      SID		      "21640:3"
+	      Name		      "Speed Command (RPM)"
+	      SID		      "21640:5"
 	      Tag		      "STV Outport"
 	      Position		      [280, 60, 300, 70]
 	      Port		      "2"
@@ -5342,8 +6025,8 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "Speed Command (RPM)"
-	      SID		      "21640:5"
+	      Name		      "Load Torque (oz-in)"
+	      SID		      "21640:3"
 	      Tag		      "STV Outport"
 	      Position		      [280, 90, 300, 100]
 	      Port		      "3"
@@ -5359,29 +6042,29 @@ Model {
 	    Line {
 	      SrcBlock		      "Demux"
 	      SrcPort		      1
-	      Points		      [100, 0]
 	      DstBlock		      "Motor On (Boolean)"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Demux"
 	      SrcPort		      2
-	      DstBlock		      "Load Torque (oz-in)"
+	      DstBlock		      "Speed Command (RPM)"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Demux"
 	      SrcPort		      3
-	      DstBlock		      "Speed Command (RPM)"
+	      DstBlock		      "Load Torque (oz-in)"
 	      DstPort		      1
 	    }
 	  }
 	}
 	Block {
 	  BlockType		  Gain
-	  Name			  "oz-in to\nNewton Meters"
+	  Name			  "oz-in to Newton Meters"
 	  SID			  "21642"
-	  Position		  [415, 304, 530, 366]
+	  Position		  [455, 366, 490, 414]
+	  AttributesFormatString  "-------------------------\\n%<Gain>"
 	  FontName		  "Arial"
 	  FontSize		  12
 	  Gain			  "0.0070615518333"
@@ -5397,9 +6080,10 @@ Model {
 	}
 	Block {
 	  BlockType		  Gain
-	  Name			  "rpm to\nrad per sec"
+	  Name			  "rpm to rad per sec"
 	  SID			  "21643"
-	  Position		  [430, 448, 480, 502]
+	  Position		  [450, 276, 490, 324]
+	  AttributesFormatString  "------------------\\n%<Gain>"
 	  FontName		  "Arial"
 	  FontSize		  12
 	  Gain			  "pi/30"
@@ -5408,7 +6092,7 @@ Model {
 	  SaturateOnIntegerOverflow off
 	  Port {
 	    PortNumber		    1
-	    Name		    "speed_command"
+	    Name		    "command"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -5417,29 +6101,19 @@ Model {
 	  BlockType		  Outport
 	  Name			  "System Inputs"
 	  SID			  "21644"
-	  Position		  [705, 328, 735, 342]
+	  Position		  [675, 248, 705, 262]
 	  FontName		  "Arial"
 	  FontSize		  12
 	  IconDisplay		  "Port number"
-	}
-	Line {
-	  Name			  "speed_command_rpm"
-	  FontName		  "Arial"
-	  FontSize		  12
-	  Labels		  [0, 0]
-	  SrcBlock		  "Signal  Builder Experiments"
-	  SrcPort		  3
-	  DstBlock		  "rpm to\nrad per sec"
-	  DstPort		  1
 	}
 	Line {
 	  Name			  "load_torque_ozin"
 	  FontName		  "Arial"
 	  FontSize		  12
 	  Labels		  [0, 0]
-	  SrcBlock		  "Signal  Builder Experiments"
-	  SrcPort		  2
-	  DstBlock		  "oz-in to\nNewton Meters"
+	  SrcBlock		  "Signal Builder Experiments"
+	  SrcPort		  3
+	  DstBlock		  "oz-in to Newton Meters"
 	  DstPort		  1
 	}
 	Line {
@@ -5449,46 +6123,63 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "motor_on"
-	  FontName		  "Arial"
+	  Name			  "load_torque"
 	  FontSize		  12
-	  Labels		  [0, 0]
-	  SrcBlock		  "Signal  Builder Experiments"
+	  Labels		  [-1, 0]
+	  SrcBlock		  "oz-in to Newton Meters"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "command"
+	  FontSize		  12
+	  Labels		  [-1, 0]
+	  SrcBlock		  "rpm to rad per sec"
+	  SrcPort		  1
+	  DstBlock		  "Bus\nCreator"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "command_type"
+	  FontSize		  12
+	  Labels		  [-1, 0]
+	  SrcBlock		  "Command Type"
 	  SrcPort		  1
 	  DstBlock		  "Bus\nCreator"
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "load_torque"
-	  FontName		  "Arial"
+	  Name			  "motor_on"
 	  FontSize		  12
-	  Labels		  [0, 0]
-	  SrcBlock		  "oz-in to\nNewton Meters"
+	  Labels		  [-1, 0]
+	  SrcBlock		  "Signal Builder Experiments"
 	  SrcPort		  1
 	  DstBlock		  "Bus\nCreator"
 	  DstPort		  2
 	}
 	Line {
-	  Name			  "speed_command"
-	  FontName		  "Arial"
+	  Name			  "speed_command_rpm"
 	  FontSize		  12
 	  Labels		  [0, 0]
-	  SrcBlock		  "rpm to\nrad per sec"
-	  SrcPort		  1
-	  DstBlock		  "Bus\nCreator"
-	  DstPort		  3
+	  SrcBlock		  "Signal Builder Experiments"
+	  SrcPort		  2
+	  DstBlock		  "rpm to rad per sec"
+	  DstPort		  1
 	}
 	Annotation {
+	  SID			  "23707"
 	  Name			  "System Inputs"
 	  Tag			  "systemTitleTag"
-	  Position		  [392, 46]
+	  Position		  [352, 21]
 	  FontSize		  20
 	  FontWeight		  "bold"
 	}
 	Annotation {
+	  SID			  "23708"
 	  Name			  "Specify groups of tests in Signal Builder. Outputs are combined into a bus \nto simplify signal routing t"
 	  "hrough the model."
-	  Position		  [181, 90]
+	  Position		  [141, 65]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	  FontName		  "Arial"
@@ -5503,7 +6194,7 @@ Model {
       Ports		      []
       Position		      [490, 355, 606, 392]
       Priority		      "1"
-      LibraryVersion	      "1.2088"
+      LibraryVersion	      "1.2119"
       UserDataPersistent      on
       UserData		      "DataTag2"
       FontName		      "Verdana"
@@ -5553,6 +6244,61 @@ Model {
       Ts		      "0"
       methode		      off
     }
+    Block {
+      BlockType		      Scope
+      Name		      "Floating\nScope"
+      SID		      "23672"
+      Ports		      []
+      Position		      [185, 14, 215, 46]
+      IOType		      "viewer"
+      Floating		      on
+      Location		      [376, 294, 700, 533]
+      Open		      off
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      off
+      DataFormat	      "StructureWithTime"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      SignalViewerScope
+      Name		      "Velocity and PWM Outputs"
+      SID		      "23558"
+      Ports		      []
+      Position		      [20, 15, 60, 55]
+      IOType		      "viewer"
+      Location		      [5, 54, 1025, 743]
+      Open		      off
+      NumInputPorts	      "2"
+      ZoomMode		      "yonly"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+      }
+      ShowDataMarkers	      off
+      ShowLegends	      off
+      TimeRange		      "0.14"
+      YMin		      "-500~0"
+      YMax		      "4000~3000"
+      SaveName		      "ScopeData4"
+      LimitDataPoints	      off
+      MaxDataPoints	      "7500"
+      RefreshTime	      0.035000
+    }
     Line {
       SrcBlock		      "Embedded Processor"
       SrcPort		      1
@@ -5599,6 +6345,7 @@ Model {
       }
     }
     Annotation {
+      SID		      "23709"
       Name		      "Field-Oriented Control of Permanent Magnet Synchronous Machine\nSystem Test Bench"
       Tag		      "systemTitle"
       Position		      [455, 40]
@@ -5608,20 +6355,28 @@ Model {
       FontWeight	      "bold"
     }
     Annotation {
+      SID		      "23710"
       Position		      [704, 55]
     }
     Annotation {
+      SID		      "23711"
       Name		      "Copyright 2010-2011 The MathWorks, Inc."
       Position		      [451, 121]
       VerticalAlignment	      "top"
       FontSize		      12
     }
     Annotation {
+      SID		      "23712"
       Position		      [593, 247]
       FontSize		      12
     }
     Annotation {
-      Position		      [282, 197]
+      SID		      "23714"
+      Position		      [353, 277]
+    }
+    Annotation {
+      SID		      "23724"
+      Position		      [91, 185]
     }
   }
 }
@@ -5651,152 +6406,206 @@ MatData {
     "%    \"                0         )          X    X    !@    @    &          4    (     0    $    !          D    ("
     "            \\#\\.    ,     8    (    !@         %    \"                0         )          X    P    !@    @    "
     "&          4    (               !          D         #@   #@    &    \"     8         !0    @    !     0    $     "
-    "    \"0    @            (0 X    P    !@    @    &          4    (               !          D         #@   #     & "
+    "    \"0    @            80 X    P    !@    @    &          4    (               !          D         #@   #     & "
     "   \"     8         !0    @               $         \"0         .    .     8    (    !@         %    \"     $    !"
-    "     0         )    \"            PA #@   #@    &    \"     8         !0    @    !     0    $         \"0    @    "
-    "   \" !(!Z0 X    P    !@    @    &          4    (               !          D         "
+    "     0         )    \"         \" /P] #@   #@    &    \"     8         !0    @    !     0    $         \"0    @   "
+    "    \" !)!W0 X    P    !@    @    &          4    (               !          D         "
   }
   DataRecord {
     Tag			    DataTag0
-    Data		    "  %)30     .    <!0   8    (     @         %    \"     $    !     0         %  0 %@    $   \"P    9W)I9"
-    "%-E='1I;F<              &-H86YN96QS                  !A>&5S                        8V]M;6]N                     &1"
-    "A=&%3970                   !D871A4V5T261X                :7-697)I9FEC871I;VY6:7-I8FQE '-B;V)J                     "
-    "  .    ,     8    (    !          %    \"     $    \"     0         0  ( ;VX   X   \"@!P  !@    @    \"          4"
-    "    (     0    ,    !          4 !  *     0   %H   !S=&5P6       <W1E<%D      'E-:6X       !Y36%X        8V]L;W(  "
-    "    &QI;F53='EL90!L:6YE5VED=&@ ;&%B96P      &]U=$EN9&5X           .    .     8    (    !@         %    \"     $   "
-    " !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @  "
-    "             X    X    !@    @    &          4    (     0    $    !          D    (            \\/\\.    .     8  "
-    "  (    !@         %    \"     $    !     0         )    \"            /!_#@   $@    &    \"     8         !0    @ "
-    "   !     P    $         \"0   !@   \"J\\=)-8A#0/P          JO'236(0T#\\.    ,     8    (    !          %    \"    "
-    " $    !     0         0  $ +0    X    X    !@    @    &          4    (     0    $    !          D    (           "
-    " ^#\\.    2     8    (    !          %    \"     $    2     0         0    $@   $UO=&]R($]N(\"A\";V]L96%N*0       "
-    " X    X    !@    @    &          4    (     0    $    !          D    (            \\#\\.    .     8    (    !@   "
-    "      %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0  "
-    "  $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (         "
-    "   \\/\\.    .     8    (    !@         %    \"     $    !     0         )    \"            /!_#@   $@    &    \" "
-    "    8         !0    @    !     P    $         \"0   !@   !\"/NC9K/KJ/P                     .    ,     8    (    ! "
-    "         %    \"     $    !     0         0  $ +0    X    X    !@    @    &          4    (     0    $    !       "
-    "   D    (            ^#\\.    2     8    (    !          %    \"     $    3     0         0    $P   $QO860@5&]R<75"
-    "E(\"AO>BUI;BD       X    X    !@    @    &          4    (     0    $    !          D    (             $ .    .   "
+    Data		    "  %)30     .    \\!<   8    (     @         %    \"     $    !     0         %  0 %@    $   \"P    9W)I"
+    "9%-E='1I;F<              &-H86YN96QS                  !A>&5S                        8V]M;6]N                     &"
+    "1A=&%3970                   !D871A4V5T261X                :7-697)I9FEC871I;VY6:7-I8FQE '-B;V)J                    "
+    "   .    ,     8    (    !          %    \"     $    \"     0         0  ( ;VX   X   \"@!P  !@    @    \"          "
+    "4    (     0    ,    !          4 !  *     0   %H   !S=&5P6       <W1E<%D      'E-:6X       !Y36%X        8V]L;W( "
+    "     &QI;F53='EL90!L:6YE5VED=&@ ;&%B96P      &]U=$EN9&5X           .    .     8    (    !@         %    \"     $  "
+    "  !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @ "
+    "              X    X    !@    @    &          4    (     0    $    !          D    (            \\/\\.    .     8 "
+    "   (    !@         %    \"     $    !     0         )    \"            /!_#@   $@    &    \"     8         !0    @"
+    "    !     P    $         \"0   !@   \"J\\=)-8A#0/P          JO'236(0T#\\.    ,     8    (    !          %    \"   "
+    "  $    !     0         0  $ +0    X    X    !@    @    &          4    (     0    $    !          D    (          "
+    "  ^#\\.    2     8    (    !          %    \"     $    2     0         0    $@   $UO=&]R($]N(\"A\";V]L96%N*0      "
+    "  X    X    !@    @    &          4    (     0    $    !          D    (            \\#\\.    .     8    (    !@  "
+    "       %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0 "
+    "   $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (        "
+    "    \\/\\.    .     8    (    !@         %    \"     $    !     0         )    \"            /!_#@   $@    &    \""
+    "     8         !0    @    !     P    $         \"0   !@   #8@7-&E/;F/P          V(%S1I3VYC\\.    ,     8    (    !"
+    "          %    \"     $    !     0         0  $ +0    X    X    !@    @    &          4    (     0    $    !      "
+    "    D    (            ^#\\.    2     8    (    !          %    \"     $    3     0         0    $P   %-P965D($-O;6"
+    "UA;F0@*%)032D       X    X    !@    @    &          4    (     0    $    !          D    (             $ .    .   "
     "  8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0 "
     "   @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !        "
     "  D    (            \\/\\.    .     8    (    !@         %    \"     $    !     0         )    \"            /!_#@"
-    "   $@    &    \"     8         !0    @    !     P    $         \"0   !@   #8@7-&E/;F/P          V(%S1I3VYC\\.    ,"
+    "   $@    &    \"     8         !0    @    !     P    $         \"0   !@   !\"/NC9K/KJ/P                     .    ,"
     "     8    (    !          %    \"     $    !     0         0  $ +0    X    X    !@    @    &          4    (     0"
     "    $    !          D    (            ^#\\.    2     8    (    !          %    \"     $    3     0         0    $P"
-    "   %-P965D($-O;6UA;F0@*%)032D       X    X    !@    @    &          4    (     0    $    !          D    (        "
-    "    \"$ .    , 0   8    (     @         %    \"     $    #     0         %  0 \"P    $    W    8VAA;FYE;',   !Y3&E"
-    "M         &QA8F5L4&]S    ;&%B96Q(      !L86)E;%!A=&-H   .    .     8    (    !@         %    \"     $    !     0  "
-    "       )    \"             A #@   $     &    \"     8         !0    @    !     @    $         \"0   !           #B"
-    "/0       2(] #@   #     &    \"     0         !0    @    !     @    $         $  \" %1,   .    .     8    (    !@ "
-    "        %    \"     $    !     0         )    \"        !2!(== #@   #@    &    \"     8         !0    @    !     0"
-    "    $         \"0    @        602'70 X    X    !@    @    &          4    (     0    $    !          D    (       "
-    "      $ .    0     8    (    !@         %    \"     $    \"     0         )    $            /\"_        \\#\\.    "
-    ",     8    (    !          %    \"     $    \"     0         0  ( 5$P   X    X    !@    @    &          4    (    "
-    " 0    $    !          D    (        %($BUT .    .     8    (    !@         %    \"     $    !     0         )    \""
-    "        !9!(M= #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/PX   !     !"
+    "   $QO860@5&]R<75E(\"AO>BUI;BD       X    X    !@    @    &          4    (     0    $    !          D    (       "
+    "     \"$ .    , 0   8    (     @         %    \"     $    #     0         %  0 \"P    $    W    8VAA;FYE;',   !Y3&"
+    "EM         &QA8F5L4&]S    ;&%B96Q(      !L86)E;%!A=&-H   .    .     8    (    !@         %    \"     $    !     0 "
+    "        )    \"             A #@   $     &    \"     8         !0    @    !     @    $         \"0   !            "
+    "#POP       / _#@   #     &    \"     0         !0    @    !     @    $         $  \" %1,   .    .     8    (    !@"
+    "         %    \"     $    !     0         )    \"        &P .,) #@   #@    &    \"     8         !0    @    !     "
+    "0    $         \"0    @       !L@#?\"0 X    X    !@    @    &          4    (     0    $    !          D    (     "
+    "        $ .    0     8    (    !@         %    \"     $    \"     0         )    $           .(]       !(CT .    ,"
+    "     8    (    !          %    \"     $    \"     0         0  ( 5$P   X    X    !@    @    &          4    (     "
+    "0    $    !          D    (        ;  ZPD .    .     8    (    !@         %    \"     $    !     0         )    \""
+    "        &R .<) #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/PX   !     !"
     "@    @    &          4    (     0    (    !          D    0    FIF9F9F9N;^:F9F9F9GQ/PX    P    !@    @    $       "
     "   4    (     0    (    !         !   @!43   #@   #@    &    \"     8         !0    @    !     0    $         \"0 "
-    "   @        4@2/70 X    X    !@    @    &          4    (     0    $    !          D    (        %D$CUT .    8 (  "
-    " 8    (     @         %    \"     $    !     0         %  0 #@    $   !B    9&ES<%1I;64       !D:7-P36]D90       &"
-    "UI;E1I;64         ;6%X5&EM90        !A9G1E<D9I;F%L4W1R '-A;7!L951I;64     >F5R;T-R;W-S               .    0     8 "
-    "   (    !@         %    \"     $    \"     0         )    $                        $ .    .     8    (    !@      "
-    "   %    \"     $    !     0         )    \"            / _#@   #@    &    \"     8         !0    @    !     0    $"
-    "         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (            "
-    " $ .    0     8    (    !          %    \"     $    0     0         0    $    $AO;&0@9FEN86P@=F%L=64.    ,     8  "
-    "  (    !          %    \"     $    $     0         0  0 ,64M-0X    P    !@    @    $          4    (     0    (   "
-    " !         !   @!O;@  #@   /@#   &    \"     (         !0    @    !     P    $         !0 $  X    !    .    &%C=&E"
-    "V941I<W!)9'@ =&EM95)A;F=E      !N86UE             &1I<W!L87E286YG90  #@   $@    &    \"     8         !0    @    !"
-    "     P    $         \"0   !@            (0         !         \\#\\.    0     8    (    !@         %    \"     $   "
-    " \"     0         )    $                        $ .    2     8    (    !          %    \"     $    5     0        "
-    " 0    %0   $YO($QO860@4W!E960@0V]N=')O;     X   !     !@    @    &          4    (     0    (    !          D    0"
-    "                        0 X   !(    !@    @    &          4    (     0    ,    !          D    8            \"$   "
-    "       0        / _#@   $     &    \"     8         !0    @    !     @    $         \"0   !                       "
-    " ! #@   $@    &    \"     0         !0    @    !    $@    $         $    !(   !#:&%N9V4@5&]R<75E($QO860        .  "
-    "  0     8    (    !@         %    \"     $    \"     0         )    $                        $ .    2     8    (  "
-    "  !@         %    \"     $    #     0         )    &             A          $        #P/PX   !     !@    @    &   "
-    "       4    (     0    (    !          D    0                        0 X   !     !@    @    $          4    (     "
-    "0    H    !         !     *    4F%M<\"!3<&5E9         X   !     !@    @    &          4    (     0    (    !      "
-    "    D    0                        0 X    X    !@    @    &          4    (     0    $    !          D    (        "
-    "    \\#\\.    .     8    (    !@         %    \"     $    !     0         )    \"               #@   (     &    \""
-    "    !$          0         !  0 34-/4P$    (    4VEG4W5I=&4.    2     8    (    #0         %    \"     8    !     0"
-    "         &    &        -T\"     0    $    !     P    X   !(%P  !@    @    )          4    (     0   !@7   !       "
-    "   (    8%P    %)30     .    >!8   8    (     @         %    \"     $    !     0         %  0 !0    $    %    34-/"
-    "4P     .    ,!8   8    (    $0         !          $ ! !-0T]3 0    T   !&:6QE5W)A<'!E<E]?    #@   / 5   &    \"    "
-    " $         !0    @    H     0    $         #@   -@$   &    \"     D         !0    @   \"H!    0    $          @   "
-    "*@$   \"    #0   +    #P    \\    $ \"   X!   J 0             1W)O=7!S $YA;64 4VEG;F%L<P!81&%T80!91&%T80!3:6=3=6ET"
-    "95-I9VYA; !5<V5R1&%T80!4:6UE4F%N9V4 4VEG4W5I=&5'<F]U< !!8W1I=F53:6=N86P 4F5Q=6ER96UE;G1);F9O %-I9U-U:71E $%C=&EV94"
-    "=R;W5P                                    !@                    D                    ,                            "
-    "                   #                     0    T    \"                     @    0    !                     P    $  "
-    "  !                    !     (    !                    !0    ,    \"                    !@    @    !              "
-    "      !P    4    !                    \"     8    !                    \"0    <    \"                    \"@    P "
-    "   !                    \"P    D    !                    #     H    !                    #0    L               $  "
-    "  !     0   \"0    #     @    $          P    $    *    \"     $    +     P    (    !     0    0    !     @    4  "
-    "  !     P    ,    \"     0    0    $     0    4    %     0    8    #     @    $    '    !     $    (    !0    $   "
-    " )     P    (    !    #     ,    !    %@    @    !    %P    ,    \"     0    T    $     0    X    %     0    \\   "
-    " #     @    $    0    !     $    1    !0    $    2     P    (    !    $P    0    !    %     4    !    %0    ,    \""
-    "     0   !@    #     0   \"(    (     0   \",    #     @    $    9    !     $    :    !0    $    ;     P    (    !"
-    "    '     0    !    '0    4    !    '@    ,    \"     0   !\\    $     0   \"     %     0   \"$                   "
+    "   @       !L #S\"0 X    X    !@    @    &          4    (     0    $    !          D    (        ;( [PD .    8 ( "
+    "  8    (     @         %    \"     $    !     0         %  0 #@    $   !B    9&ES<%1I;64       !D:7-P36]D90       "
+    "&UI;E1I;64         ;6%X5&EM90        !A9G1E<D9I;F%L4W1R '-A;7!L951I;64     >F5R;T-R;W-S               .    0     8"
+    "    (    !@         %    \"     $    \"     0         )    $               >Q2N1^%ZQ#\\.    .     8    (    !@    "
+    "     %    \"     $    !     0         )    \"            / _#@   #@    &    \"     8         !0    @    !     0   "
+    " $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (    >Q2N1^"
+    "%ZQ#\\.    0     8    (    !          %    \"     $    0     0         0    $    $AO;&0@9FEN86P@=F%L=64.    ,     "
+    "8    (    !          %    \"     $    $     0         0  0 ,64M-0X    P    !@    @    $          4    (     0    ("
+    "    !         !   @!O;@  #@   '@'   &    \"     (         !0    @    !    !@    $         !0 $  X    !    .    &%C"
+    "=&EV941I<W!)9'@ =&EM95)A;F=E      !N86UE             &1I<W!L87E286YG90  #@   $@    &    \"     8         !0    @  "
+    "  !     P    $         \"0   !@            (0         !         \\#\\.    0     8    (    !@         %    \"     $"
+    "    \"     0         )    $               >Q2N1^%ZQ#\\.    2     8    (    !          %    \"     $    8     0    "
+    "     0    &    $YO($QO860@5F5L;V-I='D@0V]N=')O; X   !     !@    @    &          4    (     0    (    !          D "
+    "   0              ![%*Y'X7K$/PX   !(    !@    @    &          4    (     0    ,    !          D    8            \""
+    "$          0        / _#@   $     &    \"     8         !0    @    !     @    $         \"0   !               'L4K"
+    "D?A>L0_#@   $     &    \"     0         !0    @    !    #P    $         $     \\   !696QO8VET>2!/;B]/9F8 #@   $   "
+    "  &    \"     8         !0    @    !     @    $         \"0   !               'L4KD?A>L0_#@   $@    &    \"     8 "
+    "        !0    @    !     P    $         \"0   !@            (0         !         \\#\\.    0     8    (    !@     "
+    "    %    \"     $    \"     0         )    $               >Q2N1^%ZQ#\\.    0     8    (    !          %    \"    "
+    " $    +     0         0    \"P   %1O<G%U92!3=&5P       .    0     8    (    !@         %    \"     $    \"     0  "
+    "       )    $               >Q2N1^%ZQ#\\.    2     8    (    !@         %    \"     $    #     0         )    &   "
+    "          A          $        #P/PX   !     !@    @    &          4    (     0    (    !          D    0          "
+    "    #L4;@>A>O!/PX   !     !@    @    $          4    (     0    L    !         !     +    2&D@5F5L;V-I='D       X "
+    "  !     !@    @    &          4    (     0    (    !          D    0              #L4;@>A>O!/PX   !(    !@    @   "
+    " &          4    (     0    ,    !          D    8            \"$          0        / _#@   $     &    \"     8   "
+    "      !0    @    !     @    $         \"0   !               'L4KD?A>L0_#@   $@    &    \"     0         !0    @   "
+    " !    &     $         $    !@   !696QO8VET>2!3=&5P(%9A;&ED871I;VX.    0     8    (    !@         %    \"     $    "
+    "\"     0         )    $               >Q2N1^%ZQ#\\.    2     8    (    !@         %    \"     $    #     0        "
+    " )    &             A          $        #P/PX   !     !@    @    &          4    (     0    (    !          D    0"
+    "              \":F9F9F9G)/PX   !(    !@    @    $          4    (     0   !(    !         !     2    2&D@5F5L;V-I="
+    "'D@3VXO3V9F        #@   $     &    \"     8         !0    @    !     @    $         \"0   !               )J9F9F9F"
+    "<D_#@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/PX    X    !@    @    & "
+    "         4    (     0    $    !          D    (               .    @     8    (    $0         !          $ ! !-0T]"
+    "3 0    @   !3:6=3=6ET90X   !(    !@    @    -          4    (    !@    $    !          8    8        W0(    !     "
+    "0    $    #    #@   +@E   &    \"     D         !0    @    !    B\"4   $          @   (@E     4E-      X   #H)   !"
+    "@    @    \"          4    (     0    $    !          4 !  %     0    4   !-0T]3      X   \"@)   !@    @    1     "
+    "     $          0 $ $U#3U,!    #0   $9I;&57<F%P<&5R7U\\    .    8\"0   8    (     0         %    \"    $P    !    "
+    " 0         .    . @   8    (    \"0         %    \"     @(   !     0         \"    \" @   (    -    L    /    #P  "
+    "  8 ,  #@'   (\"             !'<F]U<', 3F%M90!3:6=N86QS %A$871A %E$871A %-I9U-U:71E4VEG;F%L %5S97)$871A %1I;65286Y"
+    "G90!3:6=3=6ET94=R;W5P $%C=&EV95-I9VYA; !297%U:7)E;65N=$EN9F\\ 4VEG4W5I=&4 06-T:79E1W)O=7                          "
+    "           &                    \"0                    P                                               ,          "
+    "          !    &0    (                    \"    !     $                    #     0    $                    $     @"
+    "    $                    %     P    (                    &    \"     $                    '    !0    $            "
+    "        (    !@    $                    )    !P    (                    *    #     $                    +    \"0  "
+    "  $                    ,    \"@    $                    -    \"P    (                    .    $     $             "
+    "       /    #0    $                    0    #@    $                    1    #P    (                    2    %     "
+    "$                    3    $0    $                    4    $@    $                    5    $P    (                 "
+    "   6    &     $                    7    %0    $                    8    %@    $                    9    %P        "
+    "       0    $    !    2     ,    \"     0         #     0    H    (     0    L    #     @    $    !    !     $    "
+    "\"    !0    $    #     P    (    !    !     0    !    !0    4    !    !@    ,    \"     0    <    $     0    @    "
+    "%     0    D    #     @    $    ,     P    $    6    \"     $    7     P    (    !    #0    0    !    #@    4    !"
+    "    #P    ,    \"     0   !     $     0   !$    %     0   !(    #     @    $    3    !     $    4    !0    $    5 "
+    "    P    (    !    &     ,    !    (@    @    !    (P    ,    \"     0   !D    $     0   !H    %     0   !L    #  "
+    "   @    $    <    !     $    =    !0    $    >     P    (    !    'P    0    !    (     4    !    (0    ,    \"   "
+    "  0   \"0    #     0   \"X    (     0   \"\\    #     @    $    E    !     $    F    !0    $    G     P    (    ! "
+    "   *     0    !    *0    4    !    *@    ,    \"     0   \"L    $     0   \"P    %     0   \"T    #     @    $    "
+    "P     P    $    Z    \"     $    [     P    (    !    ,0    0    !    ,@    4    !    ,P    ,    \"     0   #0    "
+    "$     0   #4    %     0   #8    #     @    $    W    !     $    X    !0    $    Y     P    (    !    /     ,    ! "
+    "   1@    @    !    1P    ,    \"     0   #T    $     0   #X    %     0   #\\    #     @    $   !     !     $   !! "
+    "   !0    $   !\"     P    (    !    0P    0    !    1     4    !    10                                            "
     "                                                                                                                  "
-    "                    #@         .    2     8    (    !          %    \"     $    5     0         0    %0   $YO($QO8"
-    "60@4W!E960@0V]N=')O;     X   !(    !@    @    $          4    (     0   !(    !         !     2    36]T;W(@3VX@*$)"
-    "O;VQE86XI        #@   %     &    \"     8         !0    @    !    !     $         \"0   \"               #S?3XV7;I"
-    "(_/-]/C9=NDC\\         0 X   !0    !@    @    &          4    (     0    0    !          D    @                   "
-    "              / _        \\#\\.    2     8    (    !          %    \"     $    3     0         0    $P   $QO860@5&"
-    "]R<75E(\"AO>BUI;BD       X   !     !@    @    &          4    (     0    (    !          D    0                   "
-    "     0 X   !     !@    @    &          4    (     0    (    !          D    0                          X   !(    !"
-    "@    @    $          4    (     0   !,    !         !     3    4W!E960@0V]M;6%N9\" H4E!-*0      #@   $     &    \""
-    "     8         !0    @    !     @    $         \"0   !                        ! #@   $     &    \"     8         !"
-    "0    @    !     @    $         \"0   !           $\"/0       0(] #@   %     &    \"     T         !0    @    (    "
-    " 0    $         !@   \"        #= @    $    #     P    0    %     0    X   !     !@    @    &          4    (     "
-    "0    (    !          D    0                        0 X   !(    !@    @    $          4    (     0   !(    !       "
-    "  !     2    0VAA;F=E(%1O<G%U92!,;V%D        #@   $@    &    \"     0         !0    @    !    $@    $         $   "
-    " !(   !-;W1O<B!/;B H0F]O;&5A;BD        .    4     8    (    !@         %    \"     $    $     0         )    (    "
-    "           NDD, BN'EC^Z20P\"*X>6/P        ! #@   %     &    \"     8         !0    @    !    !     $         \"0  "
-    " \"                                  \\#\\       #P/PX   !(    !@    @    $          4    (     0   !,    !       "
-    "  !     3    3&]A9\"!4;W)Q=64@*&]Z+6EN*0      #@   %     &    \"     8         !0    @    !    !     $         \"0"
-    "   \"               $CA>A2N1_,_2.%Z%*Y'\\S\\         0 X   !0    !@    @    &          4    (     0    0    !     "
-    "     D    @              ![%*Y'X7J$OP       / _        \\#\\.    2     8    (    !          %    \"     $    3    "
-    " 0         0    $P   %-P965D($-O;6UA;F0@*%)032D       X   !     !@    @    &          4    (     0    (    !      "
-    "    D    0                        0 X   !     !@    @    &          4    (     0    (    !          D    0        "
-    "  ! GT       $\"?0 X   !0    !@    @    -          4    (    \"     $    !          8    @        W0(    !     P  "
-    "  <    (    \"0    $    .    0     8    (    !@         %    \"     $    \"     0         )    $                  "
-    "      $ .    0     8    (    !          %    \"     $    *     0         0    \"@   %)A;7 @4W!E960        .    2  "
-    "   8    (    !          %    \"     $    2     0         0    $@   $UO=&]R($]N(\"A\";V]L96%N*0        X   !0    !@"
-    "    @    &          4    (     0    0    !          D    @              !G9F9F9F;V/V=F9F9F9O8_         $ .    4   "
-    "  8    (    !@         %    \"     $    $     0         )    (            / _        \\#\\                     #@ "
-    "  $@    &    \"     0         !0    @    !    $P    $         $    !,   !,;V%D(%1O<G%U92 H;WHM:6XI       .    0   "
-    "  8    (    !@         %    \"     $    \"     0         )    $                        $ .    0     8    (    !@  "
-    "       %    \"     $    \"     0         )    $                          .    2     8    (    !          %    \"  "
-    "   $    3     0         0    $P   %-P965D($-O;6UA;F0@*%)032D       X   !0    !@    @    &          4    (     0   "
-    " 0    !          D    @                      #@/YJ9F9F9F?D_         $ .    4     8    (    !@         %    \"     "
-    "$    $     0         )    (                                $!_P       0'_ #@   %     &    \"     T         !0    @"
-    "    (     0    $         !@   \"        #= @    $    #    \"P    P    -     0    X   !     !@    @    &          4"
-    "    (     0    (    !          D    0                        0 X   !0    !@    @    -          4    (    \"     $ "
-    "   !          8    @        W0(    !     P    (    &    \"@    (    .    . 4   8    (     0         %    \"     0 "
-    "   !     0         .    .     8    (     @         %    \"     $          0         %  0  0    $         #@   $ ! "
-    "  &    \"     (         !0    @    !     0    $         !0 $  D    !    )    $YA;64      %A$871A     %E$871A     %"
-    "5S97)$871A       .    ,     8    (    !          %    \"                0         0          X    P    !@    @    "
-    "&          4    (               !          D         #@   #     &    \"     8         !0    @               $     "
-    "    \"0         .    ,     8    (    !@         %    \"                0         )          X    0 @  !@    @    \""
-    "          4    (     0    $    !          4 !  0     0   &    !.86UE                4VEG;F%L<P           $%C=&EV95"
-    "-I9VYA;     !297%U:7)E;65N=$EN9F\\ 57-E<D1A=&$          %1I;65286YG90         .    ,     8    (    !          %   "
-    " \"                0         0          X   !(    !@    @    -          4    (    !0    $    !          8    4    "
-    "    W0(               $         #@   #     &    \"     8         !0    @               $         \"0         .    "
-    ",     8    (    !          %    \"                0         0          X    P    !@    @    &          4    (     "
-    "          !          D         #@   $     &    \"     8         !0    @    !     @    $         \"0   !           "
-    "            \"1 #@   &@!   &    \"     (         !0    @    !     0    $         !0 $  P    !    ,    $YA;64      "
-    "    $=R;W5P<P       $%C=&EV94=R;W5P %5S97)$871A      X    P    !@    @    $          4    (               !       "
-    "  !          #@   $@    &    \"     T         !0    @    %     0    $         !@   !0       #= @               @  "
-    "       .    .     8    (    !@         %    \"     $    !     0         )    \"            / _#@   #     &    \"  "
-    "   8         !0    @               $         \"0         .    B     8    (    \"0         %    \"     $   !8     0"
-    "         \"    6      !24T     #@   $@    &    \"     (         !0    @    !     0    $         !0 $  4    !    !0"
-    "   $U#3U,     #@         "
+    "                                                                                                                  "
+    "         .          X   !(    !@    @    $          4    (     0   !@    !         !     8    3F\\@3&]A9\"!696QO8V"
+    "ET>2!#;VYT<F]L#@   $@    &    \"     0         !0    @    !    $@    $         $    !(   !-;W1O<B!/;B H0F]O;&5A;BD"
+    "        .    4     8    (    !@         %    \"     $    $     0         )    (               >Q2N1^%ZA#][%*Y'X7J$"
+    "/WL4KD?A>L0_#@   %     &    \"     8         !0    @    !    !     $         \"0   \"                             "
+    "     \\#\\       #P/PX   !(    !@    @    $          4    (     0   !,    !         !     3    4W!E960@0V]M;6%N9\""
+    " H4E!-*0      #@   $     &    \"     8         !0    @    !     @    $         \"0   !               'L4KD?A>L0_#@"
+    "   $     &    \"     8         !0    @    !     @    $         \"0   !           $\"/0       0(] #@   $@    &    \""
+    "     0         !0    @    !    $P    $         $    !,   !,;V%D(%1O<G%U92 H;WHM:6XI       .    0     8    (    !@ "
+    "        %    \"     $    \"     0         )    $               >Q2N1^%ZQ#\\.    0     8    (    !@         %    \""
+    "     $    \"     0         )    $                          .    4     8    (    #0         %    \"     @    !     "
+    "0         &    (        -T\"     0    ,    #    !     4    !    #@   $     &    \"     8         !0    @    !     "
+    "@    $         \"0   !               'L4KD?A>L0_#@   $     &    \"     0         !0    @    !    #P    $         $"
+    "     \\   !696QO8VET>2!/;B]/9F8 #@   $@    &    \"     0         !0    @    !    $@    $         $    !(   !-;W1O<"
+    "B!/;B H0F]O;&5A;BD        .    8     8    (    !@         %    \"     $    &     0         )    ,               >Q"
+    "2N1^%ZA#][%*Y'X7J$/Z1P/0K7H[ _I' ]\"M>CL#][%*Y'X7K$/PX   !@    !@    @    &          4    (     0    8    !       "
+    "   D    P                                 / _        \\#\\                     #@   $@    &    \"     0         !0"
+    "    @    !    $P    $         $    !,   !3<&5E9\"!#;VUM86YD(\"A24$TI       .    0     8    (    !@         %    \""
+    "     $    \"     0         )    $               >Q2N1^%ZQ#\\.    0     8    (    !@         %    \"     $    \"   "
+    "  0         )    $           0(]       ! CT .    2     8    (    !          %    \"     $    3     0         0    "
+    "$P   $QO860@5&]R<75E(\"AO>BUI;BD       X   !     !@    @    &          4    (     0    (    !          D    0     "
+    "         ![%*Y'X7K$/PX   !     !@    @    &          4    (     0    (    !          D    0    ,S,S,S,STS\\S,S,S,S"
+    "/3/PX   !0    !@    @    -          4    (    \"     $    !          8    @        W0(    !     P    <    (    \"0"
+    "    $    .    0     8    (    !@         %    \"     $    \"     0         )    $               >Q2N1^%ZQ#\\.    0"
+    "     8    (    !          %    \"     $    +     0         0    \"P   %1O<G%U92!3=&5P       .    2     8    (    !"
+    "          %    \"     $    2     0         0    $@   $UO=&]R($]N(\"A\";V]L96%N*0        X   !     !@    @    &    "
+    "      4    (     0    (    !          D    0              ![%*Y'X7K$/PX   !     !@    @    &          4    (     0"
+    "    (    !          D    0            \\#\\       #P/PX   !(    !@    @    $          4    (     0   !,    !      "
+    "   !     3    4W!E960@0V]M;6%N9\" H4E!-*0      #@   $     &    \"     8         !0    @    !     @    $         \""
+    "0   !               'L4KD?A>L0_#@   $     &    \"     8         !0    @    !     @    $         \"0   !           "
+    "$\"/0       0(] #@   $@    &    \"     0         !0    @    !    $P    $         $    !,   !,;V%D(%1O<G%U92 H;WHM:"
+    "6XI       .    4     8    (    !@         %    \"     $    $     0         )    (               >Q2N1^%ZE#][%*Y'X7"
+    "J4/WL4KD?A>L0_#@   %     &    \"     8         !0    @    !    !     $         \"0   \"                          F"
+    "IF9F9F9R3^:F9F9F9G)/PX   !0    !@    @    -          4    (    \"     $    !          8    @        W0(    !     P"
+    "    L    ,    #0    $    .    0     8    (    !@         %    \"     $    \"     0         )    $               >Q"
+    "2N1^%ZQ#\\.    0     8    (    !          %    \"     $    +     0         0    \"P   $AI(%9E;&]C:71Y       .    2"
+    "     8    (    !          %    \"     $    2     0         0    $@   $UO=&]R($]N(\"A\";V]L96%N*0        X   !0    "
+    "!@    @    &          4    (     0    0    !          D    @              ![%*Y'X7J$/WL4KD?A>H0_[%&X'H7KP3\\.    4"
+    "     8    (    !@         %    \"     $    $     0         )    (                                 #P/P       / _#@"
+    "   $@    &    \"     0         !0    @    !    $P    $         $    !,   !3<&5E9\"!#;VUM86YD(\"A24$TI       .    0"
+    "     8    (    !@         %    \"     $    \"     0         )    $               [%&X'H7KP3\\.    0     8    (    "
+    "!@         %    \"     $    \"     0         )    $           0*]       ! KT .    2     8    (    !          %    "
+    "\"     $    3     0         0    $P   $QO860@5&]R<75E(\"AO>BUI;BD       X   !     !@    @    &          4    (    "
+    " 0    (    !          D    0              #L4;@>A>O!/PX   !     !@    @    &          4    (     0    (    !      "
+    "    D    0                          X   !0    !@    @    -          4    (    \"     $    !          8    @       "
+    " W0(    !     P    \\    0    $0    $    .    0     8    (    !@         %    \"     $    \"     0         )    $ "
+    "              [%&X'H7KP3\\.    2     8    (    !          %    \"     $    8     0         0    &    %9E;&]C:71Y(%"
+    "-T97 @5F%L:61A=&EO;@X   !(    !@    @    $          4    (     0   !(    !         !     2    36]T;W(@3VX@*$)O;VQE"
+    "86XI        #@   %     &    \"     8         !0    @    !    !     $         \"0   \"               +@>A>M1N(X_N!Z"
+    "%ZU&XCC][%*Y'X7K$/PX   !0    !@    @    &          4    (     0    0    !          D    @                         "
+    "        / _        \\#\\.    2     8    (    !          %    \"     $    3     0         0    $P   %-P965D($-O;6UA"
+    ";F0@*%)032D       X   !     !@    @    &          4    (     0    (    !          D    0              ![%*Y'X7K$/P"
+    "X   !     !@    @    &          4    (     0    (    !          D    0    N)32\\&_7C4\"XE-+P;]>-0 X   !(    !@    "
+    "@    $          4    (     0   !,    !         !     3    3&]A9\"!4;W)Q=64@*&]Z+6EN*0      #@   $     &    \"     "
+    "8         !0    @    !     @    $         \"0   !               'L4KD?A>L0_#@   $     &    \"     8         !0    "
+    "@    !     @    $         \"0   !                          #@   %     &    \"     T         !0    @    (     0    "
+    "$         !@   \"        #= @    $    #    $P   !0    5     0    X   !     !@    @    &          4    (     0    ("
+    "    !          D    0              ![%*Y'X7K$/PX   !(    !@    @    $          4    (     0   !(    !         !   "
+    "  2    2&D@5F5L;V-I='D@3VXO3V9F        #@   $@    &    \"     0         !0    @    !    $@    $         $    !(   "
+    "!-;W1O<B!/;B H0F]O;&5A;BD        .    8     8    (    !@         %    \"     $    &     0         )    ,          "
+    "     >Q2N1^%ZA#][%*Y'X7J$/PK7HW ]\"L<_\"M>C<#T*QS^:F9F9F9G)/PX   !@    !@    @    &          4    (     0    8    "
+    "!          D    P                                 / _        \\#\\                     #@   $@    &    \"     0   "
+    "      !0    @    !    $P    $         $    !,   !3<&5E9\"!#;VUM86YD(\"A24$TI       .    0     8    (    !@        "
+    " %    \"     $    \"     0         )    $               FIF9F9F9R3\\.    0     8    (    !@         %    \"     $ "
+    "   \"     0         )    $           0*]       ! KT .    2     8    (    !          %    \"     $    3     0      "
+    "   0    $P   $QO860@5&]R<75E(\"AO>BUI;BD       X   !     !@    @    &          4    (     0    (    !          D  "
+    "  0              \":F9F9F9G)/PX   !     !@    @    &          4    (     0    (    !          D    0              "
+    "            X   !0    !@    @    -          4    (    \"     $    !          8    @        W0(    !     P   !<    "
+    "8    &0    $    .    0     8    (    !@         %    \"     $    \"     0         )    $               FIF9F9F9R3\\"
+    ".    8     8    (    #0         %    \"     L    !     0         &    +        -T\"     0    8    \"    !@    H   "
+    " .    $@   !8    \"          X    X!0  !@    @    !          4    (    !     $    !          X    X    !@    @    "
+    "\"          4    (     0         !          4 !  !     0         .    0 $   8    (     @         %    \"     $    "
+    "!     0         %  0 \"0    $    D    3F%M90      6$1A=&$     641A=&$     57-E<D1A=&$       X    P    !@    @    $"
+    "          4    (               !         !          #@   #     &    \"     8         !0    @               $      "
+    "   \"0         .    ,     8    (    !@         %    \"                0         )          X    P    !@    @    & "
+    "         4    (               !          D         #@   ! \"   &    \"     (         !0    @    !     0    $      "
+    "   !0 $ !     !    8    $YA;64               !3:6=N86QS            06-T:79E4VEG;F%L     %)E<75I<F5M96YT26YF;P!5<V5"
+    "R1&%T80          5&EM95)A;F=E          X    P    !@    @    $          4    (               !         !          #"
+    "@   $@    &    \"     T         !0    @    %     0    $         !@   !0       #= @               0         .    , "
+    "    8    (    !@         %    \"                0         )          X    P    !@    @    $          4    (       "
+    "        !         !          #@   #     &    \"     8         !0    @               $         \"0         .    0  "
+    "   8    (    !@         %    \"     $    \"     0         )    $                       )$ .    : $   8    (     @ "
+    "        %    \"     $    !     0         %  0 #     $    P    3F%M90          1W)O=7!S        06-T:79E1W)O=7  57-E"
+    "<D1A=&$     #@   #     &    \"     0         !0    @               $         $          .    2     8    (    #0   "
+    "      %    \"     4    !     0         &    %        -T\"               \"          X    X    !@    @    &        "
+    "  4    (     0    $    !          D    (            \\#\\.    ,     8    (    !@         %    \"                0 "
+    "        )          X   \"(    !@    @    )          4    (     0   %@    !          (   !8      %)30     .    2   "
+    "  8    (     @         %    \"     $    !     0         %  0 !0    $    %    34-/4P     .          "
   }
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.6 (R2011b) dated Aug  6 2011, 03:24:51
+#    Stateflow Version 7.6 (R2011b) dated Jan 25 2012, 12:15:34
 #
 #
 
@@ -5807,8 +6616,8 @@ Stateflow {
     name		    "rtwdemo_pmsmfoc_system_nn"
     created		    "28-Sep-2010 10:24:08"
     isLibrary		    0
-    firstTarget		    11
-    sfVersion		    76014001.0002
+    firstTarget		    10
+    sfVersion		    76014001.00040001
     sfDemoChecksum	    [2412219638 4223498585 2351861405 1580208050]
   }
   chart {
@@ -5822,7 +6631,7 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    ssIdHighWaterMark	    8
+    ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
@@ -5846,18 +6655,13 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function indexPulse = fcn(rotorVelocity, currentCount, encoderCountsPerRevolution )  %#eml\n% Cre"
-      "ate index pulse based \n%   rotorVelocity: Measured motor speed\n%   currentCount: Encoder count representing ab"
-      "solute position of the rotor\n%   encoderCountsPerRevolution: Parameter from the base workspace\n\n    persisten"
-      "t previousCount;\n\n    % Arbitrarily place index pulse at half the number of counts\n    % per revolution. This"
-      " simplifies calculations to identify passing the\n    % position of the index pulse during simulation.\n    inde"
-      "xCount = encoderCountsPerRevolution / 2;\n\n    if isempty(previousCount)\n        previousCount = currentCount;"
-      "\n    end\n\n    isClockwise = rotorVelocity > 0;\n\n    % Check counterclockwise passing angle, then check cloc"
-      "kwise\n    if ( ((currentCount  >= indexCount) && (previousCount <= indexCount)) && ~isClockwise || ...\n       "
-      "  ((currentCount  <= indexCount) && (previousCount >= indexCount)) &&  isClockwise)\n        index = true;\n    "
-      "else\n        index = false;\n    end\n\n    previousCount = currentCount;\n\n    indexPulse = uint16(index);\ne"
-      "nd\n\n"
-      editorLayout	      "100 M4x1[5 14 795 670]"
+      script		      "function indexPulse = fcn( currentCount, ctrlConst )  %#codegen\n% Create an index pulse at posit"
+      "ion 2pi\n\n    persistent previousCount;\n\n    if isempty(previousCount)\n        previousCount = currentCount;"
+      "\n    end\n\n    % Detect the wrap. Assumes simulation will not allow moving pi rads\n    % in one simulation st"
+      "ep\n    if abs(double(currentCount) - double(previousCount)) > (ctrlConst.EncoderCountsPerRevolution/2)\n       "
+      " index = true;\n    else\n        index = false;\n    end\n\n    previousCount = currentCount;\n\n    indexPulse"
+      " = uint16(index);\nend\n\n"
+      editorLayout	      "100 M4x1[522 180 795 670]"
     }
   }
   junction {
@@ -5892,8 +6696,8 @@ Stateflow {
   }
   data {
     id			    6
-    ssIdNumber		    6
-    name		    "rotorVelocity"
+    ssIdNumber		    4
+    name		    "currentCount"
     linkNode		    [2 0 7]
     scope		    INPUT_DATA
     machine		    1
@@ -5904,38 +6708,16 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    7
-    ssIdNumber		    4
-    name		    "currentCount"
-    linkNode		    [2 6 8]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    8
     ssIdNumber		    5
     name		    "indexPulse"
-    linkNode		    [2 7 9]
+    linkNode		    [2 6 8]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5952,10 +6734,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    9
-    ssIdNumber		    8
-    name		    "encoderCountsPerRevolution"
-    linkNode		    [2 8 0]
+    id			    8
+    ssIdNumber		    9
+    name		    "ctrlConst"
+    linkNode		    [2 7 0]
     scope		    PARAMETER_DATA
     isNonTunable	    1
     machine		    1
@@ -5975,13 +6757,13 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    10
+    id			    9
     name		    "Embedded Processor/Sensor Peripherals/Measure Rotor Position\n(Quadrature Encoder)/Create Index Pulse"
     machine		    1
     chart		    2
   }
   target {
-    id			    11
+    id			    10
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
