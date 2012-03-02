@@ -33,7 +33,8 @@ classdef TargetApplicationFramework < rtw.pil.RtIOStreamApplicationFramework
                                                                                  %UNCOMMENT
             % Add device driver files to implement the target-side of the        %UNCOMMENT
             % host-target rtIOStream communications channel                      %UNCOMMENT
-            buildInfo.addSourceFiles('rtiostream_tcpip.c');                      %UNCOMMENT
+            buildInfo.addSourceFiles([matlabroot,...
+				'/rtw/c/src/rtiostream/rtiostreamtcpip/rtiostream_tcpip.c']);
                                                                                  %UNCOMMENT          
         end
     end

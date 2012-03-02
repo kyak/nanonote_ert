@@ -1,8 +1,9 @@
 -include nanonote_prefs.mk
+-include ../nanonote_prefs.mk
 
 # Compiler command and options
 CC     = "$(TOOLCHAIN_PREFIX)gcc"
-CFLAGS = $(EXT_CC_OPTS)
+CFLAGS = $(EXT_CC_OPTS) $(OPTS)
 CDEBUG = -g
 CCOUTPUTFLAG = -o
 
