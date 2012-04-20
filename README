@@ -1,5 +1,6 @@
-This is a custom target for Ben NanoNote, small but capable computing device.
+This is a custom Embedded Coder Target for Ben NanoNote, small but capable computing device.
 See http://en.qi-hardware.com/wiki/Ben_NanoNote for more details about this device.
+See http://www.mathworks.com/products/embedded-coder/ for more info about Simulink/Embedded Coder.
 
 Steps to install:
 1) Download OpenWrt toolchain tailored for Ben NanoNote here:
@@ -8,23 +9,29 @@ Choose the file which name starts with "OpenWrt-Toolchain-xburst..." and suitabl
 Alternatively, build your own toolchain following the steps here:
 http://en.qi-hardware.com/wiki/Building_Software_Image
 
-2) Run
+2) Run in MATLAB command prompt:
 addpref('nanonote','TOOLCHAIN_PREFIX','/your/path/to/toolchain-mipsel_gcc-4.5-linaro_uClibc-0.9.32/bin/mipsel-openwrt-linux-');
+addpref('nanonote','STAGING_DIR','/your/path/to/toolchain-mipsel_gcc-4.5-linaro_uClibc-0.9.32');
+The STAGING_DIR is required for OpenWrt-based toolchain.
 
-3) Set up a passwordless login to Ben NanoNote. Follow the steps described elsewhere to achieve this.
-Add an entry to /etc/hosts to avoid using Ben NanoNote IP (for your convenience).
+3) Add an entry to /etc/hosts to avoid using Ben NanoNote IP (for your convenience).
+Set up a passwordless login for Ben NanoNote:
+ssh ben 'cat >>/etc/dropbear/authorized_keys' <~/.ssh/id_rsa.pub
 Verify that you can login into Ben by typing "ssh ben" (or whatever name you gave it) in your shell.
-Run
+Run in MATLAB command prompt:
 addpref('nanonote','HOSTNAME','ben');
 
-Supported features:
-- Generate Standalone executables (not real time) to run on Ben
-- PIL Modes:
- Top level PIL
- Model Block PIL
- Subsystem PIL
+4) Add 'nanonote' directory and subdirectories to your MATLAB path.
+Run 'sl_refresh_customizations' or restart MATLAB.
 
-Required MathWorks products:
- MATLAB
- Simulink
- Embedded Coder
+Supported features of this target support package:
+- Generate Standalone executables (not real time) to run on Ben
+- Supported PIL (Processor-in-the-Loop) Modes:
+ * Top level PIL
+ * Model Block PIL
+ * Subsystem PIL
+
+- Required MathWorks products:
+ * MATLAB
+ * Simulink
+ * Embedded Coder
