@@ -2,7 +2,7 @@
 -include ../nanonote_prefs.mk
 
 # Compiler command and options
-CC     = "$(TOOLCHAIN_PREFIX)gcc"
+CC     = STAGING_DIR=$(STAGING_DIR) "$(TOOLCHAIN_PREFIX)gcc"
 CFLAGS = $(EXT_CC_OPTS) $(OPTS)
 CDEBUG = -g
 CCOUTPUTFLAG = -o
@@ -12,13 +12,13 @@ CXXFLAGS =
 CXXDEBUG =
 
 # Linker command and options
-LD      = "$(TOOLCHAIN_PREFIX)gcc"
+LD      = STAGING_DIR=$(STAGING_DIR) "$(TOOLCHAIN_PREFIX)gcc"
 LDFLAGS = -lc -lm
 LDDEBUG = -g
 LDOUTPUTFLAG = -o
 
 # Archiver command and options
-AR      = "$(TOOLCHAIN_PREFIX)ar"
+AR      = STAGING_DIR=$(STAGING_DIR) "$(TOOLCHAIN_PREFIX)ar"
 ARFLAGS = -r
 
 # Binary file format converter command and options

@@ -49,6 +49,7 @@ disp(['### Starting Ben NanoNote build procedure for ', ...
       'model: ',modelName]);
 
 TOOLCHAIN_PREFIX = getpref('nanonote','TOOLCHAIN_PREFIX');
+STAGING_DIR = getpref('nanonote','STAGING_DIR');
 HOSTNAME = getpref('nanonote','HOSTNAME');
 
 % Display current settings in build log
@@ -56,12 +57,14 @@ disp('###')
 disp('### Ben NanoNote environment settings:')
 disp('###')
 fprintf('###     TOOLCHAIN_PREFIX:       %s\n', TOOLCHAIN_PREFIX)
-fprintf('###     HOSTNAME:       %s\n', HOSTNAME)
+fprintf('###     STAGING_DIR:            %s\n', STAGING_DIR)
+fprintf('###     HOSTNAME:               %s\n', HOSTNAME)
 disp('###')
 
 function nanonote_prefs_makefile
 
 TOOLCHAIN_PREFIX = getpref('nanonote','TOOLCHAIN_PREFIX');
+STAGING_DIR = getpref('nanonote','STAGING_DIR');
 HOSTNAME = getpref('nanonote','HOSTNAME');
 
 % Write out the makefile
@@ -69,5 +72,6 @@ makefileName = 'nanonote_prefs.mk';
 fid = fopen(makefileName,'w');
 fwrite(fid, sprintf('%s\n\n', '# Ben NanoNote build preferences'));
 fwrite(fid, sprintf('TOOLCHAIN_PREFIX=%s\n', TOOLCHAIN_PREFIX));
+fwrite(fid, sprintf('STAGING_DIR=%s\n', STAGING_DIR));
 fwrite(fid, sprintf('HOSTNAME=%s\n', HOSTNAME));
 fclose(fid);

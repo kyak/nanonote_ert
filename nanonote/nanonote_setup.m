@@ -6,5 +6,7 @@ addpath(fullfile(tgtpath, 'nanonote'));
 addpath(fullfile(tgtpath, 'demos'));
 savepath;
 disp('Ben NanoNote Target Path Setup Complete.');
-addpref('nanonote','TOOLCHAIN_PREFIX','/home/user/build/openwrt-xburst/staging_dir/toolchain-mipsel_gcc-4.5-linaro_uClibc-0.9.32/bin/mipsel-openwrt-linux-');
+%TODO check if pref already exists
+addpref('nanonote','TOOLCHAIN_PREFIX','/home/user/build/openwrt-xburst/staging_dir/toolchain-mipsel_gcc-4.6-linaro_uClibc-0.9.33/bin/mipsel-openwrt-linux-');
+addpref('nanonote','STAGING_DIR','/home/user/build/openwrt-xburst/staging_dir/toolchain-mipsel_gcc-4.6-linaro_uClibc-0.9.33');
 addpref('nanonote','HOSTNAME','ben');
