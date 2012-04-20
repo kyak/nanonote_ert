@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.2752"
+    ComputedModelVersion    "1.2757"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Controller Algorithm Software Specificatio"
@@ -116,9 +116,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Mar 02 23:47:07 2012"
-  RTWModifiedTimeStamp	  252631616
-  ModelVersionFormat	  "1.%<AutoIncrement:2752>"
+  LastModifiedDate	  "Fri Apr 20 20:51:13 2012"
+  RTWModifiedTimeStamp	  256855705
+  ModelVersionFormat	  "1.%<AutoIncrement:2757>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1302,6 +1302,12 @@ Model {
 	SSC.SimscapeCC {
 	  $ObjectID		  29
 	  Version		  "1.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "Name"
+	    PropName		    "DisabledProps"
+	  }
 	  Name			  "Simscape"
 	  EditingMode		  "Full"
 	  ExplicitSolverDiagnosticOptions "warning"
@@ -1733,7 +1739,7 @@ Model {
   }
   System {
     Name		    "rtwdemo_pmsmfoc_system_nn"
-    Location		    [242, 203, 1022, 692]
+    Location		    [124, 92, 1039, 664]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    212
@@ -1745,7 +1751,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "79"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "23726"
     Block {
@@ -1771,7 +1777,7 @@ Model {
       MaskIconUnits	      "autoscale"
       System {
 	Name			"Embedded Processor"
-	Location		[0, 26, 780, 484]
+	Location		[137, 114, 954, 576]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	212
@@ -2704,7 +2710,7 @@ Model {
 		  MaskIconUnits		  "autoscale"
 		  System {
 		    Name		    "Driver Noise"
-		    Location		    [413, 209, 1136, 706]
+		    Location		    [413, 209, 1197, 706]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    212
@@ -3035,7 +3041,7 @@ Model {
 	      }
 	      System {
 		Name			"Measure Rotor Position\n(Quadrature Encoder)"
-		Location		[886, 507, 1592, 987]
+		Location		[0, 26, 706, 506]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -4104,7 +4110,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"97"
+	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
 	  Name			  "System\nLoads"
@@ -4642,7 +4648,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "77"
+	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "Load Torque"
@@ -5195,10 +5201,10 @@ Model {
 	}
 	Line {
 	  LineType		  "Connection"
-	  SrcBlock		  "Inverter"
-	  SrcPort		  RConn3
-	  DstBlock		  "Motor"
-	  DstPort		  LConn3
+	  SrcBlock		  "Motor"
+	  SrcPort		  LConn3
+	  DstBlock		  "Inverter"
+	  DstPort		  RConn3
 	}
 	Line {
 	  SrcBlock		  "System\nLoads"
@@ -6408,8 +6414,8 @@ MatData {
     "&          4    (               !          D         #@   #@    &    \"     8         !0    @    !     0    $     "
     "    \"0    @            80 X    P    !@    @    &          4    (               !          D         #@   #     & "
     "   \"     8         !0    @               $         \"0         .    .     8    (    !@         %    \"     $    !"
-    "     0         )    \"         \" /P] #@   #@    &    \"     8         !0    @    !     0    $         \"0    @   "
-    "    \" !)!W0 X    P    !@    @    &          4    (               !          D         "
+    "     0         )    \"         #  PA #@   #@    &    \"     8         !0    @    !     0    $         \"0    @    "
+    "     \")!W0 X    P    !@    @    &          4    (               !          D         "
   }
   DataRecord {
     Tag			    DataTag0

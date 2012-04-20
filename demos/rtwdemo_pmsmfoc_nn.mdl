@@ -85,7 +85,7 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Mar 02 23:28:42 2012"
+  LastModifiedDate	  "Fri Apr 20 20:51:04 2012"
   RTWModifiedTimeStamp	  252631719
   ModelVersionFormat	  "1.%<AutoIncrement:2950>"
   ConfigurationManager	  "None"
@@ -2758,7 +2758,7 @@ Model {
       }
       System {
 	Name			"Motor_Control"
-	Location		[606, 516, 1386, 995]
+	Location		[209, 170, 989, 649]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	175
@@ -13577,10 +13577,10 @@ Stateflow {
   chart {
     id			    2
     name		    "Mode_Scheduler/Controller_Mode_Scheduler"
-    windowPosition	    [18.75 15.75 562.5 362.25]
-    viewLimits		    [0 1037.481 12.083 664.257]
-    zoomFactor		    1.999
-    screen		    [1 1 800 600 1.333333333333333]
+    windowPosition	    [0 20 1024 560.8]
+    viewLimits		    [0 1244.464 18.793 683.034]
+    zoomFactor		    1.273
+    screen		    [1 1 1280 800 1.25]
     treeNode		    [0 9 0 0]
     firstTransition	    20
     firstJunction	    18
@@ -13667,7 +13667,7 @@ Stateflow {
     "nce this command\nis issued the motor rotates to identify a known rotor position with valid position. The appropri"
     "ate closed loop control then begins.\nUpon a request to stop the motor, the motor will decellerate until zero spee"
     "d is identified, after which the algorithm returns to the stand-by mode."
-    position		    [72.8806 76.4946 701.3169 38.9155]
+    position		    [72.8806 76.4946 711.648 43.2818]
     chart		    2
     treeNode		    [2 0 9 12]
     superState		    GROUPED
@@ -13681,7 +13681,7 @@ Stateflow {
   state {
     id			    9
     labelString		    "Controller Mode Scheduler"
-    position		    [302.3016 35.3992 239.7713 31.4339]
+    position		    [302.3016 35.3992 209.4992 28.8511]
     fontSize		    20
     chart		    2
     treeNode		    [2 0 0 8]
@@ -13804,7 +13804,7 @@ Stateflow {
   }
   transition {
     id			    20
-    labelPosition	    [141.175 150.653 8.991 17.956]
+    labelPosition	    [141.175 150.653 8.147 15.316]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 135.051 145.0865 0 0]
@@ -13824,7 +13824,7 @@ Stateflow {
   }
   transition {
     id			    21
-    labelPosition	    [341.378 433.01 8.991 17.956]
+    labelPosition	    [341.378 433.01 8.147 15.316]
     fontSize		    12
     src {
       id		      14
@@ -13846,7 +13846,7 @@ Stateflow {
   transition {
     id			    22
     labelString		    "[~position_valid]"
-    labelPosition	    [367.656 191.174 83.917 17.956]
+    labelPosition	    [367.656 191.174 80.452 15.316]
     fontSize		    12
     src {
       id		      16
@@ -13871,7 +13871,7 @@ Stateflow {
   transition {
     id			    23
     labelString		    "[command_type==Position]"
-    labelPosition	    [364.777 383.422 137.864 17.956]
+    labelPosition	    [364.777 383.422 128.316 15.316]
     fontSize		    12
     src {
       id		      14
@@ -13896,7 +13896,7 @@ Stateflow {
   transition {
     id			    24
     labelString		    "[error]"
-    labelPosition	    [206.16 377.702 34.466 17.956]
+    labelPosition	    [206.16 377.702 31.57 15.316]
     fontSize		    12
     src {
       id		      12
@@ -13921,7 +13921,7 @@ Stateflow {
   transition {
     id			    25
     labelString		    "[motor_on & ...\n ~error]"
-    labelPosition	    [220.315 174.222 74.926 32.919]
+    labelPosition	    [220.315 174.222 75.36 27.569]
     fontSize		    12
     src {
       id		      4
@@ -13947,7 +13947,7 @@ Stateflow {
   transition {
     id			    26
     labelString		    "% [command_type==Torque]"
-    labelPosition	    [352.484 461.419 148.354 17.956]
+    labelPosition	    [352.484 461.419 133.408 15.316]
     fontSize		    12
     src {
       id		      13
@@ -13972,7 +13972,7 @@ Stateflow {
   transition {
     id			    27
     labelString		    "[command_type==Velocity]"
-    labelPosition	    [363.14 278.816 136.366 17.956]
+    labelPosition	    [363.14 278.816 126.28 15.316]
     fontSize		    12
     src {
       id		      17
@@ -13993,7 +13993,7 @@ Stateflow {
   }
   transition {
     id			    28
-    labelPosition	    [348.538 219.811 8.991 17.956]
+    labelPosition	    [348.538 219.811 8.147 15.316]
     fontSize		    12
     src {
       id		      16
@@ -14015,7 +14015,7 @@ Stateflow {
   transition {
     id			    29
     labelString		    "[position_valid]"
-    labelPosition	    [369.449 223.41 76.425 17.956]
+    labelPosition	    [369.449 223.41 73.324 15.316]
     fontSize		    12
     src {
       id		      6
@@ -14039,7 +14039,7 @@ Stateflow {
   }
   transition {
     id			    30
-    labelPosition	    [341.378 360.336 8.991 17.956]
+    labelPosition	    [341.378 360.336 8.147 15.316]
     fontSize		    12
     src {
       id		      17
@@ -14060,7 +14060,7 @@ Stateflow {
   }
   transition {
     id			    31
-    labelPosition	    [341.378 272.813 8.991 17.956]
+    labelPosition	    [341.378 272.813 8.147 15.316]
     fontSize		    12
     src {
       id		      15
@@ -14082,7 +14082,7 @@ Stateflow {
   transition {
     id			    32
     labelString		    "[~motor_on]"
-    labelPosition	    [583.58 547.414 62.938 17.956]
+    labelPosition	    [583.58 547.414 62.121 15.316]
     fontSize		    12
     src {
       id		      11
@@ -14108,7 +14108,7 @@ Stateflow {
   transition {
     id			    33
     labelString		    "[abs(velocity) < ...\nctrlParams.RampToStopVelocity]"
-    labelPosition	    [101.73 561.164 169.333 32.919]
+    labelPosition	    [101.73 561.164 155.813 27.569]
     fontSize		    12
     src {
       id		      3
@@ -14132,7 +14132,7 @@ Stateflow {
   }
   transition {
     id			    34
-    labelPosition	    [131.7 296.982 8.991 17.956]
+    labelPosition	    [131.7 296.982 8.147 15.316]
     fontSize		    12
     src {
       id		      18
@@ -14156,7 +14156,7 @@ Stateflow {
   }
   transition {
     id			    35
-    labelPosition	    [48.249 379.273 8.991 17.956]
+    labelPosition	    [48.249 379.273 8.147 15.316]
     fontSize		    12
     src {
       id		      19
