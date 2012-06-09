@@ -6,3 +6,4 @@
 - External mode
 - Real Time mode
 - UBB driver
+- In standalone mode, don't use TMF to download to target. See launchpad_ert for a better implementation (using after_make hook)
