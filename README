@@ -24,12 +24,15 @@ addpref('nanonote','HOSTNAME','ben');
 4) Add 'nanonote' directory and subdirectories to your MATLAB path.
 Run 'sl_refresh_customizations' or restart MATLAB.
 
+You may have a look at nanonote_setup.m for examples of steps 2-4.
+
 Supported features of this target support package:
 - Generate Standalone executables (not real time) to run on Ben
-- Supported PIL (Processor-in-the-Loop) Modes:
+- PIL (Processor-in-the-Loop) Simulation:
  * Top level PIL
  * Model Block PIL
  * Subsystem PIL
+- External mode
 
 - Required MathWorks products:
  * MATLAB
