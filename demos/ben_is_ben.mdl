@@ -1,6 +1,6 @@
 Model {
   Name			  "ben_is_ben"
-  Version		  7.8
+  Version		  7.9
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    1
@@ -16,7 +16,7 @@ Model {
       Name		      "Out1"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.22"
+    ComputedModelVersion    "1.25"
     NumModelReferences	    0
     NumTestPointedSignals   1
     TestPointedSignal {
@@ -55,9 +55,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jan 21 12:39:46 2012"
-  RTWModifiedTimeStamp	  249050383
-  ModelVersionFormat	  "1.%<AutoIncrement:22>"
+  LastModifiedDate	  "Sat Oct 06 00:52:09 2012"
+  RTWModifiedTimeStamp	  271385527
+  ModelVersionFormat	  "1.%<AutoIncrement:25>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -95,6 +95,7 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "ben_is_ben"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -152,13 +153,13 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      3
-      Version		      "1.11.1"
+      Version		      "1.12.0"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  4
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  StartTime		  "0.0"
 	  StopTime		  "10.0"
 	  AbsTol		  "auto"
@@ -176,6 +177,7 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
+	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "FixedStepDiscrete"
 	  SolverName		  "FixedStepDiscrete"
@@ -192,7 +194,7 @@ Model {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  5
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -224,7 +226,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  6
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  BlockReduction	  on
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
@@ -263,11 +265,11 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
-	  AccelParallelForEachSubsystem	on
+	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  7
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -355,7 +357,7 @@ Model {
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  8
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -392,7 +394,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  9
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
@@ -407,7 +409,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  10
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -422,7 +424,7 @@ Model {
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  11
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -460,8 +462,9 @@ Model {
 	  GenerateTraceReportSf	  on
 	  GenerateTraceReportEml  on
 	  GenerateCodeInfo	  off
-	  GenerateSLWebview	  off
+	  GenerateWebview	  off
 	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
@@ -470,7 +473,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      12
-	      Version		      "1.11.1"
+	      Version		      "1.12.0"
 	      ForceParamTrailComments off
 	      GenerateComments	      on
 	      IgnoreCustomStorageClasses off
@@ -509,7 +512,7 @@ Model {
 	    Simulink.STFCustomTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      13
-	      Version		      "1.11.1"
+	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
 		Dimension		1
@@ -519,7 +522,7 @@ Model {
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      TargetFunctionLibrary   "ANSI_C"
+	      CodeReplacementLibrary  "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
 	      CodeExecutionProfiling  off
@@ -557,6 +560,7 @@ Model {
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
+	      GRTInterface	      off
 	      SystemTargetFile	      "nanonote.tlc"
 	      DialogCategory	      0
 	      Array {
@@ -565,7 +569,7 @@ Model {
 		Simulink.ERTTargetCC {
 		  $BackupClass		  "Simulink.TargetCC"
 		  $ObjectID		  14
-		  Version		  "1.11.1"
+		  Version		  "1.12.0"
 		  Array {
 		    Type		    "Cell"
 		    Dimension		    1
@@ -575,7 +579,7 @@ Model {
 		  TargetFcnLib		  "ansi_tfl_table_tmw.mat"
 		  TargetLibSuffix	  ""
 		  TargetPreCompLibLocation ""
-		  TargetFunctionLibrary	  "ANSI_C"
+		  CodeReplacementLibrary  "ANSI_C"
 		  UtilityFuncGeneration	  "Auto"
 		  ERTMultiwordTypeDef	  "System defined"
 		  CodeExecutionProfiling  off
@@ -613,8 +617,9 @@ Model {
 		  ModelStepFunctionPrototypeControlCompliant off
 		  CPPClassGenCompliant	  off
 		  AutosarCompliant	  off
+		  GRTInterface		  off
 		  GenerateErtSFunction	  off
-		  CreateSILPILBlock	  "PIL"
+		  CreateSILPILBlock	  "None"
 		  CodeExecutionProfileVariable "executionProfile"
 		  CodeProfilingSaveOptions "SummaryOnly"
 		  GenerateASAP2		  off
@@ -623,7 +628,7 @@ Model {
 		  ExtModeStaticAlloc	  off
 		  ExtModeStaticAllocSize  1000000
 		  ExtModeTesting	  off
-		  ExtModeMexFile	  "noextcomm"
+		  ExtModeMexFile	  "ext_comm"
 		  ExtModeIntrfLevel	  "Level1"
 		  InlinedParameterPlacement "NonHierarchical"
 		  TargetOS		  "BareBoardExample"
@@ -648,7 +653,6 @@ Model {
 		  GlobalDataReference	  "Auto"
 		  ERTFilePackagingFormat  "Modular"
 		  DataReferenceFile	  "global.h"
-		  GRTInterface		  off
 		  PreserveExpressionOrder off
 		  PreserveIfCondition	  off
 		  ConvertIfToSwitch	  off
@@ -697,7 +701,7 @@ Model {
 	}
 	hdlcoderui.hdlcc {
 	  $ObjectID		  15
-	  Version		  "1.11.1"
+	  Version		  "1.12.0"
 	  Description		  "HDL Coder custom configuration component"
 	  Name			  "HDL Coder"
 	  Array {
@@ -712,7 +716,7 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=1 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Code Generation/SIL and PIL Verification"
+      CurrentDlgPage	      "Solver"
       ConfigPrmDlgPosition     [ 199, 65, 1081, 720 ] 
     }
     PropName		    "ConfigurationSets"
@@ -721,6 +725,7 @@ Model {
     $PropName		    "ActiveConfigurationSet"
     $ObjectID		    3
   }
+  ExplicitPartitioning	  off
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -806,7 +811,7 @@ Model {
   }
   System {
     Name		    "ben_is_ben"
-    Location		    [296, 266, 876, 526]
+    Location		    [0, 28, 580, 288]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
