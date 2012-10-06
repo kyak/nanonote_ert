@@ -214,7 +214,12 @@ ifeq ($(BUILD_MODE), pil_application)
 endif
 
 ifeq ($(BUILD_MODE), real_time)
-  SRCS += $(MODULES) $(MODEL).$(TARGET_LANG_EXT) $(EXT_SRC) ert_main.c
+          ifeq ($(GEN_SAMPLE_MAIN),0)
+            SRCS += main_$(MODEL).c
+          else
+            SRCS += ert_main.$(TARGET_LANG_EXT)
+          endif
+  SRCS += $(MODULES) $(MODEL).$(TARGET_LANG_EXT) $(EXT_SRC)
   SRCS += $(TARGET_BLOCK_SRCS) $(TARGET_SRCS) 
 endif
 
@@ -295,13 +300,6 @@ $(MODEL)$(PROGRAM_FILE_EXT): $(OBJS) $(MODELREF_LINK_LIBS) $(SHARED_LIB) $(LIBS)
 	@echo "### BUILD_MODE $(BUILD_MODE)"
 	$(LD) $(LDFLAGS) $^ $(LDOUTPUTFLAG)$@ 
 	@echo "### Generated $@"
-endif
-
-ifeq ($(BUILD_MODE), real_time)
-ifeq ($(NANONOTE_DOWNLOAD), 1)
-	@echo "### Downloading $@ to Nanonote:"
-	scp $@ $(HOSTNAME):/root
-endif
 endif
 
 %$(OBJ_EXT) : $(subst \,/,$(RELATIVE_PATH_TO_ANCHOR))/%.c

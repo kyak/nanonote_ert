@@ -76,14 +76,8 @@ classdef Launcher < rtw.connectivity.Launcher
             % get name of the executable file
             exe = this.getBuilder.getApplicationExecutable; 
             
-            setenv('NANONOTE_EXE',exe);
-			setenv('NANONOTE_ARGS',this.ArgString);
-			setenv('NANONOTE_HOSTNAME',getpref('nanonote','HOSTNAME'));
-			disp('Downloading executable to Nanonote..');
-            !scp $NANONOTE_EXE $NANONOTE_HOSTNAME:/root
-			%need to catch pid below to stop it later..
-			disp('Starting executable on Nanonote..');
-			!ssh -f $NANONOTE_HOSTNAME /root/`basename $NANONOTE_EXE` $NANONOTE_ARGS
+			nanonote_download(exe,'PIL');
+			disp('### Starting PIL execution on TI LaunchPad');
 			pause(2)
 
 %             % launch                                                 %UNCOMMENT
