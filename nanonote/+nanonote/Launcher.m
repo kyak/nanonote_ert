@@ -77,7 +77,7 @@ classdef Launcher < rtw.connectivity.Launcher
             exe = this.getBuilder.getApplicationExecutable; 
             
 			nanonote_download(exe,'PIL');
-			disp('### Starting PIL execution on TI LaunchPad');
+			disp('### Starting PIL execution on Nanonote');
 			pause(2)
 
 %             % launch                                                 %UNCOMMENT
