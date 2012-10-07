@@ -1,0 +1,5 @@
+%if (ExtMode == 1)
+  %assign ::CompiledModel.GenerateSampleERTMain = TLC_TRUE
+%else
+  %include "nanonote_srmain.tlc"
+%endif

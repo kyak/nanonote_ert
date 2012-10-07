@@ -214,7 +214,7 @@ ifeq ($(BUILD_MODE), pil_application)
 endif
 
 ifeq ($(BUILD_MODE), real_time)
-          ifeq ($(GEN_SAMPLE_MAIN),0)
+          ifeq ($(EXT_MODE),0)
             SRCS += main_$(MODEL).c
           else
             SRCS += ert_main.$(TARGET_LANG_EXT)
