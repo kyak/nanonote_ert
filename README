@@ -12,7 +12,7 @@ http://en.qi-hardware.com/wiki/Building_Software_Image
 2) Run in MATLAB command prompt:
 addpref('nanonote','TOOLCHAIN_PREFIX','/your/path/to/toolchain-mipsel_gcc-4.5-linaro_uClibc-0.9.32/bin/mipsel-openwrt-linux-');
 addpref('nanonote','STAGING_DIR','/your/path/to/toolchain-mipsel_gcc-4.5-linaro_uClibc-0.9.32');
-The STAGING_DIR is required for OpenWrt-based toolchain.
+The STAGING_DIR is required for OpenWrt-based toolchain. It seems that STAGING_DIR is only required if you are usign the Openwrt toolchain from Openwrt build root (directory).
 
 3) Add an entry to /etc/hosts to avoid using Ben NanoNote IP (for your convenience).
 Set up a passwordless login for Ben NanoNote:

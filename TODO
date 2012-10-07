@@ -1,13 +1,6 @@
-- Optional "Download/Execute" checkbox
+- Optional "Download/Execute" checkbox (needed?)
 - Catch errors in nanonote_setup script
 - Put license and README information
 - Add comments throughover
-- set up some options, like hardware implementation
-- External mode works, but requires some manual steps in configuration.
-	Activating it in Interface pane is not a problem, but choosing
-	another (default) template for main file is not good.. Need to merge templates..
-	Or even better - create a generic one and choose in it between my
-	custom (shitty) main and default main supplied by TMW.
 - Real Time mode
 - UBB driver
-- In standalone mode, don't use TMF to download to target. See launchpad_ert for a better implementation (using after_make hook)
