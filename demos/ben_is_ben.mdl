@@ -16,7 +16,7 @@ Model {
       Name		      "Out1"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.25"
+    ComputedModelVersion    "1.26"
     NumModelReferences	    0
     NumTestPointedSignals   1
     TestPointedSignal {
@@ -55,9 +55,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Oct 06 00:52:09 2012"
-  RTWModifiedTimeStamp	  271385527
-  ModelVersionFormat	  "1.%<AutoIncrement:25>"
+  LastModifiedDate	  "Sun Oct 07 14:40:56 2012"
+  RTWModifiedTimeStamp	  271521654
+  ModelVersionFormat	  "1.%<AutoIncrement:26>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -95,7 +95,6 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "ben_is_ben"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -463,7 +462,7 @@ Model {
 	  GenerateTraceReportEml  on
 	  GenerateCodeInfo	  off
 	  GenerateWebview	  off
-	  GenerateCodeMetricsReport off
+	  GenerateCodeMetricsReport on
 	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
@@ -515,7 +514,8 @@ Model {
 	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
-		Dimension		1
+		Dimension		2
+		Cell			"GenerateSampleERTMain"
 		Cell			"ModelReferenceCompliant"
 		PropName		"DisabledProps"
 	      }
@@ -556,7 +556,7 @@ Model {
 	      SupportVariableSizeSignals off
 	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
-	      PortableWordSizes	      off
+	      PortableWordSizes	      on
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
@@ -572,7 +572,8 @@ Model {
 		  Version		  "1.12.0"
 		  Array {
 		    Type		    "Cell"
-		    Dimension		    1
+		    Dimension		    2
+		    Cell		    "GenerateSampleERTMain"
 		    Cell		    "ModelReferenceCompliant"
 		    PropName		    "DisabledProps"
 		  }
@@ -613,7 +614,7 @@ Model {
 		  SupportVariableSizeSignals off
 		  EnableShiftOperators	  on
 		  ParenthesesLevel	  "Nominal"
-		  PortableWordSizes	  off
+		  PortableWordSizes	  on
 		  ModelStepFunctionPrototypeControlCompliant off
 		  CPPClassGenCompliant	  off
 		  AutosarCompliant	  off
@@ -625,10 +626,11 @@ Model {
 		  GenerateASAP2		  off
 		  ExtMode		  off
 		  ExtModeTransport	  0
-		  ExtModeStaticAlloc	  off
+		  ExtModeStaticAlloc	  on
 		  ExtModeStaticAllocSize  1000000
 		  ExtModeTesting	  off
 		  ExtModeMexFile	  "ext_comm"
+		  ExtModeMexArgs	  "'ben' 0"
 		  ExtModeIntrfLevel	  "Level1"
 		  InlinedParameterPlacement "NonHierarchical"
 		  TargetOS		  "BareBoardExample"
@@ -643,7 +645,7 @@ Model {
 		  ERTHdrFileBannerTemplate "ert_code_template.cgt"
 		  ERTDataSrcFileTemplate  "ert_code_template.cgt"
 		  ERTDataHdrFileTemplate  "ert_code_template.cgt"
-		  ERTCustomFileTemplate	  "nanonote_srmain.tlc"
+		  ERTCustomFileTemplate	  "nanonote_main.tlc"
 		  CoverageDialogOpen	  "off"
 		  EnableDataOwnership	  off
 		  SignalDisplayLevel	  10
@@ -715,8 +717,7 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      ExtraOptions	      "-aGenerateTraceInfo=1 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Solver"
+      CurrentDlgPage	      "Code Generation"
       ConfigPrmDlgPosition     [ 199, 65, 1081, 720 ] 
     }
     PropName		    "ConfigurationSets"
@@ -811,7 +812,7 @@ Model {
   }
   System {
     Name		    "ben_is_ben"
-    Location		    [0, 28, 580, 288]
+    Location		    [371, 205, 951, 465]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200

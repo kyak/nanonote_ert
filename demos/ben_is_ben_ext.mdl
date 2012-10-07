@@ -16,7 +16,7 @@ Model {
       Name		      "Out1"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.48"
+    ComputedModelVersion    "1.50"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -48,9 +48,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Oct 06 02:29:21 2012"
-  RTWModifiedTimeStamp	  271388851
-  ModelVersionFormat	  "1.%<AutoIncrement:48>"
+  LastModifiedDate	  "Sun Oct 07 14:43:03 2012"
+  RTWModifiedTimeStamp	  271521781
+  ModelVersionFormat	  "1.%<AutoIncrement:50>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -252,7 +252,7 @@ Model {
 	  EfficientFloat2IntCast  off
 	  EfficientMapNaN2IntZero on
 	  OptimizeModelRefInitCode on
-	  LifeSpan		  "1"
+	  LifeSpan		  "Inf"
 	  MaxStackSize		  "Inherit from target"
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
@@ -455,7 +455,7 @@ Model {
 	  GenerateTraceReportEml  on
 	  GenerateCodeInfo	  off
 	  GenerateWebview	  off
-	  GenerateCodeMetricsReport off
+	  GenerateCodeMetricsReport on
 	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
@@ -507,7 +507,8 @@ Model {
 	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
-		Dimension		1
+		Dimension		2
+		Cell			"GenerateSampleERTMain"
 		Cell			"ModelReferenceCompliant"
 		PropName		"DisabledProps"
 	      }
@@ -521,7 +522,7 @@ Model {
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
-	      GenerateSampleERTMain   on
+	      GenerateSampleERTMain   off
 	      GenerateTestInterfaces  off
 	      IsPILTarget	      off
 	      ModelReferenceCompliant on
@@ -548,7 +549,7 @@ Model {
 	      SupportVariableSizeSignals off
 	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
-	      PortableWordSizes	      off
+	      PortableWordSizes	      on
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
@@ -564,7 +565,8 @@ Model {
 		  Version		  "1.12.0"
 		  Array {
 		    Type		    "Cell"
-		    Dimension		    1
+		    Dimension		    2
+		    Cell		    "GenerateSampleERTMain"
 		    Cell		    "ModelReferenceCompliant"
 		    PropName		    "DisabledProps"
 		  }
@@ -578,7 +580,7 @@ Model {
 		  ERTMultiwordLength	  256
 		  MultiwordLength	  2048
 		  GenerateFullHeader	  on
-		  GenerateSampleERTMain	  on
+		  GenerateSampleERTMain	  off
 		  GenerateTestInterfaces  off
 		  IsPILTarget		  off
 		  ModelReferenceCompliant on
@@ -605,7 +607,7 @@ Model {
 		  SupportVariableSizeSignals off
 		  EnableShiftOperators	  on
 		  ParenthesesLevel	  "Nominal"
-		  PortableWordSizes	  off
+		  PortableWordSizes	  on
 		  ModelStepFunctionPrototypeControlCompliant off
 		  CPPClassGenCompliant	  off
 		  AutosarCompliant	  off
@@ -615,7 +617,7 @@ Model {
 		  CodeExecutionProfileVariable "executionProfile"
 		  CodeProfilingSaveOptions "SummaryOnly"
 		  GenerateASAP2		  off
-		  ExtMode		  on
+		  ExtMode		  off
 		  ExtModeTransport	  0
 		  ExtModeStaticAlloc	  on
 		  ExtModeStaticAllocSize  1000000
@@ -636,7 +638,7 @@ Model {
 		  ERTHdrFileBannerTemplate "ert_code_template.cgt"
 		  ERTDataSrcFileTemplate  "ert_code_template.cgt"
 		  ERTDataHdrFileTemplate  "ert_code_template.cgt"
-		  ERTCustomFileTemplate	  "example_file_process.tlc"
+		  ERTCustomFileTemplate	  "nanonote_main.tlc"
 		  CoverageDialogOpen	  "off"
 		  EnableDataOwnership	  off
 		  SignalDisplayLevel	  10
@@ -708,9 +710,8 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      ExtraOptions	      "-aGenerateTraceInfo=1 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Code Generation/Interface"
-      ConfigPrmDlgPosition     [ 213, 7, 1237, 753 ] 
+      CurrentDlgPage	      "Code Generation"
+      ConfigPrmDlgPosition     [ 212, 109, 1065, 642 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -816,7 +817,7 @@ Model {
   }
   System {
     Name		    "ben_is_ben_ext"
-    Location		    [107, 98, 687, 358]
+    Location		    [429, 308, 1009, 568]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200

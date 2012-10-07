@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.2757"
+    ComputedModelVersion    "1.2758"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "rtwdemo_pmsmfoc_system_nn/Embedded Processor/Controller Algorithm Software Specificatio"
@@ -116,9 +116,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr 20 20:51:13 2012"
-  RTWModifiedTimeStamp	  256855705
-  ModelVersionFormat	  "1.%<AutoIncrement:2757>"
+  LastModifiedDate	  "Sun Oct 07 14:46:27 2012"
+  RTWModifiedTimeStamp	  271521976
+  ModelVersionFormat	  "1.%<AutoIncrement:2758>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -156,6 +156,7 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "rtwdemo_pmsmfoc_system_nn"
+    signals_		    []
     overrideMode_	    [2.0]
     Array {
       Type		      "Cell"
@@ -1050,7 +1051,7 @@ Model {
 	  GenerateTraceReportEml  on
 	  GenerateCodeInfo	  off
 	  GenerateWebview	  off
-	  GenerateCodeMetricsReport off
+	  GenerateCodeMetricsReport on
 	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
@@ -1102,7 +1103,8 @@ Model {
 	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
-		Dimension		1
+		Dimension		2
+		Cell			"GenerateSampleERTMain"
 		Cell			"ModelReferenceCompliant"
 		PropName		"DisabledProps"
 	      }
@@ -1143,7 +1145,7 @@ Model {
 	      SupportVariableSizeSignals off
 	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
-	      PortableWordSizes	      off
+	      PortableWordSizes	      on
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
@@ -1159,7 +1161,8 @@ Model {
 		  Version		  "1.12.0"
 		  Array {
 		    Type		    "Cell"
-		    Dimension		    1
+		    Dimension		    2
+		    Cell		    "GenerateSampleERTMain"
 		    Cell		    "ModelReferenceCompliant"
 		    PropName		    "DisabledProps"
 		  }
@@ -1200,7 +1203,7 @@ Model {
 		  SupportVariableSizeSignals off
 		  EnableShiftOperators	  on
 		  ParenthesesLevel	  "Nominal"
-		  PortableWordSizes	  off
+		  PortableWordSizes	  on
 		  ModelStepFunctionPrototypeControlCompliant off
 		  CPPClassGenCompliant	  off
 		  AutosarCompliant	  off
@@ -1212,10 +1215,11 @@ Model {
 		  GenerateASAP2		  off
 		  ExtMode		  off
 		  ExtModeTransport	  0
-		  ExtModeStaticAlloc	  off
+		  ExtModeStaticAlloc	  on
 		  ExtModeStaticAllocSize  1000000
 		  ExtModeTesting	  off
 		  ExtModeMexFile	  "ext_comm"
+		  ExtModeMexArgs	  "'ben' 0"
 		  ExtModeIntrfLevel	  "Level1"
 		  InlinedParameterPlacement "NonHierarchical"
 		  TargetOS		  "BareBoardExample"
@@ -1230,7 +1234,7 @@ Model {
 		  ERTHdrFileBannerTemplate "ert_code_template.cgt"
 		  ERTDataSrcFileTemplate  "ert_code_template.cgt"
 		  ERTDataHdrFileTemplate  "ert_code_template.cgt"
-		  ERTCustomFileTemplate	  "nanonote_srmain.tlc"
+		  ERTCustomFileTemplate	  "nanonote_main.tlc"
 		  CoverageDialogOpen	  "off"
 		  EnableDataOwnership	  off
 		  SignalDisplayLevel	  10
@@ -1302,12 +1306,6 @@ Model {
 	SSC.SimscapeCC {
 	  $ObjectID		  29
 	  Version		  "1.0"
-	  Array {
-	    Type		    "Cell"
-	    Dimension		    1
-	    Cell		    "Name"
-	    PropName		    "DisabledProps"
-	  }
 	  Name			  "Simscape"
 	  EditingMode		  "Full"
 	  ExplicitSolverDiagnosticOptions "warning"
@@ -1321,7 +1319,7 @@ Model {
 	PropName		"Components"
       }
       Name		      "ERT"
-      CurrentDlgPage	      "Code Generation"
+      CurrentDlgPage	      "Solver"
       ConfigPrmDlgPosition     [ 212, 109, 1065, 642 ] 
     }
     PropName		    "ConfigurationSets"
@@ -2092,7 +2090,7 @@ Model {
 	  FontSize		  12
 	  ModelNameDialog	  "rtwdemo_pmsmfoc_nn"
 	  SimulationMode	  "Processor-in-the-loop (PIL)"
-	  ModelReferenceVersion	  "1.2950"
+	  ModelReferenceVersion	  "1.2951"
 	  List {
 	    ListType		    InputPortNames
 	    port0		    "motor_on"
@@ -2122,8 +2120,22 @@ Model {
 	    port0		    "pwm_compare"
 	    port1		    ""
 	  }
+	  List {
+	    ListType		    InputPortLatchByCopyingInsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	    port3		    "off"
+	  }
 	  CopyOfModelName	  "rtwdemo_pmsmfoc_nn"
 	  DefaultDataLogging	  on
+	  List {
+	    ListType		    InputPortLatchByDelayingOutsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	    port3		    "off"
+	  }
 	  Port {
 	    PortNumber		    1
 	    Name		    "pwm_compare"
@@ -6414,8 +6426,8 @@ MatData {
     "&          4    (               !          D         #@   #@    &    \"     8         !0    @    !     0    $     "
     "    \"0    @            80 X    P    !@    @    &          4    (               !          D         #@   #     & "
     "   \"     8         !0    @               $         \"0         .    .     8    (    !@         %    \"     $    !"
-    "     0         )    \"         #  PA #@   #@    &    \"     8         !0    @    !     0    $         \"0    @    "
-    "     \")!W0 X    P    !@    @    &          4    (               !          D         "
+    "     0         )    \"         !  PA #@   #@    &    \"     8         !0    @    !     0    $         \"0    @    "
+    "   \" !6!]0 X    P    !@    @    &          4    (               !          D         "
   }
   DataRecord {
     Tag			    DataTag0

@@ -33,7 +33,7 @@ Model {
       Name		      "error"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.2950"
+    ComputedModelVersion    "1.2951"
     NumModelReferences	    0
     NumTestPointedSignals   2
     TestPointedSignal {
@@ -85,9 +85,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bas"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr 20 20:51:04 2012"
-  RTWModifiedTimeStamp	  252631719
-  ModelVersionFormat	  "1.%<AutoIncrement:2950>"
+  LastModifiedDate	  "Sun Oct 07 14:45:39 2012"
+  RTWModifiedTimeStamp	  271521934
+  ModelVersionFormat	  "1.%<AutoIncrement:2951>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -1145,7 +1145,7 @@ Model {
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
 	  IncludeHyperlinkInReport on
-	  LaunchReport		  on
+	  LaunchReport		  off
 	  TargetLang		  "C"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  IncludeERTFirstTime	  off
@@ -1208,7 +1208,8 @@ Model {
 	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
-		Dimension		1
+		Dimension		2
+		Cell			"GenerateSampleERTMain"
 		Cell			"ModelReferenceCompliant"
 		PropName		"DisabledProps"
 	      }
@@ -1249,7 +1250,7 @@ Model {
 	      SupportVariableSizeSignals off
 	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
-	      PortableWordSizes	      off
+	      PortableWordSizes	      on
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
@@ -1265,7 +1266,8 @@ Model {
 		  Version		  "1.12.0"
 		  Array {
 		    Type		    "Cell"
-		    Dimension		    1
+		    Dimension		    2
+		    Cell		    "GenerateSampleERTMain"
 		    Cell		    "ModelReferenceCompliant"
 		    PropName		    "DisabledProps"
 		  }
@@ -1306,7 +1308,7 @@ Model {
 		  SupportVariableSizeSignals off
 		  EnableShiftOperators	  on
 		  ParenthesesLevel	  "Nominal"
-		  PortableWordSizes	  off
+		  PortableWordSizes	  on
 		  ModelStepFunctionPrototypeControlCompliant off
 		  CPPClassGenCompliant	  off
 		  AutosarCompliant	  off
@@ -1318,10 +1320,11 @@ Model {
 		  GenerateASAP2		  off
 		  ExtMode		  off
 		  ExtModeTransport	  0
-		  ExtModeStaticAlloc	  off
+		  ExtModeStaticAlloc	  on
 		  ExtModeStaticAllocSize  1000000
 		  ExtModeTesting	  off
 		  ExtModeMexFile	  "ext_comm"
+		  ExtModeMexArgs	  "'ben' 0"
 		  ExtModeIntrfLevel	  "Level1"
 		  InlinedParameterPlacement "NonHierarchical"
 		  TargetOS		  "BareBoardExample"
@@ -1336,7 +1339,7 @@ Model {
 		  ERTHdrFileBannerTemplate "ert_code_template.cgt"
 		  ERTDataSrcFileTemplate  "ert_code_template.cgt"
 		  ERTDataHdrFileTemplate  "ert_code_template.cgt"
-		  ERTCustomFileTemplate	  "nanonote_srmain.tlc"
+		  ERTCustomFileTemplate	  "nanonote_main.tlc"
 		  CoverageDialogOpen	  "off"
 		  EnableDataOwnership	  off
 		  SignalDisplayLevel	  10
@@ -1408,12 +1411,6 @@ Model {
 	SSC.SimscapeCC {
 	  $ObjectID		  39
 	  Version		  "1.0"
-	  Array {
-	    Type		    "Cell"
-	    Dimension		    1
-	    Cell		    "Name"
-	    PropName		    "DisabledProps"
-	  }
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
@@ -2036,7 +2033,7 @@ Model {
   }
   System {
     Name		    "rtwdemo_pmsmfoc_nn"
-    Location		    [204, 95, 984, 584]
+    Location		    [0, 28, 780, 517]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
