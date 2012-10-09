@@ -36,6 +36,8 @@ classdef TargetApplicationFramework < rtw.pil.RtIOStreamApplicationFramework
             buildInfo.addSourceFiles([matlabroot,...
 				'/rtw/c/src/rtiostream/rtiostreamtcpip/rtiostream_tcpip.c']);
                                                                                  %UNCOMMENT          
+            buildInfo.addSourceFiles(fullfile(getpref('nanonote','TargetRoot'),...
+				'profile','nanonote_timer.c'));
         end
     end
 end

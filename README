@@ -32,6 +32,7 @@ Supported features of this target support package:
  * Top level PIL
  * Model Block PIL
  * Subsystem PIL
+- PIL execution profiling
 - External mode
 
 - Required MathWorks products:
