@@ -119,7 +119,7 @@ classdef Launcher < rtw.connectivity.Launcher
             % ALTERNATIVELY UNCOMMENT THE FOLLOWING LINES TO IMPLEMENT A HOST-BASED
             % EXAMPLE. TO UNCOMMENT LINES IN THE MATLAB EDITOR, SELECT THE LINES
             % AND ENTER CTRL-T.
-			disp('Killing executable on Nanonote..');
+			disp('### Killing executable on Nanonote..');
             !ssh $NANONOTE_HOSTNAME killall `basename $NANONOTE_EXE`
 %             disp('DEMO: stopApplication')                                  %UNCOMMENT
 %             if ~isempty(this.ExePid)                                       %UNCOMMENT

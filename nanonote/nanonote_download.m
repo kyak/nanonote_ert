@@ -35,5 +35,5 @@ end
 !scp $NANONOTE_EXE $NANONOTE_HOSTNAME:/root
 
 %need to catch pid below to stop it later..
-disp('Starting executable on Nanonote..');
+disp('### Starting executable on Nanonote..');
 !ssh -f $NANONOTE_HOSTNAME /root/`basename $NANONOTE_EXE` $NANONOTE_ARGS
