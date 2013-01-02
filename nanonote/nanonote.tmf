@@ -217,7 +217,9 @@ ifeq ($(BUILD_MODE), real_time)
           ifeq ($(EXT_MODE),0)
             SRCS += main_$(MODEL).c
           else
-            SRCS += ert_main.$(TARGET_LANG_EXT)
+#TODO could make it conditional (ert_main/rt_main) based on ML version.
+#i can pass matlab version here from before make hook somehow (via nanonote_prefs.mk)
+            SRCS += rt_main.$(TARGET_LANG_EXT)
           endif
   SRCS += $(MODULES) $(MODEL).$(TARGET_LANG_EXT) $(EXT_SRC)
   SRCS += $(TARGET_BLOCK_SRCS) $(TARGET_SRCS) 
