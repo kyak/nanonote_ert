@@ -21,7 +21,22 @@
   
   %openfile tmpBuf
   #include "%<LibGetMdlPubHdrBaseName()>.h"
+  #include <signal.h> /* for sigaction() */
+  #include <time.h> /* for timer_*() */
   #include <stdio.h> /* for printf() */
+  #include <unistd.h> /*for exit() */
+  #include <stdlib.h> /* for EXIT_FAILURE */
+  %if %<CompiledModel.FundamentalStepSize> < 1e-6
+    %warning Model step size must be bigger than 1 microsecond, defaulting to 1 second
+    #define STEP_SIZE_S 1
+    #define STEP_SIZE_US 0
+  %else
+    %assign SAMPLE_TIME_S = CAST("Number",FEVAL("floor",%<CompiledModel.FundamentalStepSize>))
+    #define STEP_SIZE_S %<SAMPLE_TIME_S>
+    %assign SAMPLE_TIME_FRAC = FEVAL("mod",%<CompiledModel.FundamentalStepSize>,%<SAMPLE_TIME_S>)
+    %assign SAMPLE_TIME_NS = CAST("Number",SAMPLE_TIME_FRAC*1000000000)
+    #define STEP_SIZE_NS %<SAMPLE_TIME_NS>
+  %endif
   %closefile tmpBuf
  
   %<LibSetSourceFileSection(cFile, "Includes", tmpBuf)>
@@ -55,7 +70,7 @@
     %endif
     
     %<LibCallModelStep(0)>\
-    
+
     %assign varsbuf = LibWriteModelOutputs()
     %if varsbuf != ""
       /* Remove conditional, and get model outputs here */
@@ -68,7 +83,29 @@
     /* Restore FPU context here (if necessary) */
     /* Enable interrupts here */
   }
-   
+  
+  #define errExit(msg) do { perror(msg); exit(EXIT_FAILURE); } while (0)
+
+  void timer_handler (int sig, siginfo_t *si, void *uc)
+  {
+    //static int counter = 0;
+    timer_t *tidp;
+    int or;
+    //printf("Caught signal %d\n", sig);
+    tidp = si->si_value.sival_ptr;
+
+    //printf("    sival_ptr = %p; ", si->si_value.sival_ptr);
+    //printf("    *sival_ptr = 0x%lx\n", (long) *tidp);
+
+    or = timer_getoverrun(*tidp);
+    if (or == -1 || or > 0)
+                OverrunFlag++;
+               //printf("timer_getoverrun: %d's step\n",++counter);
+
+    rt_OneStep();
+    //sleep(1);
+  }
+
   %assign fcnReturns = "int_T"
   %assign fcnName = "main"
   %assign fcnParams = "int_T argc, const char_T *argv[]"
@@ -84,14 +121,39 @@
     %<LibCallModelInitialize()>\
     
     /* Associate rt_OneStep() with a timer that executes at the base rate of the model */
-
-    int i;
-    for (i = 0; i++; i<2000)
-    {
-      rt_OneStep();
-    }
+    timer_t timerid;
+    struct sigevent sev;
+    struct itimerspec its;
+    struct sigaction sa;
     
-    printf("Good job!\n");
+    /* Establish handler for timer signal */
+    //printf("Establishing handler for signal %d\n", SIGRTMIN);
+    sa.sa_flags = SA_SIGINFO;
+    sa.sa_sigaction = timer_handler;
+    sigemptyset(&sa.sa_mask);
+    if (sigaction(SIGRTMIN, &sa, NULL) == -1)
+               errExit("sigaction");
+        
+    /* Create the timer */
+    sev.sigev_notify = SIGEV_SIGNAL;
+    sev.sigev_signo = SIGRTMIN;
+    sev.sigev_value.sival_ptr = &timerid;
+    if (timer_create(CLOCK_REALTIME, &sev, &timerid) == -1)
+               errExit("timer_create");
+    //printf("timer ID is 0x%lx\n", (long) timerid);
+
+    /* Start the timer */
+    its.it_value.tv_sec = STEP_SIZE_S;
+    its.it_value.tv_nsec = STEP_SIZE_NS;
+    its.it_interval.tv_sec = its.it_value.tv_sec;
+    its.it_interval.tv_nsec = its.it_value.tv_nsec;
+    if (timer_settime(timerid, 0, &its, NULL) == -1)
+                errExit("timer_settime");
+
+    while(1)
+    {
+    }
+
     %<LibCallModelTerminate()>\
     return 0;
   }

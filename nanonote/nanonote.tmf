@@ -13,7 +13,7 @@ CXXDEBUG =
 
 # Linker command and options
 LD      = STAGING_DIR=$(STAGING_DIR) "$(TOOLCHAIN_PREFIX)gcc"
-LDFLAGS = -lc -lm
+LDFLAGS = -lc -lm -lrt -lpthread -ldl
 LDDEBUG = -g
 LDOUTPUTFLAG = -o
 
